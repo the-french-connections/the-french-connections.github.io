@@ -1,6 +1,7 @@
 {
   "name": "the-french-connections.github.io",
   "homepage": "https://the-french-connections.github.io/",
+  "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
