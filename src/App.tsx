@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Alert,
   AlertIcon,
@@ -58,7 +59,11 @@ const chunk = <T,>(list: T[], size: number): T[][] => {
 };
 
 const shuffle = <T,>(list: T[]): T[] => {
-    return list.sort(() => Math.random() - 0.5);
+  for (let i = list.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
 };
 
 const methods = (state: State) => {
@@ -167,7 +172,7 @@ export const App = () => {
                         </ModalContent>
                     </Modal>
             <Stack>
-            {game.complete.map((group) => (
+            {game.complete.map((group: Group) => (
                 <Stack
                 spacing={1}
                 lineHeight={1}
