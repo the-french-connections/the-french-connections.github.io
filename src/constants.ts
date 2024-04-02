@@ -21,7 +21,7 @@ import { Group } from './App';
 
 export const TODAY: Group[] = [
   {
-    category: 'Pour écrire une lettre',
+    category: 'Pour \u00E9crire une lettre',
     items: ['Timbre', 'Feuille', 'Plume', 'Encre'],
     difficulty: 1,
   },

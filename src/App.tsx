@@ -21,7 +21,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { TODAY } from './constants';
+import { TODAY } from './constants.ts';
 
 export type Group = {
   category: string;

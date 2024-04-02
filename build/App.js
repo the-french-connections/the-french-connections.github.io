@@ -19,7 +19,7 @@ import * as React from 'react';
 import { Alert, AlertIcon, Button, ChakraProvider, Circle, Flex, HStack, Heading, ListItem, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay, Stack, Text, UnorderedList } from '@chakra-ui/react';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { TODAY } from './constants';
+import { TODAY } from './constants.js';
 var difficultyColor = function difficultyColor(difficulty) {
   return {
     1: '#fbd400',
