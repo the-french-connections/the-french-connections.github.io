@@ -40,6 +40,8 @@ type State = {
   activeItems: string[];
   mistakesRemaining: number;
   oneAway: boolean,
+    guesses: string[][],
+    alreadyGuessed: boolean,
 };
 
 const difficultyColor = (difficulty: 1 | 2 | 3 | 4): string => {
@@ -70,6 +72,7 @@ const methods = (state: State) => {
     return {
     toggleActive(item: string) {
       state.oneAway = false;
+      state.alreadyGuessed = false;
       if (state.activeItems.includes(item)) {
         state.activeItems = state.activeItems.filter((i) => i !== item);
       } else if (state.activeItems.length < 4) {
@@ -90,24 +93,45 @@ const methods = (state: State) => {
             group,
             matchingItems: group.items.filter((item) => state.activeItems.includes(item))
         }));
-
+        
+        const currentGuesses :string[] = [];
         for (let next_group of foundGroup) {
-            console.log(next_group);
-            if (next_group.matchingItems.length === 4) {
-                state.complete.push(next_group.group);
-                const incomplete = state.incomplete.filter((group) => group !== next_group.group);
-                state.incomplete = incomplete;
-                state.items = incomplete.flatMap((group) => group.items);
-                state.activeItems = [];
-                return
-            } else {
-                if (next_group.matchingItems.length === 3) {
-                    state.oneAway = true;
+            if (next_group.matchingItems.length > 0) {
+                for (let next_item of next_group.matchingItems) {
+                    currentGuesses.push(next_item);
                 }
             }
         }
 
-        state.mistakesRemaining -= 1;
+        // If it was already guessed, push the alarm, if not store the guess
+        for (let guess of state.guesses) {
+            const sortedArr1 = guess.slice().sort();
+            const sortedArr2 = currentGuesses.slice().sort();
+            if (JSON.stringify(sortedArr1) === JSON.stringify(sortedArr2)) {
+                state.alreadyGuessed = true;
+                break;
+            }
+        }
+        if (!state.alreadyGuessed) {
+            state.guesses.push(currentGuesses);
+
+            for (let next_group of foundGroup) {
+                if (next_group.matchingItems.length === 4) {
+                    state.complete.push(next_group.group);
+                    const incomplete = state.incomplete.filter((group) => group !== next_group.group);
+                    state.incomplete = incomplete;
+                    state.items = state.items.filter(item => !next_group.matchingItems.includes(item));//incomplete.flatMap((group) => group.items);
+                    state.activeItems = [];
+                    return
+                } else {
+                    if (next_group.matchingItems.length === 3) {
+                        state.oneAway = true;
+                    }
+                }
+            }
+
+            state.mistakesRemaining -= 1;
+        }
         state.activeItems = [];
 
         if (state.mistakesRemaining === 0) {
@@ -127,6 +151,8 @@ const useGame = (options: Options) => {
     activeItems: [],
     mistakesRemaining: 4,
     oneAway: false,
+      guesses: [],
+    alreadyGuessed: false,
   };
 
   const [state, fns] = useMethods(methods, initialState);
@@ -157,6 +183,9 @@ export const App = () => {
             {game.oneAway && <Alert status='info' variant='left-accent'>
                 <AlertIcon />Presque...</Alert>
                     }
+            {game.alreadyGuessed && <Alert status='info' variant='left-accent'>
+                <AlertIcon />D&eacute;j&agrave; devin&eacute;...</Alert>
+            }
                     <Modal isOpen={isOpen} onClose={handleClose}>
                         <ModalOverlay />
                         <ModalContent>
@@ -238,6 +267,7 @@ export const App = () => {
                 variant="outline"
                 rounded="full"
                 borderWidth="2px"
+                isDisabled={game.activeItems.length <= 0}
                 onClick={game.deselectAll}
             >
                 D&eacute;selectionner tout

@@ -37,7 +37,7 @@ export const TODAY: Group[] = [
   },
   {
     category: 'Ce que \u00AB C \u00BB peut signifier',
-    items: ['Do', 'Canada', 'Complexes', 'Celsius'],
+    items: ['Do', 'Carbone', 'Cent', 'Celsius'],
     difficulty: 4,
   },
 ];
