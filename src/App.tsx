@@ -37,14 +37,15 @@ type Options = {
 };
 
 type State = {
-  complete: Group[];
-  incomplete: Group[];
-  items: string[];
-  activeItems: string[];
-  mistakesRemaining: number;
-  oneAway: boolean,
+    complete: Group[];
+    incomplete: Group[];
+    items: string[];
+    activeItems: string[];
+    mistakesRemaining: number;
+    oneAway: boolean,
     guesses: string[][],
     alreadyGuessed: boolean,
+    guessWasWrong: boolean,
 };
 
 const difficultyColor = (difficulty: 1 | 2 | 3 | 4): string => {
@@ -74,13 +75,14 @@ const shuffle = <T,>(list: T[]): T[] => {
 const methods = (state: State) => {
     return {
     toggleActive(item: string) {
-      state.oneAway = false;
-      state.alreadyGuessed = false;
-      if (state.activeItems.includes(item)) {
+        state.guessWasWrong = false;
+        state.oneAway = false;
+        state.alreadyGuessed = false;
+        if (state.activeItems.includes(item)) {
         state.activeItems = state.activeItems.filter((i) => i !== item);
-      } else if (state.activeItems.length < 4) {
+        } else if (state.activeItems.length < 4) {
         state.activeItems.push(item);
-      }
+        }
     },
 
     shuffle() {
@@ -133,6 +135,7 @@ const methods = (state: State) => {
                 }
             }
 
+            state.guessWasWrong = true;
             state.mistakesRemaining -= 1;
         }
         state.activeItems = [];
@@ -154,8 +157,9 @@ const useGame = (options: Options) => {
     activeItems: [],
     mistakesRemaining: 4,
     oneAway: false,
-      guesses: [],
+    guesses: [],
     alreadyGuessed: false,
+    guessWasWrong: false,
   };
 
   const [state, fns] = useMethods(methods, initialState);
@@ -183,10 +187,10 @@ export const App = () => {
                         The French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
-                    {game.oneAway && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']}>
+                    {game.oneAway && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease-in-out" : "fadeOut 0.5s ease-in-out"}>
                         <AlertIcon />Presque...
                     </Alert>}
-                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']}>
+                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease-in-out" : "fadeOut 0.5s ease-in-out"}>
                         <AlertIcon />D&eacute;j&agrave; devin&eacute;...
                     </Alert>}
                     <Modal isOpen={isOpen} onClose={handleClose}>
@@ -207,7 +211,7 @@ export const App = () => {
                                 </UnorderedList>
                                 <Text mt='1rem' mb='1rem'>Les cat&eacute;gories sont toujours plus sp&eacute;cifiques que "MOTS DE 4 LETTRES" ou "ADJECTIFS".</Text>
                                 <Text mb='1rem'>Chaque puzzle a une unique solution. Attention aux pi&egrave;ges... Chaque groupe correspond &agrave; une couleur : </Text>
-                                <UnorderedList>
+                                <UnorderedList mb='1rem'>
                                     <ListItem>&#128993; : Facile</ListItem>
                                     <ListItem>&#128994; : Moyen</ListItem>
                                     <ListItem>&#128309; : Difficile</ListItem>
@@ -218,7 +222,7 @@ export const App = () => {
                     </Modal>
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
-                            <Stack key={group.category} w={['368px', '448px', '528px', '624px']} h="80px" spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)}>
+                            <Stack key={group.category} w={['368px', '448px', '528px', '624px']} h="80px" spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="fadeIn 0.5s ease-in-out">
                                 <Text fontSize={["l", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
                                 <Text fontSize={["l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
                             </Stack>
@@ -226,7 +230,7 @@ export const App = () => {
                         {chunk(game.items, 4).map((row, index) => (
                             <HStack key={index} justify="center" spacing={4}>
                                 {row.map((item) => (
-                                    <Button key={item} w={['80px', '100px', '120px', '150px']} h="80px" bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }}>{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h="80px" bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }}>{item}</Button>
                                 ))}
                             </HStack>
                         ))}
