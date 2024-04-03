@@ -11,10 +11,10 @@
         transform: translateX(0);
       }
       25% {
-        transform: translateX(-5px);
+        transform: translateX(-8px);
       }
       50% {
-        transform: translateX(5px);
+        transform: translateX(8px);
       }
       75% {
         transform: translateX(-5px);
@@ -24,10 +24,21 @@
       }
     }
     .shake-animation {
-      animation: shake 0.5s ease-in-out 0.5;
+      animation: shake 0.75s ease-in-out 0.5;
     }
   @keyframes fadeIn {
     0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeLater {
+    0% {
+      opacity: 0;
+    }
+    90% {
       opacity: 0;
     }
     100% {

@@ -37,6 +37,7 @@ type Options = {
 };
 
 type State = {
+    groups: Group[];
     complete: Group[];
     incomplete: Group[];
     items: string[];
@@ -46,6 +47,8 @@ type State = {
     guesses: string[][],
     alreadyGuessed: boolean,
     guessWasWrong: boolean,
+    isFinished: boolean,
+    emojiFromGuesses: string[],
 };
 
 const difficultyColor = (difficulty: 1 | 2 | 3 | 4): string => {
@@ -127,6 +130,10 @@ const methods = (state: State) => {
                     state.incomplete = incomplete;
                     state.items = state.items.filter(item => !next_group.matchingItems.includes(item));//incomplete.flatMap((group) => group.items);
                     state.activeItems = [];
+                    if (state.incomplete.length === 0) {
+                        state.isFinished = true;
+                        this.getEmojiFromGuesses();
+                    }
                     return
                 } else {
                     if (next_group.matchingItems.length === 3) {
@@ -144,13 +151,45 @@ const methods = (state: State) => {
             state.complete = state.complete.concat(state.incomplete);
             state.incomplete = [];
             state.items = [];
+            state.isFinished = true;
+            this.getEmojiFromGuesses();
         }
+        console.log(state.isFinished);
     },
+
+        getEmojiFromGuesses() {
+            for (const guessList of state.guesses) {
+                for (const guess of guessList) {
+                    for (const grp of state.groups) {
+                        if (grp.items.includes(guess)) {
+                            switch (grp.difficulty) {
+                                case 1:
+                                    state.emojiFromGuesses.push('&#128993;');
+                                    break;
+                                case 2:
+                                    state.emojiFromGuesses.push('&#128994;');
+                                    break;
+                                case 3:
+                                    state.emojiFromGuesses.push('&#128309;');
+                                    break;
+                                case 4:
+                                    state.emojiFromGuesses.push('&#128995;');
+                                    break;
+                                default:
+                                    state.emojiFromGuesses.push('&#9633;');
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        },
   };
 };
 
 const useGame = (options: Options) => {
-  const initialState: State = {
+    const initialState: State = {
+      groups: options.groups,
     incomplete: options.groups,
     complete: [],
     items: shuffle(options.groups.flatMap((g) => g.items)),
@@ -159,7 +198,9 @@ const useGame = (options: Options) => {
     oneAway: false,
     guesses: [],
     alreadyGuessed: false,
-    guessWasWrong: false,
+        guessWasWrong: false,
+        isFinished: false,
+        emojiFromGuesses: [],
   };
 
   const [state, fns] = useMethods(methods, initialState);
@@ -176,21 +217,23 @@ export const App = () => {
     });
 
     const [isOpen, setIsOpen] = useState(true);
+    const [isOpenResults, setIsOpenResults] = useState(true);
 
     const handleClose = () => setIsOpen(false);
+    const handleCloseResults = () => setIsOpenResults(false);
 
     return (
         <ChakraProvider>
             <Flex direction="column" align="center" justify="center" minHeight="100vh">
                 <Stack spacing={4} align="center">
-                    <Heading size="3xl" fontFamily="Georgia" fontWeight="light">
+                    <Heading size="3xl" fontFamily="Georgia" fontWeight="light" align='center'>
                         The French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
-                    {game.oneAway && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease-in-out" : "fadeOut 0.5s ease-in-out"}>
+                    {game.oneAway && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
                         <AlertIcon />Presque...
                     </Alert>}
-                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease-in-out" : "fadeOut 0.5s ease-in-out"}>
+                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
                         <AlertIcon />D&eacute;j&agrave; devin&eacute;...
                     </Alert>}
                     <Modal isOpen={isOpen} onClose={handleClose}>
@@ -222,7 +265,7 @@ export const App = () => {
                     </Modal>
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
-                            <Stack key={group.category} w={['368px', '448px', '528px', '624px']} h="80px" spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="fadeIn 0.5s ease-in-out">
+                            <Stack key={group.category} w={['368px', '448px', '528px', '624px']} h="80px" spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="fadeIn 0.75s ease">
                                 <Text fontSize={["l", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
                                 <Text fontSize={["l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
                             </Stack>
@@ -247,6 +290,7 @@ export const App = () => {
                             variant="outline"
                             rounded="full"
                             borderWidth="2px"
+                            isDisabled={game.isFinished}
                             onClick={game.shuffle}
                         >
                             M&eacute;langer
@@ -272,6 +316,24 @@ export const App = () => {
                             Valider
                         </Button>
                     </HStack>
+                    {game.isFinished && <Modal isOpen={isOpenResults} onClose={handleCloseResults}>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                                <Text mb='1rem'>The French Connections #1. Prochain puzzle le 08/04.</Text>
+                                <Text fontSize='4xl' align='center'>
+                                {game.emojiFromGuesses.map((emoji: string, index: number) => (
+                                    <React.Fragment key={index}>
+                                        {String.fromCodePoint(parseInt(emoji.substring(2)))}
+                                        {(index + 1) % 4 === 0 && <Text>{"\n"}</Text>}
+                                    </React.Fragment>
+                                ))}
+                                </Text>
+                            </ModalBody>
+                        </ModalContent>
+                    </Modal>}
                 </Stack>
             </Flex>
         </ChakraProvider>
