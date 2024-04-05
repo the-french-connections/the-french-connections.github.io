@@ -26,8 +26,8 @@ export const TODAY: Group[] = [
     difficulty: 1,
   },
   {
-    category: 'Temps d\'Automne',
-      items: ['Cl\u00E9ment', 'Doux', 'Frais', 'Ti\u00E8de'],
+    category: 'M\u00E9t\u00E9o agr\u00E9able',
+    items: ['Cl\u00E9ment', 'Doux', 'Frais', 'Ti\u00E8de'],
     difficulty: 2,
   },
   {

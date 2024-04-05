@@ -265,15 +265,15 @@ export const App = () => {
                     </Modal>
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
-                            <Stack key={group.category} w={['368px', '448px', '528px', '624px']} h="80px" spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="fadeIn 0.75s ease">
+                            <Stack key={group.category} w={['384px', '438px', '528px', '624px']} h={["64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.5s ease forwards">
                                 <Text fontSize={["l", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
                                 <Text fontSize={["l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
                             </Stack>
                         ))}
                         {chunk(game.items, 4).map((row, index) => (
-                            <HStack key={index} justify="center" spacing={4}>
+                            <HStack key={index} justify="center" spacing={[2, 3, 4]}>
                                 {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h="80px" bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }}>{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['90px', '100px', '120px', '150px']} h={["64px", "72px", "80px"]} bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }}>{item}</Button>
                                 ))}
                             </HStack>
                         ))}
@@ -322,7 +322,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text mb='1rem'>The French Connections #1. Prochain puzzle le 08/04.</Text>
+                                <Text mb='1rem'>The French Connections #1. Prochain puzzle le 8 avril.</Text>
                                 <Text fontSize='4xl' align='center'>
                                 {game.emojiFromGuesses.map((emoji: string, index: number) => (
                                     <React.Fragment key={index}>
