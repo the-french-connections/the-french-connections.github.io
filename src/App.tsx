@@ -4,7 +4,7 @@
 import * as React from 'react';
 import {
   Alert,
-  AlertIcon,
+  AlertTitle,
   Button,
   ChakraProvider,
   Circle,
@@ -230,11 +230,11 @@ export const App = () => {
                         The French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
-                    {game.oneAway && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
-                        <AlertIcon />Presque...
+                    {game.oneAway && <Alert status='info' variant='left-accent' w={['384px', '438px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
+                        <AlertTitle align='center'>Presque...</AlertTitle>
                     </Alert>}
-                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['368px', '448px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
-                        <AlertIcon />D&eacute;j&agrave; devin&eacute;...
+                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['384px', '438px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
+                        <AlertTitle align='center'>D&eacute;j&agrave; devin&eacute;...</AlertTitle>
                     </Alert>}
                     <Modal isOpen={isOpen} onClose={handleClose}>
                         <ModalOverlay />
@@ -265,7 +265,7 @@ export const App = () => {
                     </Modal>
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
-                            <Stack key={group.category} w={['384px', '438px', '528px', '624px']} h={["64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.5s ease forwards">
+                            <Stack key={group.category} w={['384px', '438px', '528px', '624px']} h={["64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
                                 <Text fontSize={["l", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
                                 <Text fontSize={["l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
                             </Stack>
@@ -273,7 +273,7 @@ export const App = () => {
                         {chunk(game.items, 4).map((row, index) => (
                             <HStack key={index} justify="center" spacing={[2, 3, 4]}>
                                 {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['90px', '100px', '120px', '150px']} h={["64px", "72px", "80px"]} bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }}>{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['90px', '100px', '120px', '150px']} h={["64px", "72px", "80px"]} bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation="fadeIn 0.5s ease">{item}</Button>
                                 ))}
                             </HStack>
                         ))}
