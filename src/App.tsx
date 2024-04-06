@@ -1,5 +1,5 @@
 /**
- * This code is based on dbousamra's Connections clone: https://github.com/dbousamra/connections.
+ * This code is partially based on dbousamra's Connections clone: https://github.com/dbousamra/connections.
  */
 import * as React from 'react';
 import {
@@ -154,7 +154,6 @@ const methods = (state: State) => {
             state.isFinished = true;
             this.getEmojiFromGuesses();
         }
-        console.log(state.isFinished);
     },
 
         getEmojiFromGuesses() {
@@ -198,9 +197,9 @@ const useGame = (options: Options) => {
     oneAway: false,
     guesses: [],
     alreadyGuessed: false,
-        guessWasWrong: false,
-        isFinished: false,
-        emojiFromGuesses: [],
+    guessWasWrong: false,
+    isFinished: false,
+    emojiFromGuesses: [],
   };
 
   const [state, fns] = useMethods(methods, initialState);
