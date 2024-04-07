@@ -21,6 +21,29 @@ import { Group } from './App';
 
 export const TODAY: Group[] = [
   {
+    category: 'Roi',
+    items: ['Empereur', 'Monarque', 'Prince', 'Souverain'],
+    difficulty: 1,
+  },
+  {
+    category: 'Mascottes des maisons de Poudlard',
+    items: ['Blaireau', 'Lion', 'Aigle', 'Serpent'],
+    difficulty: 2,
+  },
+  {
+    category: 'Pi\u00E8ces d\'\u00E9checs',
+    items: ['Fou', 'Tour', 'Cavalier', 'Dame'],
+    difficulty: 3,
+  },
+  {
+    category: 'Petits fleuves fran\u00E7ais',
+    items: ['Douve', 'Loup', 'Rat', 'Rance'],
+    difficulty: 4,
+  },
+];
+
+export const YESTERDAY: Group[] = [
+  {
     category: 'Pour \u00E9crire une lettre',
     items: ['Timbre', 'Feuille', 'Plume', 'Encre'],
     difficulty: 1,

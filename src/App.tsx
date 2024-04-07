@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { TODAY } from './constants.ts';
+import { TODAY, YESTERDAY } from './constants.ts';
 
 export type Group = {
   category: string;
@@ -211,8 +211,15 @@ const useGame = (options: Options) => {
 };
 
 export const App = () => {
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
+    const isAfterApril7th = currentMonth > 4 || (currentMonth === 4 && currentDay >= 8);
+    const groups_name = isAfterApril7th ? TODAY : YESTERDAY;
+
     const game = useGame({
-        groups: TODAY,
+        groups: groups_name,
     });
 
     const [isOpen, setIsOpen] = useState(true);
