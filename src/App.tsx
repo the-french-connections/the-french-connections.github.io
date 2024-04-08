@@ -328,7 +328,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text mb='1rem'>The French Connections #1. Prochain puzzle le 8 avril.</Text>
+                                <Text mb='1rem'>The French Connections #2. Prochain puzzle le 12 avril.</Text>
                                 <Text fontSize='4xl' align='center'>
                                 {game.emojiFromGuesses.map((emoji: string, index: number) => (
                                     <React.Fragment key={index}>
