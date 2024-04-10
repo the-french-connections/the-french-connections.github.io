@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { TODAY, YESTERDAY } from './constants.ts';
+import { gr_08_04_2024, gr_12_04_2024 } from './constants.ts';
 
 export type Group = {
   category: string;
@@ -214,9 +214,9 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const currentYear = currentDate.getFullYear();
-    const isAfterApril7th = currentMonth > 4 || (currentMonth === 4 && currentDay >= 8);
-    const groups_name = isAfterApril7th ? TODAY : YESTERDAY;
+    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 12);
+    const groups_name = isNextPuzzle ? gr_12_04_2024 : gr_08_04_2024;
+    const ending_text = isNextPuzzle ? "The French Connections #3. Prochain puzzle le 15 avril." : "The French Connections #2. Prochain puzzle le 12 avril.";
 
     const game = useGame({
         groups: groups_name,
@@ -232,7 +232,7 @@ export const App = () => {
         <ChakraProvider>
             <Flex direction="column" align="center" justify="center" minHeight="100vh">
                 <Stack spacing={4} align="center">
-                    <Heading size="3xl" fontFamily="Georgia" fontWeight="light" align='center'>
+                    <Heading size={["xl", "2xl", "3xl"]} fontFamily="Georgia" fontWeight="light" align='center'>
                         The French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
@@ -271,21 +271,21 @@ export const App = () => {
                     </Modal>
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
-                            <Stack key={group.category} w={['384px', '438px', '528px', '624px']} h={["64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
-                                <Text fontSize={["l", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
-                                <Text fontSize={["l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
+                            <Stack key={group.category} w={['344px', '438px', '528px', '624px']} h={["56px", "64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
+                                <Text fontSize={["sm", "md", "l", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
+                                <Text fontSize={["sm", "md", "l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
                             </Stack>
                         ))}
                         {chunk(game.items, 4).map((row, index) => (
                             <HStack key={index} justify="center" spacing={[2, 3, 4]}>
                                 {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['90px', '100px', '120px', '150px']} h={["64px", "72px", "80px"]} bg="#efefe6" fontSize={["14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation="fadeIn 0.5s ease">{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={["10px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation="fadeIn 0.5s ease">{item}</Button>
                                 ))}
                             </HStack>
                         ))}
                     </Stack>
                     <HStack align="baseline">
-                        <Text>Essais restants :</Text>
+                        <Text fontSize={["14px", "16px"]}>Essais restants :</Text>
                         {[...Array(game.mistakesRemaining).keys()].map((_, index) => (
                             <Circle key={index} bg="gray.800" size="12px" />
                         ))}
@@ -298,6 +298,8 @@ export const App = () => {
                             borderWidth="2px"
                             isDisabled={game.isFinished}
                             onClick={game.shuffle}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
                         >
                             M&eacute;langer
                         </Button>
@@ -308,6 +310,8 @@ export const App = () => {
                             borderWidth="2px"
                             isDisabled={game.activeItems.length <= 0}
                             onClick={game.deselectAll}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
                         >
                             D&eacute;selectionner tout
                         </Button>
@@ -318,6 +322,8 @@ export const App = () => {
                             borderWidth="2px"
                             isDisabled={game.activeItems.length !== 4}
                             onClick={game.submit}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
                         >
                             Valider
                         </Button>
@@ -328,7 +334,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text mb='1rem'>The French Connections #2. Prochain puzzle le 12 avril.</Text>
+                                <Text mb='1rem'>{ending_text}</Text>
                                 <Text fontSize='4xl' align='center'>
                                 {game.emojiFromGuesses.map((emoji: string, index: number) => (
                                     <React.Fragment key={index}>

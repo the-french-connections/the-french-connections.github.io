@@ -19,7 +19,30 @@ import { Group } from './App';
     » - &raquo; or \u00BB
 */
 
-export const TODAY: Group[] = [
+export const gr_12_04_2024: Group[] = [
+    {
+        category: 'Avare',
+        items: ['Rat', 'Usurier', 'Pingre', 'Ladre'],
+        difficulty: 1,
+    },
+    {
+        category: 'Monnaies',
+        items: ['Franc', 'Livre', 'Euro', 'Couronne'],
+        difficulty: 2,
+    },
+    {
+        category: 'Prix Nobel',
+        items: ['Litt\u00E9rature', 'Paix', 'Physique', 'Chimie'],
+        difficulty: 3,
+    },
+    {
+        category: 'Lois de probabilit\u00E9',
+        items: ['Poisson', 'Uniforme', 'G\u00E9om\u00E9trique', 'Normale'],
+        difficulty: 4,
+    },
+];
+
+export const gr_08_04_2024: Group[] = [
   {
     category: 'Roi',
     items: ['Empereur', 'Monarque', 'Prince', 'Souverain'],
@@ -42,7 +65,7 @@ export const TODAY: Group[] = [
   },
 ];
 
-export const YESTERDAY: Group[] = [
+export const gr_01_04_2024: Group[] = [
   {
     category: 'Pour \u00E9crire une lettre',
     items: ['Timbre', 'Feuille', 'Plume', 'Encre'],
