@@ -6,12 +6,16 @@ import {
   Alert,
   AlertTitle,
   Button,
-  ChakraProvider,
+    ChakraProvider,
   Circle,
   Flex,
   HStack,
     Heading,
     ListItem,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
     Modal,
     ModalBody,
     ModalContent,
@@ -22,15 +26,22 @@ import {
     Text,
     UnorderedList,
 } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_08_04_2024, gr_12_04_2024 } from './constants.ts';
+import { gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts';
 
 export type Group = {
   category: string;
   items: string[];
   difficulty: 1 | 2 | 3 | 4;
 };
+
+export type GroupImport = {
+    group_name: string;
+    groups: Group[];
+};
+
 
 type Options = {
   groups: Group[];
@@ -49,6 +60,7 @@ type State = {
     guessWasWrong: boolean,
     isFinished: boolean,
     emojiFromGuesses: string[],
+    current_name: string,
 };
 
 const difficultyColor = (difficulty: 1 | 2 | 3 | 4): string => {
@@ -77,6 +89,22 @@ const shuffle = <T,>(list: T[]): T[] => {
 
 const methods = (state: State) => {
     return {
+        update(newGroup: GroupImport) {
+            state.groups = newGroup.groups.groups;
+            state.incomplete = newGroup.groups.groups;
+            state.complete= [];
+            state.items = shuffle(newGroup.groups.groups.flatMap((g) => g.items));
+            state.activeItems = [];
+            state.mistakesRemaining = 4;
+            state.oneAway = false;
+            state.guesses = [];
+            state.alreadyGuessed = false;
+            state.guessWasWrong = false;
+            state.isFinished = false;
+            state.emojiFromGuesses = [];
+            state.current_name = newGroup.groups.group_name;
+        },
+
     toggleActive(item: string) {
         state.guessWasWrong = false;
         state.oneAway = false;
@@ -134,7 +162,7 @@ const methods = (state: State) => {
                         state.isFinished = true;
                         this.getEmojiFromGuesses();
                     }
-                    return
+                    break;
                 } else {
                     if (next_group.matchingItems.length === 3) {
                         state.oneAway = true;
@@ -142,17 +170,22 @@ const methods = (state: State) => {
                 }
             }
 
-            state.guessWasWrong = true;
-            state.mistakesRemaining -= 1;
+            if (!state.isFinished) {
+                state.guessWasWrong = true;
+                state.mistakesRemaining -= 1;
+            }
         }
-        state.activeItems = [];
 
-        if (state.mistakesRemaining === 0) {
-            state.complete = state.complete.concat(state.incomplete);
-            state.incomplete = [];
-            state.items = [];
-            state.isFinished = true;
-            this.getEmojiFromGuesses();
+        if (!state.isFinished) {
+            state.activeItems = [];
+
+            if (state.mistakesRemaining === 0) {
+                state.complete = state.complete.concat(state.incomplete);
+                state.incomplete = [];
+                state.items = [];
+                state.isFinished = true;
+                this.getEmojiFromGuesses();
+            }
         }
     },
 
@@ -186,7 +219,7 @@ const methods = (state: State) => {
   };
 };
 
-const useGame = (options: Options) => {
+const useGame = (options: Options, current_name: string) => {
     const initialState: State = {
       groups: options.groups,
     incomplete: options.groups,
@@ -200,6 +233,7 @@ const useGame = (options: Options) => {
     guessWasWrong: false,
     isFinished: false,
     emojiFromGuesses: [],
+    current_name: current_name,
   };
 
   const [state, fns] = useMethods(methods, initialState);
@@ -214,18 +248,29 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 12);
-    const groups_name = isNextPuzzle ? gr_12_04_2024 : gr_08_04_2024;
-    const ending_text = isNextPuzzle ? "The French Connections #3. Prochain puzzle le 15 avril." : "The French Connections #2. Prochain puzzle le 12 avril.";
+    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 15);
+    const current_group = isNextPuzzle ? gr_15_04_2024 : gr_12_04_2024;
+    const ending_text = isNextPuzzle ? "The French Connections #4. Prochain puzzle le 19 avril." : "The French Connections #3. Prochain puzzle le 15 avril.";
+
+    const all_groups_name = isNextPuzzle ? [gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] : [gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
 
     const game = useGame({
-        groups: groups_name,
-    });
+        groups: current_group.groups,
+    },
+        current_group.group_name
+    );
 
-    const [isOpen, setIsOpen] = useState(true);
+    const handleMenuItemClick = (group_import: GroupImport) => {
+        game.update({
+            groups: group_import,
+        });
+        setIsOpenResults(true);
+    };
+
+    const [isOpenRules, setIsOpenRules] = useState(true);
     const [isOpenResults, setIsOpenResults] = useState(true);
 
-    const handleClose = () => setIsOpen(false);
+    const handleCloseRules = () => setIsOpenRules(false);
     const handleCloseResults = () => setIsOpenResults(false);
 
     return (
@@ -236,13 +281,29 @@ export const App = () => {
                         The French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
+                    <Menu>
+                        {({ isOpen }) => (
+                            <>
+                                <MenuButton size={['sm', 'md', 'lg']} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
+                                    {game.current_name}
+                                </MenuButton>
+                                <MenuList fontSize={["xs", "s", "md"]}>
+                                    {all_groups_name.map((group_import: GroupImport, index) => (
+                                        <MenuItem key={index} onClick={() => handleMenuItemClick(group_import)}>
+                                            {group_import.group_name}
+                                        </MenuItem>
+                                    ))}
+                                </MenuList>
+                            </>
+                        )}
+                    </Menu>
                     {game.oneAway && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
                         <AlertTitle align='center' fontSize={["xs", "s", "md"]}>Presque...</AlertTitle>
                     </Alert>}
                     {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
                         <AlertTitle align='center' fontSize={["xs", "s", "md"]}>D&eacute;j&agrave; devin&eacute;...</AlertTitle>
                     </Alert>}
-                    <Modal isOpen={isOpen} onClose={handleClose}>
+                    <Modal isOpen={isOpenRules} onClose={handleCloseRules}>
                         <ModalOverlay />
                         <ModalContent>
                             <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
@@ -334,7 +395,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text mb='1rem'>{ending_text}</Text>
+                                {current_group.group_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
                                 <Text fontSize='4xl' align='center'>
                                 {game.emojiFromGuesses.map((emoji: string, index: number) => (
                                     <React.Fragment key={index}>
