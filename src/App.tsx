@@ -347,7 +347,7 @@ export const App = () => {
                             <Circle key={index} bg="gray.800" size="12px" />
                         ))}
                     </HStack>
-                    <HStack>
+                    <HStack padding="1em">
                         <Button
                             colorScheme="black"
                             variant="outline"
