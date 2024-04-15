@@ -162,7 +162,7 @@ const methods = (state: State) => {
                         state.isFinished = true;
                         this.getEmojiFromGuesses();
                     }
-                    break;
+                    return;
                 } else {
                     if (next_group.matchingItems.length === 3) {
                         state.oneAway = true;
@@ -170,22 +170,18 @@ const methods = (state: State) => {
                 }
             }
 
-            if (!state.isFinished) {
-                state.guessWasWrong = true;
-                state.mistakesRemaining -= 1;
-            }
+            state.guessWasWrong = true;
+            state.mistakesRemaining -= 1;
         }
 
-        if (!state.isFinished) {
-            state.activeItems = [];
+        state.activeItems = [];
 
-            if (state.mistakesRemaining === 0) {
-                state.complete = state.complete.concat(state.incomplete);
-                state.incomplete = [];
-                state.items = [];
-                state.isFinished = true;
-                this.getEmojiFromGuesses();
-            }
+        if (state.mistakesRemaining === 0) {
+            state.complete = state.complete.concat(state.incomplete);
+            state.incomplete = [];
+            state.items = [];
+            state.isFinished = true;
+            this.getEmojiFromGuesses();
         }
     },
 
@@ -221,7 +217,7 @@ const methods = (state: State) => {
 
 const useGame = (options: Options, current_name: string) => {
     const initialState: State = {
-      groups: options.groups,
+    groups: options.groups,
     incomplete: options.groups,
     complete: [],
     items: shuffle(options.groups.flatMap((g) => g.items)),
@@ -340,7 +336,7 @@ export const App = () => {
                         {chunk(game.items, 4).map((row, index) => (
                             <HStack key={index} justify="center" spacing={[2, 3, 4]}>
                                 {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={["10px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.75s ease" : ""}>{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={["10px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>{item}</Button>
                                 ))}
                             </HStack>
                         ))}
