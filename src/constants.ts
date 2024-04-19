@@ -24,13 +24,13 @@ export const gr_19_04_2024: GroupImport = {
     group_name: '19 avril 2024',
     groups: [
         {
-            category: 'Multitude',
+            category: 'Grande quantit\u00E9',
             items: ['Masse', 'Montagne', 'Foule', 'Flop\u00E9e'],
             difficulty: 1,
         },
         {
             category: 'Oiseaux',
-            items: ['Pic', 'Merle', 'Cardinal', 'Grive'],
+            items: ['Pic', 'Merle', 'Buse', 'Grive'],
             difficulty: 2,
         },
         {
@@ -102,7 +102,7 @@ export const gr_08_04_2024: GroupImport = {
     group_name: '8 avril 2024',
     groups: [
         {
-            category: 'Roi',
+            category: 'Sa majest\u00E9',
             items: ['Empereur', 'Monarque', 'Prince', 'Souverain'],
             difficulty: 1,
         },
