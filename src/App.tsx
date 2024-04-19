@@ -29,7 +29,7 @@ import {
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts';
+import { gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts';
 
 export type Group = {
   category: string;
@@ -244,11 +244,11 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 15);
-    const current_group = isNextPuzzle ? gr_15_04_2024 : gr_12_04_2024;
-    const ending_text = isNextPuzzle ? "The French Connections #4. Prochain puzzle le 19 avril." : "The French Connections #3. Prochain puzzle le 15 avril.";
+    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 19);
+    const current_group = isNextPuzzle ? gr_19_04_2024 : gr_15_04_2024;
+    const ending_text = isNextPuzzle ? "The French Connections #5. Prochain puzzle le 22 avril." : "The French Connections #4. Prochain puzzle le 19 avril.";
 
-    const all_groups_name = isNextPuzzle ? [gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] : [gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
+    const all_groups_name = isNextPuzzle ? [gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] : [gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
 
     const game = useGame({
         groups: current_group.groups,

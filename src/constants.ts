@@ -17,7 +17,34 @@ import { Group, GroupImport } from './App';
     æ - &aelig; or \u00E6
     « - &laquo; or \u00AB
     » - &raquo; or \u00BB
+    · - or \u00B7
 */
+
+export const gr_19_04_2024: GroupImport = {
+    group_name: '19 avril 2024',
+    groups: [
+        {
+            category: 'Multitude',
+            items: ['Masse', 'Montagne', 'Foule', 'Flop\u00E9e'],
+            difficulty: 1,
+        },
+        {
+            category: 'Oiseaux',
+            items: ['Pic', 'Merle', 'Cardinal', 'Grive'],
+            difficulty: 2,
+        },
+        {
+            category: 'Anagrammes',
+            items: ['Argent', 'Grenat', 'Tanger', 'Ganter'],
+            difficulty: 3,
+        },
+        {
+            category: 'Chanteur\u00B7euses',
+            items: ['Lama', 'Piaf', 'Dor\u00E9', 'Berger'],
+            difficulty: 4,
+        },
+    ]
+};
 
 export const gr_15_04_2024: GroupImport = {
     group_name: '15 avril 2024',
