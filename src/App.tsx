@@ -26,7 +26,10 @@ import {
     Text,
     UnorderedList,
 } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import {
+    ChevronDownIcon,
+    StarIcon,
+} from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
 import { gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts';
@@ -37,8 +40,9 @@ export type Group = {
   difficulty: 1 | 2 | 3 | 4;
 };
 
-export type GroupImport = {
-    group_name: string;
+export type PuzzleImport = {
+    puzzle_name: string;
+    puzzle_difficulty: number;
     groups: Group[];
 };
 
@@ -48,6 +52,7 @@ type Options = {
 };
 
 type State = {
+    difficulty: number,
     groups: Group[];
     complete: Group[];
     incomplete: Group[];
@@ -89,11 +94,12 @@ const shuffle = <T,>(list: T[]): T[] => {
 
 const methods = (state: State) => {
     return {
-        update(newGroup: GroupImport) {
-            state.groups = newGroup.groups.groups;
-            state.incomplete = newGroup.groups.groups;
+        update(newPuzzle: PuzzleImport) {
+            state.difficulty = newPuzzle.groups.puzzle_difficulty;
+            state.groups = newPuzzle.groups.groups;
+            state.incomplete = newPuzzle.groups.groups;
             state.complete= [];
-            state.items = shuffle(newGroup.groups.groups.flatMap((g) => g.items));
+            state.items = shuffle(newPuzzle.groups.groups.flatMap((g) => g.items));
             state.activeItems = [];
             state.mistakesRemaining = 4;
             state.oneAway = false;
@@ -102,7 +108,7 @@ const methods = (state: State) => {
             state.guessWasWrong = false;
             state.isFinished = false;
             state.emojiFromGuesses = [];
-            state.current_name = newGroup.groups.group_name;
+            state.current_name = newPuzzle.groups.puzzle_name;
         },
 
     toggleActive(item: string) {
@@ -215,29 +221,30 @@ const methods = (state: State) => {
   };
 };
 
-const useGame = (options: Options, current_name: string) => {
+const useGame = (options: Options, difficulty: number, current_name: string) => {
     const initialState: State = {
-    groups: options.groups,
-    incomplete: options.groups,
-    complete: [],
-    items: shuffle(options.groups.flatMap((g) => g.items)),
-    activeItems: [],
-    mistakesRemaining: 4,
-    oneAway: false,
-    guesses: [],
-    alreadyGuessed: false,
-    guessWasWrong: false,
-    isFinished: false,
-    emojiFromGuesses: [],
-    current_name: current_name,
-  };
+        difficulty: difficulty,
+        groups: options.groups,
+        incomplete: options.groups,
+        complete: [],
+        items: shuffle(options.groups.flatMap((g) => g.items)),
+        activeItems: [],
+        mistakesRemaining: 4,
+        oneAway: false,
+        guesses: [],
+        alreadyGuessed: false,
+        guessWasWrong: false,
+        isFinished: false,
+        emojiFromGuesses: [],
+        current_name: current_name,
+    };
 
-  const [state, fns] = useMethods(methods, initialState);
+    const [state, fns] = useMethods(methods, initialState);
 
-  return {
+    return {
     ...state,
     ...fns,
-  };
+    };
 };
 
 export const App = () => {
@@ -245,20 +252,21 @@ export const App = () => {
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
     const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 19);
-    const current_group = isNextPuzzle ? gr_19_04_2024 : gr_15_04_2024;
+    const current_puzzle = isNextPuzzle ? gr_19_04_2024 : gr_15_04_2024;
     const ending_text = isNextPuzzle ? "The French Connections #5. Prochain puzzle le 22 avril." : "The French Connections #4. Prochain puzzle le 19 avril.";
 
     const all_groups_name = isNextPuzzle ? [gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] : [gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
 
     const game = useGame({
-        groups: current_group.groups,
+        groups: current_puzzle.groups,
     },
-        current_group.group_name
+        current_puzzle.puzzle_difficulty,
+        current_puzzle.puzzle_name
     );
 
-    const handleMenuItemClick = (group_import: GroupImport) => {
+    const handleMenuItemClick = (puzzleImport: PuzzleImport) => {
         game.update({
-            groups: group_import,
+            groups: puzzleImport,
         });
         setIsOpenResults(true);
     };
@@ -277,22 +285,32 @@ export const App = () => {
                         The French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
-                    <Menu>
-                        {({ isOpen }) => (
-                            <>
-                                <MenuButton size={['sm', 'md', 'lg']} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
-                                    {game.current_name}
-                                </MenuButton>
-                                <MenuList fontSize={["xs", "s", "md"]}>
-                                    {all_groups_name.map((group_import: GroupImport, index) => (
-                                        <MenuItem key={index} onClick={() => handleMenuItemClick(group_import)}>
-                                            {group_import.group_name}
-                                        </MenuItem>
-                                    ))}
-                                </MenuList>
-                            </>
-                        )}
-                    </Menu>
+                    <HStack align="baseline">
+                        <Menu>
+                            {({ isOpen }) => (
+                                <>
+                                    <MenuButton size={['sm', 'md', 'lg']} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
+                                        {game.current_name}
+                                    </MenuButton>
+                                    <MenuList fontSize={["xs", "s", "md"]}>
+                                        {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
+                                            <MenuItem key={index} onClick={() => handleMenuItemClick(puzzleImport)}>
+                                                {puzzleImport.puzzle_name}
+                                            </MenuItem>
+                                        ))}
+                                    </MenuList>
+                                </>
+                            )}
+                        </Menu>
+
+                        {current_puzzle.puzzle_name != game.current_name && [...Array(5).keys()].map((_, index) => (
+                            index < game.difficulty ? (
+                                <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="yellow.500" />
+                            ) : (
+                                    <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="gray.300" />
+                            )
+                        ))}
+                    </HStack>
                     {game.oneAway && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
                         <AlertTitle align='center' fontSize={["xs", "s", "md"]}>Presque...</AlertTitle>
                     </Alert>}
@@ -343,8 +361,12 @@ export const App = () => {
                     </Stack>
                     <HStack align="baseline">
                         <Text fontSize={["14px", "16px"]}>Essais restants :</Text>
-                        {[...Array(game.mistakesRemaining).keys()].map((_, index) => (
-                            <Circle key={index} bg="gray.800" size="12px" />
+                        {[...Array(4).keys()].map((_, index) => (
+                            index < game.mistakesRemaining ? (
+                                <Circle key={index} bg="gray.800" size="12px" />
+                            ) : (
+                                    <Circle key={index} bg="gray.300" size="12px" />
+                            )
                         ))}
                     </HStack>
                     <HStack padding="1em">
@@ -391,7 +413,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                {current_group.group_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
+                                {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
                                 <Text fontSize='4xl' align='center'>
                                 {game.emojiFromGuesses.map((emoji: string, index: number) => (
                                     <React.Fragment key={index}>

@@ -1,4 +1,4 @@
-import { Group, GroupImport } from './App';
+import { PuzzleImport } from './App';
 
 /**
  *  é - &eacute; or \u00E9
@@ -20,8 +20,9 @@ import { Group, GroupImport } from './App';
     · - or \u00B7
 */
 
-export const gr_19_04_2024: GroupImport = {
-    group_name: '19 avril 2024',
+export const gr_19_04_2024: PuzzleImport = {
+    puzzle_name: '19 avril 2024',
+    puzzle_difficulty: 2,
     groups: [
         {
             category: 'Grande quantit\u00E9',
@@ -46,8 +47,9 @@ export const gr_19_04_2024: GroupImport = {
     ]
 };
 
-export const gr_15_04_2024: GroupImport = {
-    group_name: '15 avril 2024',
+export const gr_15_04_2024: PuzzleImport = {
+    puzzle_name: '15 avril 2024',
+    puzzle_difficulty: 5,
     groups: [
         {
             category: 'Outils de maquillage',
@@ -72,8 +74,9 @@ export const gr_15_04_2024: GroupImport = {
     ]
 };
 
-export const gr_12_04_2024: GroupImport = {
-    group_name: '12 avril 2024',
+export const gr_12_04_2024: PuzzleImport = {
+    puzzle_name: '12 avril 2024',
+    puzzle_difficulty: 2,
     groups: [
         {
             category: 'Avare',
@@ -98,8 +101,9 @@ export const gr_12_04_2024: GroupImport = {
     ]
 };
 
-export const gr_08_04_2024: GroupImport = {
-    group_name: '8 avril 2024',
+export const gr_08_04_2024: PuzzleImport = {
+    puzzle_name: '8 avril 2024',
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Sa majest\u00E9',
@@ -124,8 +128,9 @@ export const gr_08_04_2024: GroupImport = {
     ]
 };
 
-export const gr_01_04_2024: GroupImport = {
-    group_name: '1er avril 2024',
+export const gr_01_04_2024: PuzzleImport = {
+    puzzle_name: '1er avril 2024',
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Pour \u00E9crire une lettre',
