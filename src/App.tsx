@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts';
+import { gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -251,11 +251,11 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 19);
-    const current_puzzle = isNextPuzzle ? gr_19_04_2024 : gr_15_04_2024;
-    const ending_text = isNextPuzzle ? "The French Connections #5. Prochain puzzle le 22 avril." : "The French Connections #4. Prochain puzzle le 19 avril.";
+    const isNextPuzzle = currentMonth > 4 || (currentMonth === 4 && currentDay >= 22); //TOCHANGE
+    const current_puzzle = isNextPuzzle ? gr_22_04_2024 : gr_19_04_2024; //TOCHANGE
+    const ending_text = isNextPuzzle ? "The French Connections #6. Prochain puzzle le 24 avril." : "The French Connections #5. Prochain puzzle le 22 avril."; //TOCHANGE
 
-    const all_groups_name = isNextPuzzle ? [gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] : [gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
+    const all_groups_name = isNextPuzzle ? [gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] : [gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]; //TOCHANGE
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -323,7 +323,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis et vendredis.</Text>
+                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis, mercredis et vendredis.</Text>
                                 <UnorderedList>
                                     <ListItem>S&eacute;lectionne 4 mots puis appuie sur le bouton "Valider" pour v&eacute;rifier si tu as raison.</ListItem>
                                     <ListItem>Trouve les groupes en faisant moins de 4 erreurs.</ListItem>
@@ -354,7 +354,7 @@ export const App = () => {
                         {chunk(game.items, 4).map((row, index) => (
                             <HStack key={index} justify="center" spacing={[2, 3, 4]}>
                                 {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={["10px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={["9.5px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>{item}</Button>
                                 ))}
                             </HStack>
                         ))}
@@ -410,7 +410,11 @@ export const App = () => {
                     {game.isFinished && <Modal isOpen={isOpenResults} onClose={handleCloseResults}>
                         <ModalOverlay />
                         <ModalContent>
-                            <ModalHeader fontWeight='bold' fontSize="2xl">{game.mistakesRemaining > 0 ? "R\u00E9sultats - Bravo !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
+                            <ModalHeader fontWeight='bold' fontSize="2xl">
+                                {game.mistakesRemaining === 4 ? "R\u00E9sultats : Parfait !" :
+                                    game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
+                                        game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
+                                            game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "Résultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                                 {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}

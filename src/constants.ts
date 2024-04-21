@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_22_04_2024: PuzzleImport = {
+    puzzle_name: '22 avril 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Au c\u0153ur de',
+            items: ['Capitale', 'Centrale', 'Essentielle', 'Principale'],
+            difficulty: 1,
+        },
+        {
+            category: 'Oreille',
+            items: ['Feuille', 'Anse', 'Portugaise', 'Pavillon'],
+            difficulty: 2,
+        },
+        {
+            category: 'Styles de jazz',
+            items: ['Fusion', 'Manouche', 'Avant-garde', 'Bebop'],
+            difficulty: 3,
+        },
+        {
+            category: 'Journaux quotidiens',
+            items: ['Monde', 'Lib\u00E9ration', 'Humanit\u00E9', 'Parisien'],
+            difficulty: 4,
+        },
+    ]
+};
+
 export const gr_19_04_2024: PuzzleImport = {
     puzzle_name: '19 avril 2024',
     puzzle_difficulty: 2,
