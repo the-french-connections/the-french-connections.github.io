@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_24_04_2024: PuzzleImport = {
+    puzzle_name: '24 avril 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Nombres (mal)chanceux',
+            items: ['4', '7', '13', '666'],
+            difficulty: 1,
+        },
+        {
+            category: 'D\u00E9but d\'une R\u00E9publique Fran\u00E7aise',
+            items: ['1792', '1848', '1870', '1958'],
+            difficulty: 2,
+        },
+        {
+            category: 'Dans un titre de livre (tr\u00E8s) connu',
+            items: ['1984', '2001', '20000', '93'],
+            difficulty: 3,
+        },
+        {
+            category: 'Nombres parfaits',
+            items: ['6', '28', '496', '8128'],
+            difficulty: 4,
+        },
+    ]
+};
+
 export const gr_22_04_2024: PuzzleImport = {
     puzzle_name: '22 avril 2024',
     puzzle_difficulty: 3,
@@ -35,13 +62,13 @@ export const gr_22_04_2024: PuzzleImport = {
             difficulty: 2,
         },
         {
-            category: 'Styles de jazz',
-            items: ['Fusion', 'Manouche', 'Avant-garde', 'Bebop'],
+            category: 'Journaux quotidiens',
+            items: ['Monde', 'Lib\u00E9ration', 'Humanit\u00E9', 'Parisien'],
             difficulty: 3,
         },
         {
-            category: 'Journaux quotidiens',
-            items: ['Monde', 'Lib\u00E9ration', 'Humanit\u00E9', 'Parisien'],
+            category: 'Styles de jazz',
+            items: ['Fusion', 'Manouche', 'Avant-garde', 'Bebop'],
             difficulty: 4,
         },
     ]
