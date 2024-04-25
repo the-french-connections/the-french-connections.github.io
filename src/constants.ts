@@ -20,6 +20,34 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_26_04_2024: PuzzleImport = {
+    puzzle_name: '26 avril 2024',
+    puzzle_difficulty: 2,
+    groups: [
+        {
+            category: 'Propri\u00E9t\u00E9',
+            items: ['Terre', 'Domaine', 'Jardin', 'Terrain'],
+            difficulty: 1,
+        },
+        {
+            category: 'Plan\u00E8tes gazeuses',
+            items: ['Uranus', 'Neptune', 'Jupiter', 'Saturne'],
+            difficulty: 2,
+        },
+        {
+            category: 'M\u00E9taux pauvres',
+            items: ['Mercure', 'Gallium', 'Plomb', 'Aluminium'],
+            difficulty: 3,
+        },
+        {
+            category: 'Barres chocolat\u00E9es',
+            items: ['Snickers', 'Bounty', 'Lion', 'Mars'],
+            difficulty: 4,
+        },
+    ]
+};
+
+
 export const gr_24_04_2024: PuzzleImport = {
     puzzle_name: '24 avril 2024',
     puzzle_difficulty: 4,
