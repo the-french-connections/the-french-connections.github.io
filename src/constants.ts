@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_29_04_2024: PuzzleImport = {
+    puzzle_name: '29 avril 2024',
+    puzzle_difficulty: 2,
+    groups: [
+        {
+            category: 'Manifestation rapide',
+            items: ['\u00E9clair', 'Brusque', 'Br\u00E8ve', 'Soudaine'],
+            difficulty: 1,
+        },
+        {
+            category: 'Os',
+            items: ['Carpe', 'C\u00F4te', 'Rotule', 'Trap\u00E8ze'],
+            difficulty: 2,
+        },
+        {
+            category: 'Mani\u00E8res de cuisiner des \u0153ufs',
+            items: ['Coque', 'Mollet', 'Mimosa', 'Dur'],
+            difficulty: 3,
+        },
+        {
+            category: 'T\u00E9l\u00E9 + _',
+            items: ['Vision', 'Chargement', 'Commande', 'Travail'],
+            difficulty: 4,
+        },
+    ]
+};
+
 export const gr_26_04_2024: PuzzleImport = {
     puzzle_name: '26 avril 2024',
     puzzle_difficulty: 2,
