@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_01_05_2024: PuzzleImport = {
+    puzzle_name: '1er mai 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Adjectifs possessifs pluriels',
+            items: ['Mes', 'Tes', 'Nos', 'Vos'],
+            difficulty: 1,
+        },
+        {
+            category: 'Plantes',
+            items: ['Lys', 'Bl\u00E9', 'Ail', 'Lin'],
+            difficulty: 2,
+        },
+        {
+            category: 'Dynasties chinoises',
+            items: ['Qin', 'Sui', 'Jin', 'Han'],
+            difficulty: 3,
+        },
+        {
+            category: 'Groupes de K-pop',
+            items: ['BTS', 'EXO', 'AOA', 'NCT'],
+            difficulty: 4,
+        },
+    ]
+};
+
 export const gr_29_04_2024: PuzzleImport = {
     puzzle_name: '29 avril 2024',
-    puzzle_difficulty: 2,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Manifestation rapide',
