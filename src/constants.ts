@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_03_05_2024: PuzzleImport = {
+    puzzle_name: '3 mai 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'B\u00EAte',
+            items: ['B\u00EAta', 'Nigaud', 'Dinde', 'Cruche'],
+            difficulty: 1,
+        },
+        {
+            category: 'Madame tout-le-monde',
+            items: ['Lambda', 'Quelconque', 'Ordinaire', 'Moyenne'],
+            difficulty: 2,
+        },
+        {
+            category: 'Parties d\'un fleuve',
+            items: ['Delta', 'Estuaire', 'Bras', 'Lit'],
+            difficulty: 3,
+        },
+        {
+            category: 'Alphabet phon\u00E9tique de l\'OTAN',
+            items: ['Alpha', 'Bravo', 'Charlie', 'Tango'],
+            difficulty: 4,
+        },
+    ]
+};
+
 export const gr_01_05_2024: PuzzleImport = {
     puzzle_name: '1er mai 2024',
     puzzle_difficulty: 4,
