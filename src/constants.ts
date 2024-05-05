@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_05_05_2024: PuzzleImport = {
+    puzzle_name: '5 mai 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Au supermarch\u00E9',
+            items: ['Caisses', 'Rayons', 'Surgel\u00E9s', 'Caddies'],
+            difficulty: 1,
+        },
+        {
+            category: 'Familles d\'instruments de musique',
+            items: ['Bois', 'Cuivres', 'Cordes', 'Claviers'],
+            difficulty: 2,
+        },
+        {
+            category: 'Villes fran\u00E7aises',
+            items: ['Tours', 'Vannes', 'Colombes', 'Cannes'],
+            difficulty: 3,
+        },
+        {
+            category: '\u0153uvres de Victor Hugo',
+            items: ['Mis\u00E9rables', 'Burgraves', 'Ch\u00E2timents', 'Orientales'],
+            difficulty: 4,
+        },
+    ]
+};
+
 export const gr_03_05_2024: PuzzleImport = {
     puzzle_name: '3 mai 2024',
     puzzle_difficulty: 3,
