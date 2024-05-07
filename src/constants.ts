@@ -20,8 +20,35 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
-export const gr_05_05_2024: PuzzleImport = {
-    puzzle_name: '5 mai 2024',
+export const gr_08_05_2024: PuzzleImport = {
+    puzzle_name: '8 mai 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: '(Ex-) Chaines de t\u00E9l\u00E9vision',
+            items: ['C8', 'D8', 'M6', 'W9'],
+            difficulty: 1,
+        },
+        {
+            category: 'Homophones d\'un nom commun',
+            items: ['D3', 'I2', 'S1', 'K6'],
+            difficulty: 2,
+        },
+        {
+            category: 'Dans l\'atmosph\u00E8re',
+            items: ['O2', 'N2', 'H2', 'O3'],
+            difficulty: 3,
+        },
+        {
+            category: 'ISO 216',
+            items: ['A4', 'A5', 'B2', 'B6'],
+            difficulty: 4,
+        }
+    ]
+};
+
+export const gr_06_05_2024: PuzzleImport = {
+    puzzle_name: '6 mai 2024',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -35,15 +62,15 @@ export const gr_05_05_2024: PuzzleImport = {
             difficulty: 2,
         },
         {
-            category: 'Villes fran\u00E7aises',
-            items: ['Tours', 'Vannes', 'Colombes', 'Cannes'],
+            category: '\u0153uvres de Victor Hugo',
+            items: ['Mis\u00E9rables', 'Burgraves', 'Ch\u00E2timents', 'Orientales'],
             difficulty: 3,
         },
         {
-            category: '\u0153uvres de Victor Hugo',
-            items: ['Mis\u00E9rables', 'Burgraves', 'Ch\u00E2timents', 'Orientales'],
+            category: 'Villes fran\u00E7aises',
+            items: ['Tours', 'Vannes', 'Colombes', 'Cannes'],
             difficulty: 4,
-        },
+        }
     ]
 };
 
