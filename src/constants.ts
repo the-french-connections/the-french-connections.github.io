@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_10_05_2024: PuzzleImport = {
+    puzzle_name: '10 mai 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: '\u00E9tats de la mati\u00E8re',
+            items: ['Gazeux', 'Liquide', 'Solide', 'Plasma'],
+            difficulty: 1,
+        },
+        {
+            category: '\u00E9quipement de pompier',
+            items: ['Casque', 'Gants', 'Cagoule', 'Chaussants'],
+            difficulty: 2,
+        },
+        {
+            category: 'Sur un clavier d\'ordinateur',
+            items: ['Espace', 'Contr\u00F4le', 'Entr\u00E9e', 'Fonction'],
+            difficulty: 3,
+        },
+        {
+            category: 'Jeux Pokemon',
+            items: ['Perle', 'Noir', 'Soleil', 'Bouclier'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_08_05_2024: PuzzleImport = {
     puzzle_name: '8 mai 2024',
-    puzzle_difficulty: 3,
+    puzzle_difficulty: 4,
     groups: [
         {
             category: '(Ex-) Chaines de t\u00E9l\u00E9vision',
