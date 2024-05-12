@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
+import { gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -251,12 +251,12 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 5 || (currentMonth === 5 && currentDay >= 10); //TOCHANGE
-    const current_puzzle = isNextPuzzle ? gr_10_05_2024 : gr_08_05_2024; //TOCHANGE
-    const ending_text = isNextPuzzle ? "The French Connections #12. Prochain puzzle le 13 mai." : "The French Connections #11. Prochain puzzle le 10 mai."; //TOCHANGE
+    const isNextPuzzle = currentMonth > 5 || (currentMonth === 5 && currentDay >= 13); //TOCHANGE
+    const current_puzzle = isNextPuzzle ? gr_13_05_2024 : gr_10_05_2024; //TOCHANGE
+    const ending_text = isNextPuzzle ? "The French Connections #13. Prochain puzzle le 19 mai." : "The French Connections #12. Prochain puzzle le 13 mai."; //TOCHANGE
 
-    const all_groups_name = isNextPuzzle ? [gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]
-        : [gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]; //TOCHANGE
+    const all_groups_name = isNextPuzzle ? [gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]
+        : [gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]; //TOCHANGE
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -324,7 +324,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis, mercredis et vendredis.</Text>
+                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis et vendredis (et parfois les mercredis).</Text>
                                 <UnorderedList>
                                     <ListItem>S&eacute;lectionne 4 mots puis appuie sur le bouton "Valider" pour v&eacute;rifier si tu as raison.</ListItem>
                                     <ListItem>Trouve les groupes en faisant moins de 4 erreurs.</ListItem>

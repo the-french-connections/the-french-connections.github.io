@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_13_05_2024: PuzzleImport = {
+    puzzle_name: '13 mai 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: '\u00E9l\u00E9ments',
+            items: ['Eau', 'Feu', 'Air', 'Terre'],
+            difficulty: 1,
+        },
+        {
+            category: 'Moralit\u00E9',
+            items: ['M\u0153urs', 'Coutume', 'Usage', 'Habitudes'],
+            difficulty: 2,
+        },
+        {
+            category: 'Parties du pistil',
+            items: ['Style', 'Stigmate', 'Carpelle', 'Ovaire'],
+            difficulty: 3,
+        },
+        {
+            category: 'Vari\u00E9t\u00E9s de pomme',
+            items: ['Diva', 'Rambour', 'Golden', 'Api'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_10_05_2024: PuzzleImport = {
     puzzle_name: '10 mai 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: '\u00E9tats de la mati\u00E8re',
