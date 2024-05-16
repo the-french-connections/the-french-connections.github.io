@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_17_05_2024: PuzzleImport = {
+    puzzle_name: '17 mai 2024',
+    puzzle_difficulty: 5,
+    groups: [
+        {
+            category: 'Postes au football',
+            items: ['Attaquant', 'D\u00E9fenseur', 'Milieu', 'Gardien'],
+            difficulty: 1,
+        },
+        {
+            category: 'De taille d\u00E9mesur\u00E9e',
+            items: ['Titanesque', 'Gigantesque', 'Grandiose', 'Monumental'],
+            difficulty: 2,
+        },
+        {
+            category: 'Styles de moustaches',
+            items: ['Imp\u00E9rial', 'Pyramidal', 'Morse', 'Guidon'],
+            difficulty: 3,
+        },
+        {
+            category: 'Titans dans l\'Attaque des titans',
+            items: ['Colossal', 'Assaillant', 'M\u00E2choire', 'Charrette'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_13_05_2024: PuzzleImport = {
     puzzle_name: '13 mai 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: '\u00E9l\u00E9ments',
@@ -49,7 +76,7 @@ export const gr_13_05_2024: PuzzleImport = {
 
 export const gr_10_05_2024: PuzzleImport = {
     puzzle_name: '10 mai 2024',
-    puzzle_difficulty: 3,
+    puzzle_difficulty: 4,
     groups: [
         {
             category: '\u00E9tats de la mati\u00E8re',
