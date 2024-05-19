@@ -20,6 +20,34 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_20_05_2024: PuzzleImport = {
+    puzzle_name: '20 mai 2024',
+    puzzle_difficulty: 1,
+    groups: [
+        {
+            category: 'Guerre',
+            items: ['Combat', 'Conflit', 'Bataille', 'Lutte'],
+            difficulty: 1,
+        },
+        {
+            category: 'Ventes d\'occasion',
+            items: ['Chine', 'Fripes', 'Brocante', 'Antiquit\u00E9'],
+            difficulty: 2,
+        },
+        {
+            category: 'Oc\u00E9ans',
+            items: ['Indien', 'Arctique', 'Austral', 'Pacifique'],
+            difficulty: 3,
+        },
+        {
+            category: 'Caract\u00E9ristiques des nombres',
+            items: ['Pair', 'Premier', 'Voisin', 'Parfait'],
+            difficulty: 4,
+        }
+    ]
+};
+
+
 export const gr_17_05_2024: PuzzleImport = {
     puzzle_name: '17 mai 2024',
     puzzle_difficulty: 5,
@@ -103,7 +131,7 @@ export const gr_10_05_2024: PuzzleImport = {
 
 export const gr_08_05_2024: PuzzleImport = {
     puzzle_name: '8 mai 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 5,
     groups: [
         {
             category: '(Ex-) Chaines de t\u00E9l\u00E9vision',
