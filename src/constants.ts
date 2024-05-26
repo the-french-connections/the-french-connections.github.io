@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_27_05_2024: PuzzleImport = {
+    puzzle_name: '27 mai 2024',
+    puzzle_difficulty: 2,
+    groups: [
+        {
+            category: 'Cr\u00E9atures magiques',
+            items: ['F\u00E9e', 'Korrigan', 'Lutin', 'G\u00E9nie'],
+            difficulty: 1,
+        },
+        {
+            category: 'Offrande',
+            items: ['Cadeau', 'Don', 'Pr\u00E9sent', 'Faveur'],
+            difficulty: 2,
+        },
+        {
+            category: 'Palindromes',
+            items: ['Kayak', 'ABBA', 'Radar', 'Ressasser'],
+            difficulty: 3,
+        },
+        {
+            category: 'Films avec Omar Sy',
+            items: ['Intouchables', 'Chocolat', 'Police', 'Inferno'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_20_05_2024: PuzzleImport = {
     puzzle_name: '20 mai 2024',
     puzzle_difficulty: 1,
