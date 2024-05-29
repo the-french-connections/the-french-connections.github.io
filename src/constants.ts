@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_31_05_2024: PuzzleImport = {
+    puzzle_name: '31 mai 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: '\u00E9conomies en pr\u00E9vision',
+            items: ['\u00E9conome', 'Fourmi', 'Sobre', 'Regardant'],
+            difficulty: 1,
+        },
+        {
+            category: 'Pour \u00E9viter d\'\u00EAtre vulgaire',
+            items: ['Punaise', 'Mince', 'Fl\u00FBte', 'Crotte'],
+            difficulty: 2,
+        },
+        {
+            category: 'P\u00E2tisseries',
+            items: ['Financier', 'Chausson', '\u00E9clair', 'Op\u00E9ra'],
+            difficulty: 3,
+        },
+        {
+            category: 'Formes de p\u00E2tes',
+            items: ['Papillon', 'Torsade', 'Ruban', 'Escargot'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_27_05_2024: PuzzleImport = {
     puzzle_name: '27 mai 2024',
     puzzle_difficulty: 2,
