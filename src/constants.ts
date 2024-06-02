@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_03_06_2024: PuzzleImport = {
+    puzzle_name: '3 juin 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Parties du Requiem de Mozart',
+            items: ['Lacrymosa', 'Kyrie', 'Sanctus', 'Communio'],
+            difficulty: 1,
+        },
+        {
+            category: 'Locutions latines usuelles',
+            items: ['Dixit', 'Erratum', 'Idem', 'Prorata'],
+            difficulty: 2,
+        },
+        {
+            category: 'Plan\u00E8tes dans des \u0153uvres de fiction',
+            items: ['Dune', 'Aurora', 'Hoth', 'Ego'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + sexualit\u00E9',
+            items: ['Homo', 'A', 'Bi', 'Pan'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_31_05_2024: PuzzleImport = {
     puzzle_name: '31 mai 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: '\u00E9conomies en pr\u00E9vision',
