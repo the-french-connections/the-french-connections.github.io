@@ -20,6 +20,87 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_14_06_2024: PuzzleImport = {
+    puzzle_name: '14 juin 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'R\u00E9compenses artistiques',
+            items: ['C\u00E9sar', 'Victoire', 'Moli\u00E8re', 'Palme'],
+            difficulty: 1,
+        },
+        {
+            category: 'Mani\u00E8res de se rep\u00E9rer',
+            items: ['\u00E9toiles', 'GPS', 'Boussole', 'Carte'],
+            difficulty: 2,
+        },
+        {
+            category: 'Quand on joue au tarot',
+            items: ['Coupe', 'Annonce', 'Appel', 'Chien'],
+            difficulty: 3,
+        },
+        {
+            category: 'Dans le titre d\'\u00E9missions de t\u00E9l\u00E9-r\u00E9alit\u00E9',
+            items: ['Anges', 'Marseillais', 'Secret', 'Star'],
+            difficulty: 4,
+        }
+    ]
+};
+
+export const gr_10_06_2024: PuzzleImport = {
+    puzzle_name: '10 juin 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Chouettes',
+            items: ['Hulotte', 'Fauve', 'Masqu\u00E9e', 'Lapone'],
+            difficulty: 1,
+        },
+        {
+            category: 'Agr\u00E8s de gymnastique',
+            items: ['Sol', 'Anneaux', 'Poutre', 'Trampoline'],
+            difficulty: 2,
+        },
+        {
+            category: 'Concierge',
+            items: ['Gardien', 'Suisse', 'Cerb\u00E8re', 'Veilleur'],
+            difficulty: 3,
+        },
+        {
+            category: 'Champions de League of Legends',
+            items: ['Nocturne', 'Karma', 'Talon', 'Lux'],
+            difficulty: 4,
+        }
+    ]
+};
+
+export const gr_07_06_2024: PuzzleImport = {
+    puzzle_name: '7 juin 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Objets de mesure',
+            items: ['Balance', 'R\u00E8gle', 'T\u00E9l\u00E9m\u00E8tre', 'Radar'],
+            difficulty: 1,
+        },
+        {
+            category: 'Dans un circuit \u00E9l\u00E9ctrique',
+            items: ['R\u00E9sistance', 'Charge', 'Tension', 'Puissance'],
+            difficulty: 2,
+        },
+        {
+            category: 'Premier\u00B7es ministres fran\u00E7ais\u00B7es',
+            items: ['Barre', 'Cresson', 'Philippe', 'Borne'],
+            difficulty: 3,
+        },
+        {
+            category: 'Super + _',
+            items: ['March\u00E9', 'H\u00E9ros', 'Continent', 'Pose'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_03_06_2024: PuzzleImport = {
     puzzle_name: '3 juin 2024',
     puzzle_difficulty: 3,
