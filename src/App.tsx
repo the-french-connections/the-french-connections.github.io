@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
+import { gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -251,42 +251,13 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 6 || (currentMonth === 6 && currentDay >= 7); //TOCHANGE
-
-    let isNextPuzzle2 = false;
-    let isNextPuzzle3 = false;
-
-    if (isNextPuzzle) {
-        isNextPuzzle2 = currentMonth > 6 || (currentMonth === 6 && currentDay >= 10); //TOCHANGE
-
-        if (isNextPuzzle2) {
-            isNextPuzzle3 = currentMonth > 6 || (currentMonth === 6 && currentDay >= 14); //TOCHANGE
-        }
-    }
+    const isNextPuzzle = currentMonth > 6 || (currentMonth === 6 && currentDay >= 17);
 
 
-    let current_puzzle = gr_03_06_2024;
-    let ending_text = "The French Connections #20. Prochain puzzle le 7 juin.";
-    let all_groups_name = [gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
-
-    if (isNextPuzzle) {
-        current_puzzle = gr_07_06_2024;
-        ending_text = "The French Connections #21. Prochain puzzle le 10 juin.";
-        all_groups_name = [gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]
-
-        if (isNextPuzzle2) {
-            current_puzzle = gr_10_06_2024;
-            ending_text = "The French Connections #22. Prochain puzzle le 14 juin.";
-            all_groups_name = [gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]
-
-            if (isNextPuzzle3) {
-                current_puzzle = gr_14_06_2024;
-                ending_text = "The French Connections #23. Prochain puzzle le 17 juin.";
-                all_groups_name = [gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024]
-            }
-        }
-    }
-
+    const current_puzzle = isNextPuzzle ? gr_17_06_2024 : gr_14_06_2024; //TOCHANGE
+    const ending_text = isNextPuzzle ? "The French Connections #24. Prochain puzzle le 19 juin." : "The French Connections #23. Prochain puzzle le 17 juin."; //TOCHANGE
+    const all_groups_name = isNextPuzzle ? [gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
+        [gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
 
     const game = useGame({
         groups: current_puzzle.groups,

@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_17_06_2024: PuzzleImport = {
+    puzzle_name: '17 juin 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Commence par un animal',
+            items: ['Chatouille', 'Ratatouille', 'Dauphinois', 'Poissonnier'],
+            difficulty: 1,
+        },
+        {
+            category: 'Appr\u00E9ci\u00E9',
+            items: ['Cher', 'Ador\u00E9', 'Aim\u00E9', '\u00E9lu'],
+            difficulty: 2,
+        },
+        {
+            category: 'Fromages fran\u00E7ais',
+            items: ['Abondance', 'Ch\u00E8vre', 'Bleu', 'Cantal'],
+            difficulty: 3,
+        },
+        {
+            category: 'Poses de yoga',
+            items: ['Cobra', 'Triangle', 'Enfant', 'Pont'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_14_06_2024: PuzzleImport = {
     puzzle_name: '14 juin 2024',
     puzzle_difficulty: 4,
