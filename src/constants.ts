@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_19_06_2024: PuzzleImport = {
+    puzzle_name: '19 juin 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: '\u00E9gocentrisme',
+            items: ['\u00E9go\u00EFsme', 'Individualisme', 'Nombrilisme', 'Personnalisme'],
+            difficulty: 1,
+        },
+        {
+            category: 'Mouvements litt\u00E9raire',
+            items: ['Romantisme', 'R\u00E9alisme', 'Futurisme', 'Symbolisme'],
+            difficulty: 2,
+        },
+        {
+            category: 'Mouvements deprotection animale',
+            items: ['Abolitionnisme', 'Welfarisme', 'Protectionnisme', 'Environnementalisme'],
+            difficulty: 3,
+        },
+        {
+            category: 'Rappeurs fran\u00E7ais + isme',
+            items: ['Valdisme', 'Schisme', 'Zola\u00EFsme', 'Alisme'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_17_06_2024: PuzzleImport = {
     puzzle_name: '17 juin 2024',
     puzzle_difficulty: 3,

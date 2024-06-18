@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
+import { gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -251,13 +251,13 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 6 || (currentMonth === 6 && currentDay >= 17);
+    const isNextPuzzle = currentMonth > 6 || (currentMonth === 6 && currentDay >= 19); //TOCHANGE
 
 
-    const current_puzzle = isNextPuzzle ? gr_17_06_2024 : gr_14_06_2024; //TOCHANGE
-    const ending_text = isNextPuzzle ? "The French Connections #24. Prochain puzzle le 19 juin." : "The French Connections #23. Prochain puzzle le 17 juin."; //TOCHANGE
-    const all_groups_name = isNextPuzzle ? [gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
-        [gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
+    const current_puzzle = isNextPuzzle ? gr_19_06_2024 : gr_17_06_2024; //TOCHANGE
+    const ending_text = isNextPuzzle ? "The French Connections #25. Prochain puzzle le 21 juin." : "The French Connections #24. Prochain puzzle le 19 juin."; //TOCHANGE
+    const all_groups_name = isNextPuzzle ? [gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
+        [gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_15_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -356,7 +356,7 @@ export const App = () => {
                         {chunk(game.items, 4).map((row, index) => (
                             <HStack key={index} justify="center" spacing={[2, 3, 4]}>
                                 {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={["9.5px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>{item}</Button>
+                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={item.length > 17 ? ["5.75px", "7px", "9px", "10px"] : item.length > 12 ? ["7.75px", "10.25px", "12.5px", "14px"] : ["9.5px", "12px", "14px", "16px"]} fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>{item}</Button>
                                 ))}
                             </HStack>
                         ))}
