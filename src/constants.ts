@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_21_06_2024: PuzzleImport = {
+    puzzle_name: '21 juin 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Heureuse',
+            items: ['Ravie', 'Contente', 'Radieuse', 'Joyeuse'],
+            difficulty: 1,
+        },
+        {
+            category: 'Enthousiaste',
+            items: ['Passionn\u00E9e', 'Transport\u00E9e', 'Chaude', 'Exalt\u00E9e'],
+            difficulty: 2,
+        },
+        {
+            category: 'Types de baleines',
+            items: ['Bor\u00E9ale', 'Bleue', 'Grise', 'Pygm\u00E9e'],
+            difficulty: 3,
+        },
+        {
+            category: 'Guerre + _',
+            items: ['Froide', 'Civile', 'Sainte', 'Mondiale'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_19_06_2024: PuzzleImport = {
     puzzle_name: '19 juin 2024',
     puzzle_difficulty: 4,
