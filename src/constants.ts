@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_24_06_2024: PuzzleImport = {
+    puzzle_name: '24 juin 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Expiration pulmonaire',
+            items: ['Soupir', 'Sanglot', 'Souffle', 'Expiration'],
+            difficulty: 1,
+        },
+        {
+            category: 'Valeurs d\'une note de musique',
+            items: ['Ronde', 'Noire', 'Blanche', 'Croche'],
+            difficulty: 2,
+        },
+        {
+            category: 'Unit\u00E9s du syst\u00E8me imp\u00E9rial',
+            items: ['Ligne', 'Pouce', 'Pied', 'Cha\u00EEnon'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + am\u00E9ricain',
+            items: ['Football', 'Poing', 'R\u00EAve', 'Caf\u00E9'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_21_06_2024: PuzzleImport = {
     puzzle_name: '21 juin 2024',
     puzzle_difficulty: 4,
