@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_28_06_2024: PuzzleImport = {
+    puzzle_name: '28 juin 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Homophones',
+            items: ['Sans', 'Sent', 'Cent', 'Sang'],
+            difficulty: 1,
+        },
+        {
+            category: 'Jambe',
+            items: ['Canne', 'Patte', 'Compas', 'Guitare'],
+            difficulty: 2,
+        },
+        {
+            category: 'Parties d\'un couteau',
+            items: ['Dents', 'Pointe', 'Manche', 'Empreinte'],
+            difficulty: 3,
+        },
+        {
+            category: 'Coup de + _',
+            items: ['Poing', 'Foudre', 'Projecteur', 'Boule'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_24_06_2024: PuzzleImport = {
     puzzle_name: '24 juin 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Expiration pulmonaire',
