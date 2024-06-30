@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_01_07_2024: PuzzleImport = {
+    puzzle_name: '1er juillet 2024',
+    puzzle_difficulty: 2,
+    groups: [
+        {
+            category: 'Syst\u00E8me international d\'unit\u00E9s',
+            items: ['M\u00E8tre', 'Seconde', 'Mole', 'Candela'],
+            difficulty: 1,
+        },
+        {
+            category: 'Dans une trousse',
+            items: ['Crayon', 'R\u00E8gle', 'Fluo', 'Colle'],
+            difficulty: 2,
+        },
+        {
+            category: 'Nuances de bleu',
+            items: ['Ciel', 'Marine', 'Turquoise', 'Saphir'],
+            difficulty: 3,
+        },
+        {
+            category: 'Artistes de rock',
+            items: ['Prince', 'Muse', 'Oasis', 'Scorpions'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_28_06_2024: PuzzleImport = {
     puzzle_name: '28 juin 2024',
     puzzle_difficulty: 4,
