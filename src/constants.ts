@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_05_07_2024: PuzzleImport = {
+    puzzle_name: '5 juillet 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Cours au coll\u00E8ge',
+            items: ['Fran\u00E7ais', 'Histoire', 'Technologie', 'Musique'],
+            difficulty: 1,
+        },
+        {
+            category: 'Utilis\u00E9 en informatique',
+            items: ['Code', 'Programme', 'Application', 'Logiciel'],
+            difficulty: 2,
+        },
+        {
+            category: 'Pour attacher',
+            items: ['Cordon', 'Dragonne', 'Lani\u00E8re', 'Chaine'],
+            difficulty: 3,
+        },
+        {
+            category: 'Que l\'on peut presser',
+            items: ['Orange', 'Bouton', 'Pas', 'Touche'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_01_07_2024: PuzzleImport = {
     puzzle_name: '1er juillet 2024',
     puzzle_difficulty: 2,
