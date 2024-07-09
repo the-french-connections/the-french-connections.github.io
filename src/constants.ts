@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_08_07_2024: PuzzleImport = {
+    puzzle_name: '8 juillet 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Norme',
+            items: ['Loi', 'R\u00E8glement', 'Acte', 'Obligation'],
+            difficulty: 1,
+        },
+        {
+            category: 'Rubriques d\'un journal',
+            items: ['Soci\u00E9t\u00E9', 'Politique', 'M\u00E9t\u00E9o', 'Sport'],
+            difficulty: 2,
+        },
+        {
+            category: 'Races pour chat',
+            items: ['Persan', 'Safari', 'Siamois', 'Sphynx'],
+            difficulty: 3,
+        },
+        {
+            category: 'Commence par une note de musique',
+            items: ['Domicile', 'R\u00E9publique', 'Famille', 'Soldat'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_05_07_2024: PuzzleImport = {
     puzzle_name: '5 juillet 2024',
     puzzle_difficulty: 3,
