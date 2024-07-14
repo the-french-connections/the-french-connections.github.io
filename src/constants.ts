@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_15_07_2024: PuzzleImport = {
+    puzzle_name: '15 juillet 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Accueille une institution de l\'UE',
+            items: ['Strasbourg', 'Francfort', 'Bruxelles', 'Luxembourg'],
+            difficulty: 1,
+        },
+        {
+            category: 'Parcs Disneyland',
+            items: ['Anaheim', 'Hong-Kong', 'Shanghai', 'Tokyo'],
+            difficulty: 2,
+        },
+        {
+            category: 'Personnages de La Casa de Papel',
+            items: ['Berlin', 'Moscou', 'Denver', 'Helsinki'],
+            difficulty: 3,
+        },
+        {
+            category: 'Syndr\u00F4me de + _',
+            items: ['Paris', 'La Havane', 'Stokholm', 'Lima'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_12_07_2024: PuzzleImport = {
     puzzle_name: '12 juillet 2024',
     puzzle_difficulty: 3,
