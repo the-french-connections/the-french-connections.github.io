@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_19_07_2024: PuzzleImport = {
+    puzzle_name: '19 juillet 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'En terre du milieu',
+            items: ['Elfe', 'Homme', 'Nain', 'Orque'],
+            difficulty: 1,
+        },
+        {
+            category: 'Ais\u00E9',
+            items: ['Riche', 'Bourgeois', 'Nanti', 'Hupp\u00E9'],
+            difficulty: 2,
+        },
+        {
+            category: 'Pi\u00E8ces de th\u00E9\u00E2tre de Moli\u00E8re',
+            items: ['Avare', 'Tartuffe', 'Misanthrope', 'Amphitryon'],
+            difficulty: 3,
+        },
+        {
+            category: 'Corps + _',
+            items: ['Humain', 'Diplomatique', '\u00E9tranger', 'Noir'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_15_07_2024: PuzzleImport = {
     puzzle_name: '15 juillet 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 5,
     groups: [
         {
             category: 'Accueille une institution de l\'UE',
