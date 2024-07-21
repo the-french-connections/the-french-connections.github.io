@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_22_07_2024: PuzzleImport = {
+    puzzle_name: '22 juillet 2024',
+    puzzle_difficulty: 5,
+    groups: [
+        {
+            category: 'Capitales d\'Oc\u00E9anie',
+            items: ['Wellington', 'Suva', 'Apia', 'Canberra'],
+            difficulty: 1,
+        },
+        {
+            category: 'Villes \u00E0 plus de 2000 m\u00E8tres',
+            items: ['La Paz', 'Lhasa', 'Quito', 'Santa Fe'],
+            difficulty: 2,
+        },
+        {
+            category: 'Non-capitales ayant accueillies les JO',
+            items: ['Saint-Louis', 'Munich', 'Atlanta', 'Anvers'],
+            difficulty: 3,
+        },
+        {
+            category: 'Ayant un \u00E9l\u00E9ment du tableau p\u00E9riodique \u00E0 leurs noms',
+            items: ['Berkeley', 'Darmstadt', 'Doubna', 'Moscou'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_19_07_2024: PuzzleImport = {
     puzzle_name: '19 juillet 2024',
     puzzle_difficulty: 3,
@@ -49,7 +76,7 @@ export const gr_19_07_2024: PuzzleImport = {
 
 export const gr_15_07_2024: PuzzleImport = {
     puzzle_name: '15 juillet 2024',
-    puzzle_difficulty: 5,
+    puzzle_difficulty: 4,
     groups: [
         {
             category: 'Accueille une institution de l\'UE',
