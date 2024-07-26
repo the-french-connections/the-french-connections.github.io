@@ -20,6 +20,34 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_26_07_2024: PuzzleImport = {
+    puzzle_name: '26 juillet 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Argent en argot',
+            items: ['Bl\u00E9', 'Oseille', 'P\u00E8ze', 'Pognon'],
+            difficulty: 1,
+        },
+        {
+            category: 'Pour motiver',
+            items: ['Carotte', 'R\u00E9compense', 'Prime', 'Gratification'],
+            difficulty: 2,
+        },
+        {
+            category: 'Plante rhizomatique',
+            items: ['Lys', 'Bambou', 'Gingembre', 'Menthe'],
+            difficulty: 3,
+        },
+        {
+            category: 'Pour faire de l\'alcool',
+            items: ['Raisin', 'Pomme', 'Riz', 'Orge'],
+            difficulty: 4,
+        }
+    ]
+};
+
+
 export const gr_22_07_2024: PuzzleImport = {
     puzzle_name: '22 juillet 2024',
     puzzle_difficulty: 5,
