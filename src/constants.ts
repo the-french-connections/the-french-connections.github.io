@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_29_07_2024: PuzzleImport = {
+    puzzle_name: '29 juillet 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Sp\u00E9cial',
+            items: ['Unique', 'Rare', 'Exceptionnel', 'Singulier'],
+            difficulty: 1,
+        },
+        {
+            category: 'Mouvement circulaire',
+            items: ['R\u00E9volution', 'Cycle', 'Tour', 'Cercle'],
+            difficulty: 2,
+        },
+        {
+            category: 'Noms vernaculaires de poissons',
+            items: ['Bar', 'Raie', 'Hippocampe', 'Lieu'],
+            difficulty: 3,
+        },
+        {
+            category: 'Ce que \u00AB X \u00BB peut signifier',
+            items: ['Dix', 'Inconnue', 'Polytechnique', 'Pornographique'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_26_07_2024: PuzzleImport = {
     puzzle_name: '26 juillet 2024',
     puzzle_difficulty: 3,
