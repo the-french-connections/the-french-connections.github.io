@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_02_08_2024: PuzzleImport = {
+    puzzle_name: '2 ao\u00FBt 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: '\u00E9quipement d\'une nageur\u00B7se',
+            items: ['Bonnet', 'Maillot', 'Lunettes', 'Palmes'],
+            difficulty: 1,
+        },
+        {
+            category: 'Pluie',
+            items: ['Eau', 'Grain', 'Flotte', 'Abat'],
+            difficulty: 2,
+        },
+        {
+            category: 'Genres litt\u00E9raires',
+            items: ['Policier', 'M\u00E9moires', 'Anticipation', 'Historique'],
+            difficulty: 3,
+        },
+        {
+            category: '\u00E9tymologie provenant de l\'arabe',
+            items: ['Abricot', 'Assassin', 'Caf\u00E9', 'Sultan'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_29_07_2024: PuzzleImport = {
     puzzle_name: '29 juillet 2024',
     puzzle_difficulty: 3,
