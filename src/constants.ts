@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_05_08_2024: PuzzleImport = {
+    puzzle_name: '5 ao\u00FBt 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Vitesse relative',
+            items: ['Tempo', 'Rythme', 'Cadence', 'Mouvement'],
+            difficulty: 1,
+        },
+        {
+            category: 'Ce que peux signaler un panneau de circulation',
+            items: ['Animaux', 'Ralentisseur', 'Stop', 'Virage'],
+            difficulty: 2,
+        },
+        {
+            category: 'Sur une charpente de toiture',
+            items: ['Arbal\u00E9trier', 'Chevrons', 'Pannes', 'Ferme'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + sanitaire',
+            items: ['Pass', 'Cordon', 'Vide', 'Phyto'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_02_08_2024: PuzzleImport = {
     puzzle_name: '2 ao\u00FBt 2024',
     puzzle_difficulty: 4,
