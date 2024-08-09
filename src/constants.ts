@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_09_08_2024: PuzzleImport = {
+    puzzle_name: '9 ao\u00FBt 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Estimation',
+            items: ['Calcul', 'Jugement', 'Appr\u00E9ciation', '\u00E9valuation'],
+            difficulty: 1,
+        },
+        {
+            category: 'Mains au poker',
+            items: ['Paire', 'Couleur', 'Carr\u00E9', 'Suite'],
+            difficulty: 2,
+        },
+        {
+            category: 'Ce qu\'un angle peut \u00EAtre',
+            items: ['Droit', 'Plat', 'Aigu', 'Obtus'],
+            difficulty: 3,
+        },
+        {
+            category: 'Commence comme un lieu naturel',
+            items: ['D\u00E9sertion', 'Lacune', 'Champion', 'Plagiat'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_05_08_2024: PuzzleImport = {
     puzzle_name: '5 ao\u00FBt 2024',
     puzzle_difficulty: 4,
