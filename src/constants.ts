@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_12_08_2024: PuzzleImport = {
+    puzzle_name: '12 ao\u00FBt 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Symboles nationaux',
+            items: ['Drapeau', 'Hymne', 'Devise', 'Sceau'],
+            difficulty: 1,
+        },
+        {
+            category: 'Agissant de fa\u00E7on ind\u00E9licate',
+            items: ['Rustre', 'Mufle', 'Ours', 'Grossier'],
+            difficulty: 2,
+        },
+        {
+            category: 'Jeux avec des cartes',
+            items: ['Solitaire', 'Bataille', 'Tarot', 'Pr\u00E9sident'],
+            difficulty: 3,
+        },
+        {
+            category: 'Ayant un trou central',
+            items: ['Donut', 'CD', 'Anneau', 'Bou\u00E9e'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_09_08_2024: PuzzleImport = {
     puzzle_name: '9 ao\u00FBt 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Estimation',
