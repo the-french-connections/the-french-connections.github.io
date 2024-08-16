@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_16_08_2024: PuzzleImport = {
+    puzzle_name: '16 ao\u00FBt 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Anciens noms de pays',
+            items: ['Swaziland', 'Za\u00EFre', 'Birmanie', 'Ceylan'],
+            difficulty: 1,
+        },
+        {
+            category: 'Pays dont le nom est aussi celui de sa capitale',
+            items: ['Guatemala', 'Kowe\u00EFt', 'Panama', 'Luxembourg'],
+            difficulty: 2,
+        },
+        {
+            category: 'Drapeaux contenant l\'Union Jack',
+            items: ['Fidji', 'Royaume-Uni', 'Tuvalu', 'Australie'],
+            difficulty: 3,
+        },
+        {
+            category: 'Aliments et variétés d\'aliments',
+            items: ['Bulgarie', 'Chili', 'Canada', 'Cor\u00E9e'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_12_08_2024: PuzzleImport = {
     puzzle_name: '12 ao\u00FBt 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Symboles nationaux',
