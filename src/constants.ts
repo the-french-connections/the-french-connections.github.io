@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_23_08_2024: PuzzleImport = {
+    puzzle_name: '23 ao\u00FBt 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: '\u00E9l\u00E9ments de The French Connections',
+            items: ['M\u00E9langer', 'Valider', 'D\u00E9selectionner', 'Essais'],
+            difficulty: 1,
+        },
+        {
+            category: 'Fin',
+            items: ['Conclusion', '\u00E9pilogue', 'Issue', 'Terme'],
+            difficulty: 2,
+        },
+        {
+            category: 'Dans le film The French Connection',
+            items: ['Marseille', 'H\u00E9ro\u00EFne', 'Mafia', 'Course-poursuite'],
+            difficulty: 3,
+        },
+        {
+            category: 'Dernier + _',
+            items: ['Adieu', 'Mot', 'Soupir', 'Cri'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_16_08_2024: PuzzleImport = {
     puzzle_name: '16 ao\u00FBt 2024',
     puzzle_difficulty: 4,
@@ -1049,6 +1076,7 @@ export const gr_19_04_2024: PuzzleImport = {
     ]
 };
 
+/**
 export const gr_15_04_2024: PuzzleImport = {
     puzzle_name: '15 avril 2024',
     puzzle_difficulty: 5,
@@ -1075,6 +1103,7 @@ export const gr_15_04_2024: PuzzleImport = {
         },
     ]
 };
+ */
 
 export const gr_12_04_2024: PuzzleImport = {
     puzzle_name: '12 avril 2024',
