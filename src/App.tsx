@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState } from 'react';
 import useMethods from 'use-methods';
-import { gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
+import { gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -52,22 +52,24 @@ type Options = {
 };
 
 type State = {
-    difficulty: number,
-    groups: Group[];
-    complete: Group[];
-    incomplete: Group[];
+    difficulty: number,//Current puzzle's difficulty
+    groups: Group[];//List of current puzzle groups
+    complete: Group[];//All completed groups
+    incomplete: Group[];//All non-completed groups
     items: string[];
-    activeItems: string[];
-    mistakesRemaining: number;
-    oneAway: boolean,
-    guesses: string[][],
-    alreadyGuessed: boolean,
-    guessWasWrong: boolean,
-    isFinished: boolean,
-    emojiFromGuesses: string[],
-    current_name: string,
+    activeItems: string[];//Items currently selected
+    mistakesRemaining: number;//Number of mistakes remaining
+    oneAway: boolean,//Whether current guess is "One away" (3 out of 4 words in a category)
+    guesses: string[][],//History of all guesses
+    discoveredCategories: number[],//Store the order of discovered categories (only used to check if the guess is "perfect" (yellow -> purple), "reverse perfect" (purple -> yellow)...)
+    alreadyGuessed: boolean,//Whether current guess was already guessed
+    guessWasWrong: boolean,//Whether current guess was wrong
+    isFinished: boolean,//Whether the game ended
+    emojiFromGuesses: string[],//Store the value of guesses as emojis (colored circles)
+    current_name: string,//Current puzzle's name
 };
 
+// Assign a color for each level of difficulty
 const difficultyColor = (difficulty: 1 | 2 | 3 | 4): string => {
   return {
     1: '#fbd400',
@@ -104,6 +106,7 @@ const methods = (state: State) => {
             state.mistakesRemaining = 4;
             state.oneAway = false;
             state.guesses = [];
+            state.discoveredCategories = [];
             state.alreadyGuessed = false;
             state.guessWasWrong = false;
             state.isFinished = false;
@@ -164,6 +167,9 @@ const methods = (state: State) => {
                     state.incomplete = incomplete;
                     state.items = state.items.filter(item => !next_group.matchingItems.includes(item));//incomplete.flatMap((group) => group.items);
                     state.activeItems = [];
+                    state.discoveredCategories.push(next_group.group.difficulty);
+
+                    // Check if all categories were discovered. If yes, this is the end!
                     if (state.incomplete.length === 0) {
                         state.isFinished = true;
                         this.getEmojiFromGuesses();
@@ -232,6 +238,7 @@ const useGame = (options: Options, difficulty: number, current_name: string) => 
         mistakesRemaining: 4,
         oneAway: false,
         guesses: [],
+        discoveredCategories: [],
         alreadyGuessed: false,
         guessWasWrong: false,
         isFinished: false,
@@ -251,13 +258,13 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 8 || (currentMonth === 8 && currentDay >= 23); //TOCHANGE
+    const isNextPuzzle = currentMonth > 11 || (currentMonth === 11 && currentDay >= 4); //TOCHANGE
 
 
-    const current_puzzle = isNextPuzzle ? gr_23_08_2024 : gr_16_08_2024; //TOCHANGE
-    const ending_text = isNextPuzzle ? "The French Connections #42. Des puzzles bonus \u00E0 venir." : "The French Connections #41. Prochain puzzle le 23 aout."; //TOCHANGE
-    const all_groups_name = isNextPuzzle ? [gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
-        [gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
+    const current_puzzle = isNextPuzzle ? gr_04_11_2024 : gr_23_08_2024; //TOCHANGE
+    const ending_text = isNextPuzzle ? "The French Connections #43. Prochain puzzle le 11 novembre." : "The French Connections #42. Prochain puzzle le 4 novembre."; //TOCHANGE
+    const all_groups_name = isNextPuzzle ? [gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
+        [gr_23_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -294,7 +301,11 @@ export const App = () => {
                                     <MenuButton size={['sm', 'md', 'lg']} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
                                         {game.current_name}
                                     </MenuButton>
-                                    <MenuList fontSize={["xs", "s", "md"]}>
+                                    <MenuList
+                                        fontSize={["xs", "s", "md"]}
+                                        maxHeight="300px" // Set a max height
+                                        overflowY="auto"   // Enable vertical scrolling
+                                    >
                                         {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
                                             <MenuItem key={index} onClick={() => handleMenuItemClick(puzzleImport)}>
                                                 {puzzleImport.puzzle_name}
@@ -325,7 +336,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis et vendredis (et parfois les mercredis).</Text>
+                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis.</Text>
                                 <UnorderedList>
                                     <ListItem>S&eacute;lectionne 4 mots puis appuie sur le bouton "Valider" pour v&eacute;rifier si tu as raison.</ListItem>
                                     <ListItem>Trouve les groupes en faisant moins de 4 erreurs.</ListItem>
@@ -413,10 +424,12 @@ export const App = () => {
                         <ModalOverlay />
                         <ModalContent>
                             <ModalHeader fontWeight='bold' fontSize="2xl">
-                                {game.mistakesRemaining === 4 ? "R\u00E9sultats : Parfait !" :
-                                    game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
-                                        game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
-                                            game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "Résultats - Dommage..."}</ModalHeader>
+                                {game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([4, 3, 2, 1]) ? "R\u00E9sultats : Arc-en-ciel invers\u00E9 !!" :
+                                    game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([1,2,3,4]) ? "R\u00E9sultats : Arc-en-ciel !" :
+                                        game.mistakesRemaining === 4 ? "R\u00E9sultats - Parfait !" :
+                                            game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
+                                                game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
+                                                    game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "Résultats - Dommage..."}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                                 {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}

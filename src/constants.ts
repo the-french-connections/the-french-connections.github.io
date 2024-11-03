@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_04_11_2024: PuzzleImport = {
+    puzzle_name: '4 novembre 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Vu dans une chambre',
+            items: ['Lit', 'Poster', 'Armoire', 'Tapis'],
+            difficulty: 1,
+        },
+        {
+            category: 'Us\u00E9',
+            items: ['R\u00E2p\u00E9', 'Fatigu\u00E9', 'Fini', 'Vieux'],
+            difficulty: 2,
+        },
+        {
+            category: 'Figures en danse',
+            items: ['Pirouette', 'Man\u00E8ge', 'Fondu', 'Fouett\u00E9'],
+            difficulty: 3,
+        },
+        {
+            category: '\u00E9checs et mat',
+            items: ['Berger', '\u00E9touff\u00E9', 'Escalier', 'Couloir'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_23_08_2024: PuzzleImport = {
     puzzle_name: '23 ao\u00FBt 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: '\u00E9l\u00E9ments de The French Connections',

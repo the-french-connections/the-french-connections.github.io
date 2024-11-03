@@ -10,3 +10,8 @@ Clause de non-responsabilité : "The French Connections" est un produit indépen
 "The French Connections" is a french game based on the [NYT Connections game](https://www.nytimes.com/games/connections), which itself is highly inspired by the British TV game [Only Connect](https://kotaku.com/new-york-times-connections-only-connect-puzzle-wordle-1850553072).
 
 Disclaimer: "The French Connections" is an independent and free product and is not affiliated with, nor has it been authorised, sponsored or otherwise approved by The New York Times Company. We encourage you to play the NYT Connections daily game on The New York Times website.
+
+# How to run locally
+```
+npm run dev
+```
