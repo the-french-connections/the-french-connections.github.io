@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_11_11_2024: PuzzleImport = {
+    puzzle_name: '11 novembre 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Renomm\u00E9',
+            items: ['Populaire', 'C\u00E9l\u00E8bre', 'Connu', 'R\u00E9put\u00E9'],
+            difficulty: 1,
+        },
+        {
+            category: 'Sous-genres de la science-fiction',
+            items: ['Cyberpunk ', 'Uchronie', 'Anticipation', 'Mecha'],
+            difficulty: 2,
+        },
+        {
+            category: 'Style architectural',
+            items: ['Gothique', 'Roman', 'Baroque', 'Classique'],
+            difficulty: 3,
+        },
+        {
+            category: 'Effet + _',
+            items: ['Papillon', 'Domino', 'Rebond', 'Secondaire'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_04_11_2024: PuzzleImport = {
     puzzle_name: '4 novembre 2024',
     puzzle_difficulty: 4,
