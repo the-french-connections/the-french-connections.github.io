@@ -20,6 +20,33 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_18_11_2024: PuzzleImport = {
+    puzzle_name: '18 novembre 2024',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Réactions dans les applications de messagerie',
+            items: ['<p>&#128077;</p>', '<p>&#129505;</p>', '<p>&#128558;</p>', '<p>&#128549;</p>'],
+            difficulty: 1,
+        },
+        {
+            category: 'Emojis bleus',
+            items: ['<p>&#128153;</p> ', '<p>&#128216;</p>', '<p>&#128238;</p>', '<p>&#128086;</p>'],
+            difficulty: 2,
+        },
+        {
+            category: 'Symboles LGBTQIA+',
+            items: ['<p>&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</p>', '<p>&#x1F984;</p>', '<p>&#129416;</p>', '<p>&#x26A7;&#xFE0F;</p>'],
+            difficulty: 3,
+        },
+        {
+            category: 'On parle des phases de...',
+            items: ['<p>&#128164;</p>', '<p>&#127768;</p>', '<p>&#x1FAA6;</p>', '<p>&#x26A1;</p>'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_11_11_2024: PuzzleImport = {
     puzzle_name: '11 novembre 2024',
     puzzle_difficulty: 3,
