@@ -363,7 +363,15 @@ export const App = () => {
                         {game.complete.map((group: Group) => (
                             <Stack key={group.category} w={['344px', '438px', '528px', '624px']} h={["56px", "64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
                                 <Text fontSize={group.category.length > 45 ? ["xs", "xs", "sm", "md"] : group.category.length > 35 ? ["xs", "sm", "lg", "xl"] : ["sm", "md", "lg", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
-                                <Text fontSize={["sm", "md", "l", "xl"]} textTransform="uppercase">{group.items.join(', ')}</Text>
+                                <Text fontSize={["sm", "md", "l", "xl"]} textTransform="uppercase">
+                                    {containsHtmlTags(group.items[0]) ? (
+                                            group.items.map((item) => (
+                                                <span style={{ display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: item }} />
+                                            ))
+                                    ) : (
+                                       group.items.join(', ')
+                                    )}
+                                </Text>
                             </Stack>
                         ))}
                         {chunk(game.items, 4).map((row, index) => (
