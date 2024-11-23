@@ -20,9 +20,36 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+export const gr_25_11_2024: PuzzleImport = {
+    puzzle_name: '25 novembre 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Ecchymose',
+            items: ['Bleu', 'Ch\u00E2taigne', 'Coup', 'Beigne'],
+            difficulty: 1,
+        },
+        {
+            category: 'Bobards',
+            items: ['Salades', 'Pipeau', 'Craques', 'Canard'],
+            difficulty: 2,
+        },
+        {
+            category: 'Personnages du Cluedo',
+            items: ['Blanc', 'Moutarde', 'Violet', 'Olive'],
+            difficulty: 3,
+        },
+        {
+            category: 'Divinit\u00E9s primordiales grecques',
+            items: ['Chaos', '\u00E9ther', 'Tartare', 'Thalassa'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_18_11_2024: PuzzleImport = {
     puzzle_name: '18 novembre 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 5,
     groups: [
         {
             category: 'R\u00E9actions dans les applications de messagerie',
