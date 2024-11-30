@@ -20,9 +20,37 @@ import { PuzzleImport } from './App';
     · - or \u00B7
 */
 
+
+export const gr_02_12_2024: PuzzleImport = {
+    puzzle_name: '2 d\u00E9cembre 2024',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Monnaies',
+            items: ['Yen', 'Lei', 'Won', 'Sol'],
+            difficulty: 1,
+        },
+        {
+            category: 'Genre musical',
+            items: ['Rap', 'Ska', 'RNB', 'EMO'],
+            difficulty: 2,
+        },
+        {
+            category: 'Abbr\u00E9viations anglaises',
+            items: ['WTF', 'IDK', 'LOL', 'AKA'],
+            difficulty: 3,
+        },
+        {
+            category: 'Formats de fichiers',
+            items: ['PDF', 'PNG', 'DOC', 'ZIP'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_25_11_2024: PuzzleImport = {
     puzzle_name: '25 novembre 2024',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Ecchymose',
