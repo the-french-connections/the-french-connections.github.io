@@ -26,13 +26,13 @@ export const gr_02_12_2024: PuzzleImport = {
     puzzle_difficulty: 4,
     groups: [
         {
-            category: 'Monnaies',
-            items: ['Yen', 'Lei', 'Won', 'Sol'],
+            category: 'Genre musical',
+            items: ['Rap', 'Ska', 'RNB', 'EMO'],
             difficulty: 1,
         },
         {
-            category: 'Genre musical',
-            items: ['Rap', 'Ska', 'RNB', 'EMO'],
+            category: 'Formats de fichiers',
+            items: ['PDF', 'PNG', 'DOC', 'ZIP'],
             difficulty: 2,
         },
         {
@@ -41,8 +41,8 @@ export const gr_02_12_2024: PuzzleImport = {
             difficulty: 3,
         },
         {
-            category: 'Formats de fichiers',
-            items: ['PDF', 'PNG', 'DOC', 'ZIP'],
+            category: 'Monnaies',
+            items: ['Yen', 'Lei', 'Won', 'Sol'],
             difficulty: 4,
         }
     ]
