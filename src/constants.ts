@@ -21,8 +21,35 @@ import { PuzzleImport } from './App';
 */
 
 
+export const gr_09_12_2024: PuzzleImport = {
+    puzzle_name: '9 d\u00E9cembre 2024 - Voyager',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Disparition momentan\u00E9e',
+            items: ['\u00E9clipse', 'Absence', 'Manque', 'D\u00E9faillance'],
+            difficulty: 1,
+        },
+        {
+            category: '\u00E9clair\u00E9',
+            items: ['Clair', 'Solaire', 'Net', 'Lumineux'],
+            difficulty: 2,
+        },
+        {
+            category: 'Insectes',
+            items: ['Atlas', 'Gendarme', 'Capricorne', 'Puce'],
+            difficulty: 3,
+        },
+        {
+            category: 'Calendriers',
+            items: ['R\u00E9publicain', 'Lunaire', 'Julien', 'Gr\u00E9gorien'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_02_12_2024: PuzzleImport = {
-    puzzle_name: '2 d\u00E9cembre 2024',
+    puzzle_name: '2 d\u00E9cembre 2024 - Fracture  g\u00E9n\u00E9rationnelle',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -76,7 +103,7 @@ export const gr_25_11_2024: PuzzleImport = {
 };
 
 export const gr_18_11_2024: PuzzleImport = {
-    puzzle_name: '18 novembre 2024',
+    puzzle_name: '18 novembre 2024 - Je croise les doigts',
     puzzle_difficulty: 5,
     groups: [
         {
@@ -103,7 +130,7 @@ export const gr_18_11_2024: PuzzleImport = {
 };
 
 export const gr_11_11_2024: PuzzleImport = {
-    puzzle_name: '11 novembre 2024',
+    puzzle_name: '11 novembre 2024 - DK',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -157,7 +184,7 @@ export const gr_04_11_2024: PuzzleImport = {
 };
 
 export const gr_23_08_2024: PuzzleImport = {
-    puzzle_name: '23 ao\u00FBt 2024',
+    puzzle_name: '23 ao\u00FBt 2024 - 42',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -374,7 +401,7 @@ export const gr_26_07_2024: PuzzleImport = {
 
 
 export const gr_22_07_2024: PuzzleImport = {
-    puzzle_name: '22 juillet 2024',
+    puzzle_name: '22 juillet 2024 - Not a nerd',
     puzzle_difficulty: 5,
     groups: [
         {
@@ -563,7 +590,7 @@ export const gr_01_07_2024: PuzzleImport = {
 };
 
 export const gr_28_06_2024: PuzzleImport = {
-    puzzle_name: '28 juin 2024',
+    puzzle_name: '28 juin 2024 - Bravo les lesbiennes',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -644,7 +671,7 @@ export const gr_21_06_2024: PuzzleImport = {
 };
 
 export const gr_19_06_2024: PuzzleImport = {
-    puzzle_name: '19 juin 2024',
+    puzzle_name: '19 juin 2024 - Connexionnisme',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -833,7 +860,7 @@ export const gr_31_05_2024: PuzzleImport = {
 };
 
 export const gr_27_05_2024: PuzzleImport = {
-    puzzle_name: '27 mai 2024',
+    puzzle_name: '27 mai 2024 - Money money money',
     puzzle_difficulty: 2,
     groups: [
         {
@@ -860,7 +887,7 @@ export const gr_27_05_2024: PuzzleImport = {
 };
 
 export const gr_20_05_2024: PuzzleImport = {
-    puzzle_name: '20 mai 2024',
+    puzzle_name: '20 mai 2024 - Plus \u00E9loign\u00E9 que l\'univers',
     puzzle_difficulty: 1,
     groups: [
         {
@@ -888,7 +915,7 @@ export const gr_20_05_2024: PuzzleImport = {
 
 
 export const gr_17_05_2024: PuzzleImport = {
-    puzzle_name: '17 mai 2024',
+    puzzle_name: '17 mai 2024 - Gigantomachie',
     puzzle_difficulty: 5,
     groups: [
         {
@@ -942,7 +969,7 @@ export const gr_13_05_2024: PuzzleImport = {
 };
 
 export const gr_10_05_2024: PuzzleImport = {
-    puzzle_name: '10 mai 2024',
+    puzzle_name: '10 mai 2024 - Rebondissante',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -969,7 +996,7 @@ export const gr_10_05_2024: PuzzleImport = {
 };
 
 export const gr_08_05_2024: PuzzleImport = {
-    puzzle_name: '8 mai 2024',
+    puzzle_name: '8 mai 2024 - Bataille navale',
     puzzle_difficulty: 5,
     groups: [
         {
@@ -1023,7 +1050,7 @@ export const gr_06_05_2024: PuzzleImport = {
 };
 
 export const gr_03_05_2024: PuzzleImport = {
-    puzzle_name: '3 mai 2024',
+    puzzle_name: '3 mai 2024 - Shakespeare',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -1050,7 +1077,7 @@ export const gr_03_05_2024: PuzzleImport = {
 };
 
 export const gr_01_05_2024: PuzzleImport = {
-    puzzle_name: '1er mai 2024',
+    puzzle_name: '1er mai 2024 - Fun',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -1104,7 +1131,7 @@ export const gr_29_04_2024: PuzzleImport = {
 };
 
 export const gr_26_04_2024: PuzzleImport = {
-    puzzle_name: '26 avril 2024',
+    puzzle_name: '26 avril 2024 - Anti-syst\u00E8me',
     puzzle_difficulty: 2,
     groups: [
         {
@@ -1132,7 +1159,7 @@ export const gr_26_04_2024: PuzzleImport = {
 
 
 export const gr_24_04_2024: PuzzleImport = {
-    puzzle_name: '24 avril 2024',
+    puzzle_name: '24 avril 2024 - Une part de tarte',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -1186,7 +1213,7 @@ export const gr_22_04_2024: PuzzleImport = {
 };
 
 export const gr_19_04_2024: PuzzleImport = {
-    puzzle_name: '19 avril 2024',
+    puzzle_name: '19 avril 2024 - Bergerac',
     puzzle_difficulty: 2,
     groups: [
         {
@@ -1214,7 +1241,7 @@ export const gr_19_04_2024: PuzzleImport = {
 
 /**
 export const gr_15_04_2024: PuzzleImport = {
-    puzzle_name: '15 avril 2024',
+    puzzle_name: '15 avril 2024 - Supprim\u00E9',
     puzzle_difficulty: 5,
     groups: [
         {
@@ -1242,7 +1269,7 @@ export const gr_15_04_2024: PuzzleImport = {
  */
 
 export const gr_12_04_2024: PuzzleImport = {
-    puzzle_name: '12 avril 2024',
+    puzzle_name: '12 avril 2024 - Premi\u00E8re',
     puzzle_difficulty: 2,
     groups: [
         {
@@ -1269,7 +1296,7 @@ export const gr_12_04_2024: PuzzleImport = {
 };
 
 export const gr_08_04_2024: PuzzleImport = {
-    puzzle_name: '8 avril 2024',
+    puzzle_name: '8 avril 2024 - Biodiversit\u00E9',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -1296,7 +1323,7 @@ export const gr_08_04_2024: PuzzleImport = {
 };
 
 export const gr_01_04_2024: PuzzleImport = {
-    puzzle_name: '1er avril 2024',
+    puzzle_name: '1er avril 2024 - Ceci n\'est pas une blague',
     puzzle_difficulty: 3,
     groups: [
         {
