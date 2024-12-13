@@ -18,8 +18,36 @@ import { PuzzleImport } from './App';
     « - &laquo; or \u00AB
     » - &raquo; or \u00BB
     · - or \u00B7
+    ù - &ugrave; \u00F9
 */
 
+
+export const gr_16_12_2024: PuzzleImport = {
+    puzzle_name: '16 d\u00E9cembre 2024 - Autres',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Objectifs',
+            items: ['Mires', 'Buts', 'Cibles', 'Caps'],
+            difficulty: 1,
+        },
+        {
+            category: 'Endroits ferm\u00E9s o\u00F9 se passent des courses',
+            items: ['Lices', 'Champs', 'Ar\u00E8nes', 'Enceintes'],
+            difficulty: 2,
+        },
+        {
+            category: 'Tribus indig\u00E8nes am\u00E9ricaines',
+            items: ['Inuits', 'Mohicans', 'Neutres', '\u00E9ri\u00E9s'],
+            difficulty: 3,
+        },
+        {
+            category: 'Faux + _',
+            items: ['Jumeaux', 'D\u00E9parts', 'Amis', 'Contacts'],
+            difficulty: 4,
+        }
+    ]
+};
 
 export const gr_09_12_2024: PuzzleImport = {
     puzzle_name: '9 d\u00E9cembre 2024 - Voyager',
