@@ -22,9 +22,37 @@ import { PuzzleImport } from './App';
 */
 
 
+export const gr_25_12_2024: PuzzleImport = {
+    puzzle_name: '25 d\u00E9cembre 2024 - Joyeux No\u00EBl',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Homophones',
+            items: ['Os', 'Eau', 'Oh', 'Haut'],
+            difficulty: 1,
+        },
+        {
+            category: 'Cercueil',
+            items: ['Sapin', 'Caisse', 'Boite', 'Bi\u00E8re'],
+            difficulty: 2,
+        },
+        {
+            category: 'Sept nains',
+            items: ['Joyeux', 'Atchoum', 'Dormeur', 'Timide'],
+            difficulty: 3,
+        },
+        {
+            category: 'P\u00E8re + _',
+            items: ['No\u00E8l', 'Adoptif', 'Lustucru', 'Grand'],
+            difficulty: 4,
+        }
+    ]
+};
+
+
 export const gr_16_12_2024: PuzzleImport = {
     puzzle_name: '16 d\u00E9cembre 2024 - Autres',
-    puzzle_difficulty: 3,
+    puzzle_difficulty: 4,
     groups: [
         {
             category: 'Objectifs',
