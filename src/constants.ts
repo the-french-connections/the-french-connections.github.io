@@ -22,6 +22,33 @@ import { PuzzleImport } from './App';
 */
 
 
+export const gr_06_01_2025: PuzzleImport = {
+    puzzle_name: '6 janvier 2025 - Labyrinthe',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Traitre d\u00E9lateur',
+            items: ['Mouton', 'Indicateur', 'Espion', 'Taupe'],
+            difficulty: 1,
+        },
+        {
+            category: 'Acteurs d\'un proc\u00E8s civil',
+            items: ['D\u00E9fenseur', 'Demandeur', 'Avocat', 'Magistrat'],
+            difficulty: 2,
+        },
+        {
+            category: 'Schtroumpfs',
+            items: ['Bricoleur', 'Po\u00E8te', 'Farceur', 'Paresseux'],
+            difficulty: 3,
+        },
+        {
+            category: 'Personnages du magicien d\'Oz',
+            items: ['\u00E9pouvantail', 'Lion', 'Magicien', 'Robot'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_25_12_2024: PuzzleImport = {
     puzzle_name: '25 d\u00E9cembre 2024 - Joyeux No\u00EBl',
     puzzle_difficulty: 3,
