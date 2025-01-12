@@ -21,6 +21,32 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_13_01_2025: PuzzleImport = {
+    puzzle_name: '13 janvier 2025 - Violet is a joke',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Conjonctions de coordination',
+            items: ['Ou', 'Et', 'Or', 'Ni'],
+            difficulty: 1,
+        },
+        {
+            category: 'Utiles au Scrabble',
+            items: ['Wu', 'Ay', 'Ex', 'Xi'],
+            difficulty: 2,
+        },
+        {
+            category: 'Symboles chimiques de gaz nobles',
+            items: ['He', 'Ne', 'Ar', 'Rn'],
+            difficulty: 3,
+        },
+        {
+            category: 'Code ISO 3166-1 de pays dont la capitale a une latitude entre +6 et +7',
+            items: ['LR', 'FM', 'GY', 'LK'],
+            difficulty: 4,
+        }
+    ]
+};
 
 export const gr_06_01_2025: PuzzleImport = {
     puzzle_name: '6 janvier 2025 - Labyrinthe',
@@ -835,7 +861,7 @@ export const gr_14_06_2024: PuzzleImport = {
 };
 
 export const gr_10_06_2024: PuzzleImport = {
-    puzzle_name: '10 juin 2024',
+    puzzle_name: '10 juin 2024 - Faille',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -889,7 +915,7 @@ export const gr_07_06_2024: PuzzleImport = {
 };
 
 export const gr_03_06_2024: PuzzleImport = {
-    puzzle_name: '3 juin 2024',
+    puzzle_name: '3 juin 2024 - Caeruleus',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -1025,7 +1051,7 @@ export const gr_17_05_2024: PuzzleImport = {
 };
 
 export const gr_13_05_2024: PuzzleImport = {
-    puzzle_name: '13 mai 2024',
+    puzzle_name: '13 mai 2024 - Nobelis\u00E9e',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -1106,7 +1132,7 @@ export const gr_08_05_2024: PuzzleImport = {
 };
 
 export const gr_06_05_2024: PuzzleImport = {
-    puzzle_name: '6 mai 2024',
+    puzzle_name: '6 mai 2024 - Festivals',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -1187,7 +1213,7 @@ export const gr_01_05_2024: PuzzleImport = {
 };
 
 export const gr_29_04_2024: PuzzleImport = {
-    puzzle_name: '29 avril 2024',
+    puzzle_name: '29 avril 2024 - 2020',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -1269,7 +1295,7 @@ export const gr_24_04_2024: PuzzleImport = {
 };
 
 export const gr_22_04_2024: PuzzleImport = {
-    puzzle_name: '22 avril 2024',
+    puzzle_name: '22 avril 2024 - Chat bott\u00E9',
     puzzle_difficulty: 3,
     groups: [
         {
