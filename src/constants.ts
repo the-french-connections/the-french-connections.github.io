@@ -21,9 +21,36 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_20_01_2025: PuzzleImport = {
+    puzzle_name: '20 janvier 2025 - Quoi de neuf docteur ?',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Dossier d\'une boite mail',
+            items: ['Envoy\u00E9', 'Brouillons', 'Spam', 'Corbeille'],
+            difficulty: 1,
+        },
+        {
+            category: 'Prison',
+            items: ['Placard', 'Boite', 'Cage', 'Cellule'],
+            difficulty: 2,
+        },
+        {
+            category: 'TItres \u00E0 la Bourse',
+            items: ['Action', 'Obligation', 'Option', 'Part'],
+            difficulty: 3,
+        },
+        {
+            category: 'Postes au basket',
+            items: ['Meneur', 'Arri\u00E8re', 'Ailier', 'Pivot'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_13_01_2025: PuzzleImport = {
     puzzle_name: '13 janvier 2025 - Violet is a joke',
-    puzzle_difficulty: 3,
+    puzzle_difficulty: 5,
     groups: [
         {
             category: 'Conjonctions de coordination',
