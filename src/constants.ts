@@ -22,7 +22,7 @@ import { PuzzleImport } from './App';
 */
 
 export const gr_27_01_2025: PuzzleImport = {
-    puzzle_name: '27 janvier 2025 - Quoi de neuf docteur ?',
+    puzzle_name: '27 janvier 2025 - Dissonance cognitive',
     puzzle_difficulty: 4,
     groups: [
         {
