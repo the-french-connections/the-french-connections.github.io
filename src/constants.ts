@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_27_01_2025: PuzzleImport = {
+    puzzle_name: '27 janvier 2025 - Quoi de neuf docteur ?',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Partie extr\u00EAme d\'une chose',
+            items: ['Bout', 'Queue', 'Fin', 'Extr\u00E9mit\u00E9'],
+            difficulty: 1,
+        },
+        {
+            category: 'Marques de Supermarch\u00E9',
+            items: ['G\u00E9ant', 'Casino', 'Carrefour', 'Champion'],
+            difficulty: 2,
+        },
+        {
+            category: 'Satellites naturels du syst\u00E8me solaire',
+            items: ['Europe', 'Titan', 'Lune', 'Triton'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + droit',
+            items: ['Angle', 'Coup', 'Piano', 'Pied'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_20_01_2025: PuzzleImport = {
     puzzle_name: '20 janvier 2025 - Quoi de neuf docteur ?',
     puzzle_difficulty: 3,
