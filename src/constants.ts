@@ -21,9 +21,36 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_03_02_2025: PuzzleImport = {
+    puzzle_name: '3 f\u00E9vrier 2025 - Dague',
+    puzzle_difficulty: 2,
+    groups: [
+        {
+            category: 'Signes du zodiaque',
+            items: ['B\u00E9lier', 'Cancer', 'Vierge', 'Balance'],
+            difficulty: 1,
+        },
+        {
+            category: 'Nuit au bien-\u00EAtre',
+            items: ['Toxique', 'M\u00E9phitique', 'Poison', 'Mauvais'],
+            difficulty: 2,
+        },
+        {
+            category: 'Contenance des bouteilles de vins',
+            items: ['Bouteille', 'Demie', 'Magnum', 'Mathusalem'],
+            difficulty: 3,
+        },
+        {
+            category: 'Commence par une partie du visage',
+            items: ['Boucherie', 'Oreillette', 'Frontalier', 'Jouet'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_27_01_2025: PuzzleImport = {
     puzzle_name: '27 janvier 2025 - Dissonance cognitive',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'Partie extr\u00EAme d\'une chose',
