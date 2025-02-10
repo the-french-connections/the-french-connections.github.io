@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_10_02_2025: PuzzleImport = {
+    puzzle_name: '10 f\u00E9vrier 2025 - R\u00E9gime \u00E9pist\u00E9mologique',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'R\u00E9uni\u00B7e',
+            items: ['Marie', 'Uni', 'Assemble', 'Joint'],
+            difficulty: 1,
+        },
+        {
+            category: 'Tissus',
+            items: ['Jean', 'Jute', 'Soie', 'Kevlar'],
+            difficulty: 2,
+        },
+        {
+            category: 'On peut en faire don',
+            items: ['Sang', 'Gam\u00E8tes', 'Argent', 'Organe'],
+            difficulty: 3,
+        },
+        {
+            category: 'Dans le titre des films James Bond avec Daniel Craig',
+            items: ['Casino', 'Spectre', 'Quantum', 'Mourir'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_03_02_2025: PuzzleImport = {
     puzzle_name: '3 f\u00E9vrier 2025 - Dague',
     puzzle_difficulty: 2,
