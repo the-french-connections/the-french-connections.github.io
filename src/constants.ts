@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_17_02_2025: PuzzleImport = {
+    puzzle_name: '17 f\u00E9vrier 2025 - Lecteur Omniscient',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Divinit\u00E9s de la mythologie nordique',
+            items: ['Odin', 'Thor', 'Loki', 'Heimdall'],
+            difficulty: 1,
+        },
+        {
+            category: 'Divinit\u00E9s du soleil',
+            items: ['Apollon', 'Surya', 'S\u00F3l', 'R\u00EA'],
+            difficulty: 2,
+        },
+        {
+            category: 'Divinit\u00E9s avec une t\u00EAte d\'animal',
+            items: ['Anubis', 'Bastet', 'Ganesh', 'Quetzalc\u00F3atl'],
+            difficulty: 3,
+        },
+        {
+            category: 'Imposteur\u00B7ices (ne sont pas des divinit\u00E9s)',
+            items: ['Sun Wu Kong', 'Uriel', 'Briareus', 'Yi Sun-sin'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_10_02_2025: PuzzleImport = {
     puzzle_name: '10 f\u00E9vrier 2025 - R\u00E9gime \u00E9pist\u00E9mologique',
     puzzle_difficulty: 4,
