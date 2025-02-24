@@ -21,8 +21,35 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_24_02_2025: PuzzleImport = {
+    puzzle_name: '24 f\u00E9vrier 2025 - Exercices de style',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Virtuose',
+            items: ['As', 'Champion', 'Crack', '\u00E9toile'],
+            difficulty: 1,
+        },
+        {
+            category: 'Objet transparent',
+            items: ['Verre', 'Film', 'Vitre', 'Plexiglas'],
+            difficulty: 2,
+        },
+        {
+            category: 'Associ\u00E9 au matin',
+            items: ['Ros\u00E9e', 'Aube', 'Coq', 'R\u00E9veil'],
+            difficulty: 3,
+        },
+        {
+            category: 'Forme des g\u00E2teaux (Dalgona) de Squid Game',
+            items: ['Carr\u00E9', 'Triangle', 'Cercle', 'Parapluie'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_17_02_2025: PuzzleImport = {
-    puzzle_name: '17 f\u00E9vrier 2025 - Lecteur Omniscient',
+    puzzle_name: '17 f\u00E9vrier 2025 - Le Lecteur Omniscient',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -320,7 +347,7 @@ export const gr_02_12_2024: PuzzleImport = {
 };
 
 export const gr_25_11_2024: PuzzleImport = {
-    puzzle_name: '25 novembre 2024',
+    puzzle_name: '25 novembre 2024 - Carte',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -347,7 +374,7 @@ export const gr_25_11_2024: PuzzleImport = {
 };
 
 export const gr_18_11_2024: PuzzleImport = {
-    puzzle_name: '18 novembre 2024 - Je croise les doigts',
+    puzzle_name: '18 novembre 2024 - Croise les doigts',
     puzzle_difficulty: 5,
     groups: [
         {
@@ -401,7 +428,7 @@ export const gr_11_11_2024: PuzzleImport = {
 };
 
 export const gr_04_11_2024: PuzzleImport = {
-    puzzle_name: '4 novembre 2024',
+    puzzle_name: '4 novembre 2024 - Dingue renne',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -455,7 +482,7 @@ export const gr_23_08_2024: PuzzleImport = {
 };
 
 export const gr_16_08_2024: PuzzleImport = {
-    puzzle_name: '16 ao\u00FBt 2024',
+    puzzle_name: '16 ao\u00FBt 2024 - Encore',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -482,7 +509,7 @@ export const gr_16_08_2024: PuzzleImport = {
 };
 
 export const gr_12_08_2024: PuzzleImport = {
-    puzzle_name: '12 ao\u00FBt 2024',
+    puzzle_name: '12 ao\u00FBt 2024 - Toponymie',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -509,7 +536,7 @@ export const gr_12_08_2024: PuzzleImport = {
 };
 
 export const gr_09_08_2024: PuzzleImport = {
-    puzzle_name: '9 ao\u00FBt 2024',
+    puzzle_name: '9 ao\u00FBt 2024 - Jimbo',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -536,7 +563,7 @@ export const gr_09_08_2024: PuzzleImport = {
 };
 
 export const gr_05_08_2024: PuzzleImport = {
-    puzzle_name: '5 ao\u00FBt 2024',
+    puzzle_name: '5 ao\u00FBt 2024 - Double',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -563,7 +590,7 @@ export const gr_05_08_2024: PuzzleImport = {
 };
 
 export const gr_02_08_2024: PuzzleImport = {
-    puzzle_name: '2 ao\u00FBt 2024',
+    puzzle_name: '2 ao\u00FBt 2024 - Pi\u00E8ce',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -590,7 +617,7 @@ export const gr_02_08_2024: PuzzleImport = {
 };
 
 export const gr_29_07_2024: PuzzleImport = {
-    puzzle_name: '29 juillet 2024',
+    puzzle_name: '29 juillet 2024 - Bannissement',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -617,7 +644,7 @@ export const gr_29_07_2024: PuzzleImport = {
 };
 
 export const gr_26_07_2024: PuzzleImport = {
-    puzzle_name: '26 juillet 2024',
+    puzzle_name: '26 juillet 2024 - Corea',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -672,7 +699,7 @@ export const gr_22_07_2024: PuzzleImport = {
 };
 
 export const gr_19_07_2024: PuzzleImport = {
-    puzzle_name: '19 juillet 2024',
+    puzzle_name: '19 juillet 2024 - Liant',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -699,7 +726,7 @@ export const gr_19_07_2024: PuzzleImport = {
 };
 
 export const gr_15_07_2024: PuzzleImport = {
-    puzzle_name: '15 juillet 2024',
+    puzzle_name: '15 juillet 2024 - Tour du monde',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -726,7 +753,7 @@ export const gr_15_07_2024: PuzzleImport = {
 };
 
 export const gr_12_07_2024: PuzzleImport = {
-    puzzle_name: '12 juillet 2024',
+    puzzle_name: '12 juillet 2024 - If',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -753,7 +780,7 @@ export const gr_12_07_2024: PuzzleImport = {
 };
 
 export const gr_08_07_2024: PuzzleImport = {
-    puzzle_name: '8 juillet 2024',
+    puzzle_name: '8 juillet 2024 - Multiniveaux',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -780,7 +807,7 @@ export const gr_08_07_2024: PuzzleImport = {
 };
 
 export const gr_05_07_2024: PuzzleImport = {
-    puzzle_name: '5 juillet 2024',
+    puzzle_name: '5 juillet 2024 - Dracarys',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -807,7 +834,7 @@ export const gr_05_07_2024: PuzzleImport = {
 };
 
 export const gr_01_07_2024: PuzzleImport = {
-    puzzle_name: '1er juillet 2024',
+    puzzle_name: '1er juillet 2024 - Incandescent',
     puzzle_difficulty: 2,
     groups: [
         {
@@ -861,7 +888,7 @@ export const gr_28_06_2024: PuzzleImport = {
 };
 
 export const gr_24_06_2024: PuzzleImport = {
-    puzzle_name: '24 juin 2024',
+    puzzle_name: '24 juin 2024 - Solstice',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -888,7 +915,7 @@ export const gr_24_06_2024: PuzzleImport = {
 };
 
 export const gr_21_06_2024: PuzzleImport = {
-    puzzle_name: '21 juin 2024',
+    puzzle_name: '21 juin 2024 - Passer la seconde',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -942,7 +969,7 @@ export const gr_19_06_2024: PuzzleImport = {
 };
 
 export const gr_17_06_2024: PuzzleImport = {
-    puzzle_name: '17 juin 2024',
+    puzzle_name: '17 juin 2024 - Alfredo',
     puzzle_difficulty: 3,
     groups: [
         {
@@ -969,7 +996,7 @@ export const gr_17_06_2024: PuzzleImport = {
 };
 
 export const gr_14_06_2024: PuzzleImport = {
-    puzzle_name: '14 juin 2024',
+    puzzle_name: '14 juin 2024 - Moshi moshi',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -1023,7 +1050,7 @@ export const gr_10_06_2024: PuzzleImport = {
 };
 
 export const gr_07_06_2024: PuzzleImport = {
-    puzzle_name: '7 juin 2024',
+    puzzle_name: '7 juin 2024 - Autoroute',
     puzzle_difficulty: 4,
     groups: [
         {
@@ -1077,7 +1104,7 @@ export const gr_03_06_2024: PuzzleImport = {
 };
 
 export const gr_31_05_2024: PuzzleImport = {
-    puzzle_name: '31 mai 2024',
+    puzzle_name: '31 mai 2024 - Abreuvoir',
     puzzle_difficulty: 3,
     groups: [
         {
