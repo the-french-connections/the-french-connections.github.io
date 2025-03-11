@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_10_03_2025: PuzzleImport = {
+    puzzle_name: '10 mars 2025 - Exercices de style',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Dans les mondes l\'imaginaire',
+            items: ['Magie', 'Extra-terrestre', 'Monstre', 'F\u00E9e'],
+            difficulty: 1,
+        },
+        {
+            category: 'Soldat',
+            items: ['Guerrier', 'Fantassin', 'Soudard', 'Bleu'],
+            difficulty: 2,
+        },
+        {
+            category: 'S\u00E9ries d\'animation',
+            items: ['Avatar', 'Arcane', 'Simpsons', 'Berserk'],
+            difficulty: 3,
+        },
+        {
+            category: 'Jour + _',
+            items: ['F\u00E9ri\u00E9', 'J', 'Ouvrable', 'Sans'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_24_02_2025: PuzzleImport = {
     puzzle_name: '24 f\u00E9vrier 2025 - Exercices de style',
     puzzle_difficulty: 4,
