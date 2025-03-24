@@ -21,8 +21,35 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_24_03_2025: PuzzleImport = {
+    puzzle_name: '24 mars 2025 - Maccarthysme',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Qui ne fluctue pas',
+            items: ['Stable', 'Durable', 'Constant', 'Fixe'],
+            difficulty: 1,
+        },
+        {
+            category: 'N\'est pas \u00E0 gauche de ma boussole',
+            items: ['Droite', 'Tribord', 'Est', 'Levant'],
+            difficulty: 2,
+        },
+        {
+            category: 'Enco\u00FBture',
+            items: ['Point', 'Cha\u00EEne', 'Fil', 'Revers'],
+            difficulty: 3,
+        },
+        {
+            category: 'Martine \u00E0 la + _',
+            items: ['Ferme', 'Montagne', 'Mer', 'Maison'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_10_03_2025: PuzzleImport = {
-    puzzle_name: '10 mars 2025 - Exercices de style',
+    puzzle_name: '10 mars 2025 - Feu aux poudres',
     puzzle_difficulty: 3,
     groups: [
         {
