@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_01_04_2025: PuzzleImport = {
+    puzzle_name: '1er avril 2025 - ...',
+    puzzle_difficulty: 5,
+    groups: [
+        {
+            category: 'Noms de tableaux',
+            items: ['Bal du\nmoulin de la\nGalette', 'Le Baiser', 'Impression,\nSoleil Levant', 'Le radeau de\nla m\u00E9duse'],
+            difficulty: 1,
+        },
+        {
+            category: 'N\'arrive qu\'une fois par an',
+            items: ['Anniversaire', 'Le 24 mai', 'Championnat\ndu monde de\nfl\u00E9chettes', 'Cerisiers en\nfleurs'],
+            difficulty: 2,
+        },
+        {
+            category: 'Figures de style',
+            items: ['Copains\ncomme\ncochons', 'Bizarre,\nbizarre...', 'Va, cours,\nvole,', 'v\u00E9nale et\nvirulente\nvermine'],
+            difficulty: 3,
+        },
+        {
+            category: 'Blagues vraiment pas dr\u00F4le',
+            items: ['Un poisson d\'Avril', 'Ce puzzle', 'Qu\'est-ce qui\nest jaune et\nqui attends', '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Clique ici !</a>'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_24_03_2025: PuzzleImport = {
     puzzle_name: '24 mars 2025 - Maccarthysme',
     puzzle_difficulty: 4,
