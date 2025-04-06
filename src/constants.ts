@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_07_04_2025: PuzzleImport = {
+    puzzle_name: '7 avril 2025 - Lance l\'eau',
+    puzzle_difficulty: 5,
+    groups: [
+        {
+            category: 'Association de plusieurs \u00E9l\u00E9ments',
+            items: ['M\u00E9lange', 'Mac\u00E9doine', 'Mosa\u00EFque', 'Cocktail'],
+            difficulty: 1,
+        },
+        {
+            category: 'Ustensiles de Cuisine',
+            items: ['Fouet', 'Batteur', 'Louche', 'Balance'],
+            difficulty: 2,
+        },
+        {
+            category: 'Jeux de soci\u00E9t\u00E9',
+            items: ['Carcassonne', 'Dixit', 'Loups-Garous', 'Citadelles'],
+            difficulty: 3,
+        },
+        {
+            category: 'Grands Fleuves',
+            items: ['Congo', 'Amazone', 'Niger', 'Tigre'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_01_04_2025: PuzzleImport = {
     puzzle_name: '1er avril 2025 - ...',
     puzzle_difficulty: 5,
