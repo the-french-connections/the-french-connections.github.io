@@ -21,9 +21,36 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_14_04_2025: PuzzleImport = {
+    puzzle_name: '14 avril 2025 - Routes',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Composants d\'un ordinateur',
+            items: ['Clavier', 'Souris', 'Moniteur', 'Ventilateur'],
+            difficulty: 1,
+        },
+        {
+            category: 'Texte publi\u00E9',
+            items: ['Papier', 'Article', 'Chronique', 'Manuscrit'],
+            difficulty: 2,
+        },
+        {
+            category: 'Abuse de quelqu\'un\u00B7e',
+            items: ['Roule', 'Leurre', 'Carotte', 'Trompe'],
+            difficulty: 3,
+        },
+        {
+            category: 'Personnages d\'Undertale',
+            items: ['Sans', 'Papyrus', 'Dummy', 'Chara'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_07_04_2025: PuzzleImport = {
     puzzle_name: '7 avril 2025 - Lance l\'eau',
-    puzzle_difficulty: 5,
+    puzzle_difficulty: 4,
     groups: [
         {
             category: 'Association de plusieurs \u00E9l\u00E9ments',
