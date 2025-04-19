@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_21_04_2025: PuzzleImport = {
+    puzzle_name: '21 avril 2025 - Colombe',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Division territoriale',
+            items: ['District', 'D\u00E9partement', '\u00E9tat', 'Commune'],
+            difficulty: 1,
+        },
+        {
+            category: 'R\u00E9sultats d\'un travail',
+            items: ['Moisson', 'Fruit', 'R\u00E9colte', 'Gain'],
+            difficulty: 2,
+        },
+        {
+            category: 'Grandes places parisiennes',
+            items: ['Nation', 'R\u00E9publique', 'Concorde', 'Bastille'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + vert',
+            items: ['L\u00E9gume', 'Pic', 'Feu', 'Petit\nhomme'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_14_04_2025: PuzzleImport = {
     puzzle_name: '14 avril 2025 - Routes',
     puzzle_difficulty: 4,
