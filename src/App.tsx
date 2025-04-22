@@ -30,7 +30,7 @@ import {
     ChevronDownIcon,
     StarIcon,
 } from '@chakra-ui/icons';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useMethods from 'use-methods';
 import { gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
 
@@ -283,6 +283,27 @@ export const App = () => {
     const [isOpenRules, setIsOpenRules] = useState(true);
     const [isOpenResults, setIsOpenResults] = useState(true);
 
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const selectedItemRef = useRef(null);
+  const menuListRef = useRef(null);
+  
+  // Trouver l'index de l'élément actuellement sélectionné
+  const currentIndex = all_groups_name.findIndex(
+    (item) => item.puzzle_name === game.current_name
+  );
+  
+  useEffect(() => {
+    // Quand le menu s'ouvre, faire défiler jusqu'à l'élément sélectionné
+    if (isOpenDropdown && selectedItemRef.current && menuListRef.current) {
+      setTimeout(() => {
+        selectedItemRef.current.scrollIntoView({ 
+          behavior: 'auto',
+          block: 'center'
+        });
+      }, 100); // Petit délai pour s'assurer que le menu est complètement rendu
+    }
+  }, [isOpenDropdown]);
+
     const handleCloseRules = () => setIsOpenRules(false);
     const handleCloseResults = () => setIsOpenResults(false);
 
@@ -297,19 +318,19 @@ export const App = () => {
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
                     <HStack align="baseline">
-                        <Menu>
+                        <Menu isOpen={isOpenDropdown} onOpen={() => setIsOpenDropdown(true)} onClose={() => setIsOpenDropdown(false)}>
                             {({ isOpen }) => (
                                 <>
                                     <MenuButton size={['sm', 'md', 'lg']} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
                                         {game.current_name}
                                     </MenuButton>
-                                    <MenuList
+                                    <MenuList ref={menuListRef}
                                         fontSize={["xs", "s", "md"]}
                                         maxHeight="300px" // Set a max height
                                         overflowY="auto"   // Enable vertical scrolling
                                     >
                                         {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
-                                            <MenuItem key={index} onClick={() => handleMenuItemClick(puzzleImport)}>
+                                            <MenuItem key={index} ref={index === currentIndex ? selectedItemRef : null} onClick={() => handleMenuItemClick(puzzleImport)} backgroundColor={index === currentIndex ? "blue.100" : ""} fontWeight={index === currentIndex ? "bold" : "normal"}>
                                                 {puzzleImport.puzzle_name}
                                             </MenuItem>
                                         ))}
