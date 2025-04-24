@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_28_04_2025: PuzzleImport = {
+    puzzle_name: '28 avril 2025 - BZH',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Se dit au Qu\u00E9bec',
+            items: ['Boucane', 'Char', 'Tabarnak', 'Niaiser'],
+            difficulty: 1,
+        },
+        {
+            category: 'F\u00E9lon',
+            items: ['Tra\u00EEtre', 'Serpent', 'Judas', 'Vendu'],
+            difficulty: 2,
+        },
+        {
+            category: 'Langages de programmation',
+            items: ['Python', 'Java', 'C', 'Assembleur'],
+            difficulty: 3,
+        },
+        {
+            category: 'En noir et blanc',
+            items: ['Z\u00E8bre', 'Charlie Chaplin', 'Gwenn-ha-du', 'Ying et Yang'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_21_04_2025: PuzzleImport = {
     puzzle_name: '21 avril 2025 - Colombe',
     puzzle_difficulty: 3,
