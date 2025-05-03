@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_05_05_2025: PuzzleImport = {
+    puzzle_name: '5 mai 2025 - Anirniq',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Acclamations',
+            items: ['Bravo', 'Hourra', 'Ovation', 'Vivat'],
+            difficulty: 1,
+        },
+        {
+            category: 'D\u00E9sorganis\u00E9',
+            items: ['Cata', 'Bordel', 'Souk', 'Bazar'],
+            difficulty: 2,
+        },
+        {
+            category: 'Interjections pour exprimer une \u00E9motion',
+            items: ['Ouin', 'Ah', 'Chut', 'Ouf'],
+            difficulty: 3,
+        },
+        {
+            category: 'Homophones de nombres',
+            items: ['Vin', 'Hein', 'Sang', 'S\u00E8te'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_28_04_2025: PuzzleImport = {
     puzzle_name: '28 avril 2025 - BZH',
     puzzle_difficulty: 3,
