@@ -21,9 +21,36 @@ import { PuzzleImport } from './App';
     ù - &ugrave; \u00F9
 */
 
+export const gr_12_05_2025: PuzzleImport = {
+    puzzle_name: '12 mai 2025 - Manifeste',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Rue',
+            items: ['Voie', 'Art\u00E8re', 'All\u00E9e', 'Chemin'],
+            difficulty: 1,
+        },
+        {
+            category: 'Chance',
+            items: ['Veine', 'Bol', 'Pot', 'Chatte'],
+            difficulty: 2,
+        },
+        {
+            category: 'Pr\u00E9noms',
+            items: ['Marie', 'Pierre', 'Jean', 'Rose'],
+            difficulty: 3,
+        },
+        {
+            category: 'Ce que \u00AB L \u00BB peut signifier',
+            items: ['Cinquante', 'Litre', 'Longueur', 'Luxembourg'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_05_05_2025: PuzzleImport = {
     puzzle_name: '5 mai 2025 - Anirniq',
-    puzzle_difficulty: 3,
+    puzzle_difficulty: 4,
     groups: [
         {
             category: 'Acclamations',
