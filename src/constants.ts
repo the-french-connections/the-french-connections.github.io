@@ -1,25 +1,52 @@
 import { PuzzleImport } from './App';
 
 /**
- *  é - &eacute; or \u00E9
-    è - &egrave; or \u00E8
-    ê - &ecirc; or \u00EA
-    à - &agrave; or \u00E0
-    â - &acirc; or \u00E2
-    î - &icirc; or \u00EE
-    ô - &ocirc; or \u00F4
-    û - &ucirc; or \u00FB
-    ç - &ccedil; or \u00E7
-    ë - &euml; or \u00EB
-    ï - &iuml; or \u00EF
-    ü - &uuml; or \u00FC
-    œ - &oelig; or \u0153
-    æ - &aelig; or \u00E6
-    « - &laquo; or \u00AB
-    » - &raquo; or \u00BB
-    · - or \u00B7
-    ù - &ugrave; \u00F9
+ *  ï¿½ - &eacute; or \u00E9
+    ï¿½ - &egrave; or \u00E8
+    ï¿½ - &ecirc; or \u00EA
+    ï¿½ - &agrave; or \u00E0
+    ï¿½ - &acirc; or \u00E2
+    ï¿½ - &icirc; or \u00EE
+    ï¿½ - &ocirc; or \u00F4
+    ï¿½ - &ucirc; or \u00FB
+    ï¿½ - &ccedil; or \u00E7
+    ï¿½ - &euml; or \u00EB
+    ï¿½ - &iuml; or \u00EF
+    ï¿½ - &uuml; or \u00FC
+    ï¿½ - &oelig; or \u0153
+    ï¿½ - &aelig; or \u00E6
+    ï¿½ - &laquo; or \u00AB
+    ï¿½ - &raquo; or \u00BB
+    ï¿½ - or \u00B7
+    ï¿½ - &ugrave; \u00F9
 */
+
+export const gr_19_05_2025: PuzzleImport = {
+    puzzle_name: '19 mai 2025 - R\u00E9f\u00E9rentiel h\u00E9liocentrique',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Littoral',
+            items: ['C\u00F4te', 'Bord', 'Rive', 'Gr\u00E8ve'],
+            difficulty: 1,
+        },
+        {
+            category: 'Commmence par un animal',
+            items: ['Chatanooga', 'Bouche', 'Oursin', 'Arachide'],
+            difficulty: 2,
+        },
+        {
+            category: 'Parties d\'un violon',
+            items: ['O\u00FCie', 'Table', 'Chevalet', 'Cheville'],
+            difficulty: 3,
+        },
+        {
+            category: 'Peuvent \u00EAtre doubl\u00E9s : _ + _',
+            items: ['Train', 'Cul', 'Touk', 'Plan'],
+            difficulty: 4,
+        }
+    ]
+};
 
 export const gr_12_05_2025: PuzzleImport = {
     puzzle_name: '12 mai 2025 - Manifeste',
@@ -744,7 +771,7 @@ export const gr_16_08_2024: PuzzleImport = {
             difficulty: 3,
         },
         {
-            category: 'Aliments et variétés d\'aliments',
+            category: 'Aliments et variï¿½tï¿½s d\'aliments',
             items: ['Bulgarie', 'Chili', 'Canada', 'Cor\u00E9e'],
             difficulty: 4,
         }
