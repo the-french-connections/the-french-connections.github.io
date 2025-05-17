@@ -258,7 +258,7 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 5 || (currentMonth === 5 && currentDay >= 12); //TOCHANGE
+    const isNextPuzzle = currentMonth > 5 || (currentMonth === 5 && currentDay >= 19); //TOCHANGE
 
 
     const current_puzzle = isNextPuzzle ? gr_19_05_2025 : gr_12_05_2025; //TOCHANGE
