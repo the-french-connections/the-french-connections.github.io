@@ -32,7 +32,7 @@ export const gr_19_05_2025: PuzzleImport = {
         },
         {
             category: 'Commmence par un animal',
-            items: ['Chatanooga', 'Bouche', 'Oursin', 'Arachide'],
+            items: ['Chattanooga', 'Bouche', 'Oursin', 'Arachide'],
             difficulty: 2,
         },
         {
