@@ -37,7 +37,7 @@ export const gr_19_05_2025: PuzzleImport = {
         },
         {
             category: 'Parties d\'un violon',
-            items: ['O\u00FCie', 'Table', 'Chevalet', 'Cheville'],
+            items: ['O\u00FCie', 'Corde', 'Chevalet', 'Cheville'],
             difficulty: 3,
         },
         {
