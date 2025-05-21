@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_26_05_2025: PuzzleImport = {
+    puzzle_name: '26 mai 2025 - 9 dans',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Secoues',
+            items: ['Balances', 'Meus', 'Branles', 'Agites'],
+            difficulty: 1,
+        },
+        {
+            category: 'Armes du Moyen-\u00E2ge',
+            items: ['Fl\u00E9aux', 'Lances', 'Sabres', 'Piques'],
+            difficulty: 2,
+        },
+        {
+            category: 'Groupe de personnes align\u00E9es',
+            items: ['Files', 'Queues', 'Colonnes', 'Brochettes'],
+            difficulty: 3,
+        },
+        {
+            category: 'D\u00E9partement fran\u00E7ais + s',
+            items: ['Chers', 'Lots', 'Manches', 'Sommes'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_19_05_2025: PuzzleImport = {
     puzzle_name: '19 mai 2025 - R\u00E9f\u00E9rentiel h\u00E9liocentrique',
     puzzle_difficulty: 4,
