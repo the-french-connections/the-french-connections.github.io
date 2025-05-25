@@ -1168,12 +1168,17 @@
             });
             
             tileElement.classList.add('selected');
-            tileElement.classList.add('disabled');
             
             updateSelectionDisplay();
             
             // If 3 tiles are selected, check if it's a valid combination
             if (gameState.selectedTiles.length === 3) {
+                gameState.selectedTiles.forEach(tile => {
+                    const tileElement = document.querySelector(`.tile[data-index="${tile.index}"]`);
+                    if (tileElement) {
+                        tileElement.classList.add('disabled');
+                    }
+                });
                 checkCombination();
             }
         }
