@@ -80,6 +80,20 @@
             margin-bottom: 20px;
         }
 
+        @media (max-width: 768px) {
+            .tiles-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tiles-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+        }
+
         .tile {
             background-color: var(--secondary-color);
             color: var(--light-text);
@@ -91,6 +105,26 @@
             cursor: pointer;
             transition: all 0.2s ease;
             user-select: none;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .tile {
+                padding: 12px 8px;
+                font-size: 1.1rem;
+                min-height: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tile {
+                padding: 10px 6px;
+                font-size: 1rem;
+                min-height: 50px;
+            }
         }
 
         .tile:hover {
@@ -137,6 +171,13 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 480px) {
+            .buttons-container {
+                gap: 8px;
+            }
         }
 
         button {
@@ -148,6 +189,15 @@
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.2s ease;
+            min-width: 80px;
+        }
+
+        @media (max-width: 480px) {
+            button {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                min-width: 70px;
+            }
         }
 
         button:hover {
@@ -277,6 +327,26 @@
             display: none;
         }
 
+        .tile.deselect-correct {
+            animation: pulseGreen 0.6s ease-out;
+        }
+
+        .tile.deselect-incorrect {
+            animation: shakeRed 0.6s ease-out;
+        }
+
+        @keyframes pulseGreen {
+            0% { background-color: var(--accent-color); transform: scale(1); }
+            50% { background-color: #45a049; transform: scale(1.05); }
+            100% { background-color: var(--secondary-color); transform: scale(1); }
+        }
+
+        @keyframes shakeRed {
+            0%, 100% { background-color: var(--secondary-color); transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { background-color: #e74c3c; transform: translateX(-3px); }
+            20%, 40%, 60%, 80% { background-color: #c0392b; transform: translateX(3px); }
+        }
+
         .game-selector {
             background: var(--primary-color);
             color: black;
@@ -287,6 +357,7 @@
             cursor: pointer;
             margin: 10px 0;
         }
+
         .game-selector:hover {
             background: var(--secondary-color);
         }
@@ -365,7 +436,8 @@
                     <li data-translate="rule2">The operation on the first tile is ignored</li>
                     <li data-translate="rule3">Operations follow mathematical order (multiply/divide before add/subtract)</li>
                     <li data-translate="rule4">Example: If target is 9, selecting "-7", "+10", "/2" equals 7+10/2 = 7+5 = 12</li>
-                    <li data-translate="rule5">Find all possible combinations to win!</li>
+                    <li data-translate="rule5">Example : If target is 5, selecting in order "*3", "-2", "+4" is a different combination than "*3", "+4", "-2"</li>
+                    <li data-translate="rule6">Find all possible combinations to win!</li>
                 </ol>
                 <h3 data-translate="controls">Controls:</h3>
                 <ul>
@@ -395,6 +467,24 @@
     </div>
 
     <script>
+        class SeededRandom {
+            constructor(seed) {
+                this.seed = seed;
+            }
+            
+            next() {
+                this.seed = (this.seed * 9301 + 49297) % 233280;
+                return this.seed / 233280;
+            }
+            
+            nextInt(max) {
+                return Math.floor(this.next() * max);
+            }
+        }
+
+        // Global variable for the seeded random generator
+        let seededRng;
+
         let gameState = {
             target: 0,
             tiles: [],
@@ -443,7 +533,8 @@
                 rule2: "The operation on the first tile is ignored",
                 rule3: "Operations follow mathematical order (multiply/divide before add/subtract)",
                 rule4: "Example: If target is 9, selecting \"-7\", \"+10\", \"/2\" equals 7+10/2 = 7+5 = 12",
-                rule5: "Find all possible combinations to win!",
+                rule5: "Example: If target is 5, selecting in order \"*3\", \"-2\", \"+4\" is a different combination than \"*3\", \"+4\", \"-2\"",
+                rule6: "Find all possible combinations to win!",
                 control1: "Click or press Enter on tiles to select them",
                 control2: "Use Tab to navigate between elements",
                 control3: "Use Hint button when stuck",
@@ -452,7 +543,7 @@
             fr: {
                 title: "10-3-1",
                 subtitle: "Trouvez toutes les combinaisons de 3 tuiles qui égalent le nombre cible",
-                target: "Nombre Cible:",
+                target: "Nombre Cible :",
                 selectTiles: "Sélectionnez 3 tuiles",
                 foundCombinations: "Combinaisons Trouvées:",
                 clearSelection: "Effacer la Sélection",
@@ -461,8 +552,8 @@
                 solutions: "Solutions",
                 newGame: "Nouveau Jeu",
                 howToPlay: "Comment Jouer",
-                gameRules: "Règles du Jeu:",
-                controls: "Contrôles:",
+                gameRules: "Règles du Jeu :",
+                controls: "Contrôles :",
                 startPlaying: "Commencer à Jouer",
                 congratulations: "Félicitations! Vous avez trouvé toutes les combinaisons possibles!",
                 footerText1: "Chaque puzzle a au moins une solution. Trouvez-les toutes!",
@@ -471,8 +562,9 @@
                 rule1: "Trouvez des combinaisons de 3 tuiles qui égalent le nombre cible",
                 rule2: "L'opération sur la première tuile est ignorée",
                 rule3: "Les opérations suivent l'ordre mathématique (multiplication/division avant addition/soustraction)",
-                rule4: "Exemple: Si la cible est 9, sélectionner \"-7\", \"+10\", \"/2\" égale 7+10/2 = 7+5 = 12",
-                rule5: "Trouvez toutes les combinaisons possibles pour gagner!",
+                rule4: "Exemple : Si le nombre cible est 9, sélectionner \"-7\", \"+10\", \"/2\" égale 7+10/2 = 7+5 = 12",
+                rule5: "Exemple : Si le nombre cible est 5, sélectionner dans l'ordre \"*3\", \"-2\", \"+4\" est une combinaison différente que \"*3\", \"+4\", \"-2\"",
+                rule6: "Trouvez toutes les combinaisons possibles pour gagner!",
                 control1: "Cliquez ou appuyez sur Entrée sur les tuiles pour les sélectionner",
                 control2: "Utilisez Tab pour naviguer entre les éléments",
                 control3: "Utilisez le bouton Indice quand vous êtes bloqué",
@@ -514,11 +606,21 @@
             });
         }
 
+        function getDateHash(date) {
+            const dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+
+            return dateString.split('').reduce((hash, char) => {
+                return ((hash << 5) - hash + char.charCodeAt(0)) & 0xffffffff;
+            }, 0);
+        }
+
         // Check if we need a new puzzle based on the date
         function checkDateAndResetIfNeeded() {
             const today = new Date();
             const dateString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
             
+            seededRng = new SeededRandom(Math.abs(getDateHash(today)));
+
             dateDisplay.textContent = today.toLocaleDateString(undefined, { 
                 weekday: 'long', 
                 year: 'numeric', 
@@ -596,12 +698,40 @@
         // Smart puzzle generation with operation probability based on number size
         function generateSmartPuzzleCandidate() {
             const numbers = generateSmartNumbers();
+            const usedTiles = new Set();
+            const tiles = [];
             
-            const tiles = numbers.map(number => ({
-                operation: selectSmartOperation(number),
-                number: number
-            }));
+            for (const number of numbers) {
+                let operation;
+                let attempts = 0;
+                
+                do {
+                    operation = selectSmartOperation(number);
+                    const tileKey = `${operation}${number}`;
+                    
+                    if (!usedTiles.has(tileKey)) {
+                        tiles.push({ operation, number });
+                        usedTiles.add(tileKey);
+                        break;
+                    }
+                    attempts++;
+                } while (attempts < 20); // Prevent infinite loop
+                
+                // If we can't find a unique operation after 20 attempts, force one
+                if (attempts >= 20) {
+                    const operations = ['+', '-', '*', '/'];
+                    for (const op of operations) {
+                        const tileKey = `${op}${number}`;
+                        if (!usedTiles.has(tileKey)) {
+                            tiles.push({ operation: op, number });
+                            usedTiles.add(tileKey);
+                            break;
+                        }
+                    }
+                }
+            }
             
+            // Continue with the rest of the original function...
             const allResults = {};
             
             // Check all possible combinations of 3 tiles
@@ -665,26 +795,31 @@
             };
         }
 
-        function generateSmartNumbers() {
+        function generateSmartNumbers() {            
             const numbers = [];
+            const numberCounts = {};
             
-            // Ensure we have good mix of small and medium numbers
-            // Small numbers (1-6): good for multiplication/division
-            for (let i = 0; i < 4; i++) {
-                numbers.push(Math.floor(Math.random() * 6) + 1);
+            // Generate numbers ensuring no more than 2 of each
+            while (numbers.length < 10) {
+                let number;
+                if (numbers.length < 2) {
+                    // Small numbers (1-5)
+                    number = Math.floor(seededRng.next() * 5) + 1;
+                } else if (numbers.length < 8) {
+                    // Medium numbers (3-12)
+                    number = Math.floor(seededRng.next() * 9) + 3;
+                } else {
+                    // Larger numbers (8-20)
+                    number = Math.floor(seededRng.next() * 13) + 8;
+                }
+                
+                // Check if we can add this number (max 2 occurrences)
+                if (!numberCounts[number] || numberCounts[number] < 2) {
+                    numbers.push(number);
+                    numberCounts[number] = (numberCounts[number] || 0) + 1;
+                }
             }
-            
-            // Medium numbers (4-12): versatile
-            for (let i = 0; i < 4; i++) {
-                numbers.push(Math.floor(Math.random() * 9) + 4);
-            }
-            
-            // Larger numbers (8-20): mainly for addition/subtraction
-            for (let i = 0; i < 2; i++) {
-                numbers.push(Math.floor(Math.random() * 13) + 8);
-            }
-            
-            // Shuffle the array
+        
             shuffleArray(numbers);
             return numbers;
         }
@@ -714,7 +849,7 @@
 
         // Select operation based on weights
         function selectWeightedOperation(operations, weights) {
-            const random = Math.random();
+            const random = seededRng.next();
             let cumulative = 0;
             
             for (let i = 0; i < operations.length; i++) {
@@ -805,7 +940,7 @@
 
         // Fallback puzzle when smart generation fails
         function generateFallbackPuzzle() {
-            const target = Math.floor(Math.random() * 15) + 5; // 5-19
+            const target = Math.floor(seededRng.next() * 15) + 5; // 5-19
             const tiles = [];
             
             // Create at least one simple solution
@@ -814,7 +949,7 @@
             tiles.push({ operation: '*', number: 1 });
             
             // Add one multiplication solution
-            const factor = Math.floor(Math.random() * 4) + 2;
+            const factor = Math.floor(seededRng.next() * 4) + 2;
             if (target % factor === 0) {
                 tiles.push({ operation: '+', number: 0 });
                 tiles.push({ operation: '*', number: factor });
@@ -824,8 +959,8 @@
             // Fill remaining tiles
             while (tiles.length < 10) {
                 const operations = ['+', '-', '*', '/'];
-                const number = Math.floor(Math.random() * 12) + 1;
-                const operation = operations[Math.floor(Math.random() * operations.length)];
+                const number = Math.floor(seededRng.next() * 12) + 1;
+                const operation = operations[Math.floor(seededRng.next() * operations.length)];
                 tiles.push({ operation, number });
             }
             
@@ -941,6 +1076,13 @@
             });
         }
 
+        function getRandomDate(from, to) {
+            const fromTime = from.getTime();
+            const toTime = to.getTime();
+            console.log(new Date(fromTime + Math.random() * (toTime - fromTime)));
+            return new Date(fromTime + Math.random() * (toTime - fromTime));
+        }
+
         function setupEventListeners() {
             // Tile selection
             tilesContainer.addEventListener('click', (e) => {
@@ -957,8 +1099,12 @@
             closeModal.addEventListener('click', () => {
                 solutionsModal.style.display = 'none';
             });
+
             newGameBtn.addEventListener('click', () => {
-                generateNewGame(new Date().toISOString().split('T')[0]);
+                const randomDate = getRandomDate(new Date('1900-01-01T00:00:01.001Z'), new Date());
+                seededRng = new SeededRandom(Math.abs(getDateHash(randomDate)));
+
+                generateNewGame(randomDate.toISOString().split('T')[0]);
                 solutionsModal.style.display = 'none';
                 renderGame();
             });
@@ -997,15 +1143,22 @@
             }
 
             // Don't show tutorial again if not first-time users
-            if (!localStorage.getItem('tutorialSeen')) {
-                window.addEventListener('DOMContentLoaded', () => {
-                    setTimeout(showTutorial, 1000);
-                    localStorage.setItem('tutorialSeen', 'true');
-                });
-            }
+            window.addEventListener('DOMContentLoaded', () => {
+                setTimeout(showTutorial, 1000);
+            });
         }
 
         function selectTile(index, tileElement) {
+            // If tile is already selected, deselect it
+            const alreadySelected = gameState.selectedTiles.findIndex(selected => selected.index === index);
+            if (alreadySelected !== -1) {
+                gameState.selectedTiles.splice(alreadySelected, 1);
+                tileElement.classList.remove('selected', 'disabled');
+                updateSelectionDisplay();
+                resultDisplay.textContent = '';
+                return;
+            }
+            
             // If already 3 tiles selected, do nothing
             if (gameState.selectedTiles.length >= 3) return;
             
@@ -1024,6 +1177,7 @@
                 checkCombination();
             }
         }
+
 
         function updateSelectionDisplay() {
             if (gameState.selectedTiles.length === 0) {
@@ -1044,8 +1198,9 @@
         function checkCombination() {
             const selectedTileObjects = gameState.selectedTiles.map(selected => selected.tile);
             const result = calculateResult(selectedTileObjects);
+            const isCorrect = result === gameState.target;
             
-            if (result === gameState.target) {
+            if (isCorrect) {
                 // Valid combination
                 const expression = formatExpression(selectedTileObjects);
                 resultDisplay.textContent = `Correct! ${expression}`;
@@ -1077,6 +1232,11 @@
                 resultDisplay.textContent = `Incorrect! Result: ${result}`;
                 resultDisplay.style.color = '#e74c3c';
             }
+            
+            // Animate and clear selection after a delay
+            setTimeout(() => {
+                clearSelectionWithAnimation(isCorrect);
+            }, 1500);
         }
 
         function clearSelection() {
@@ -1090,6 +1250,27 @@
             
             updateSelectionDisplay();
             resultDisplay.textContent = '';
+        }
+
+        function clearSelectionWithAnimation(isCorrect) {
+            const selectedTiles = document.querySelectorAll('.tile.selected');
+            const animationClass = isCorrect ? 'deselect-correct' : 'deselect-incorrect';
+            
+            selectedTiles.forEach(tile => {
+                tile.classList.add(animationClass);
+            });
+            
+            // Remove animation classes and clear selection after animation
+            setTimeout(() => {
+                selectedTiles.forEach(tile => {
+                    tile.classList.remove('selected', 'disabled', animationClass);
+                });
+                gameState.selectedTiles = [];
+                updateSelectionDisplay();
+                if (!isCorrect) {
+                    resultDisplay.textContent = '';
+                }
+            }, 600);
         }
 
         function showHint() {
@@ -1127,7 +1308,7 @@
         // Utility function to shuffle an array
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
+                const j = Math.floor(seededRng.next() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
