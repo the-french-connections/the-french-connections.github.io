@@ -76,11 +76,28 @@
         padding-bottom: 50px;
       }
     }
+  .game-selector {
+    background: var(--primary-color);
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  .game-selector:hover {
+    background: var(--secondary-color);
+  }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="05f098f1-d7ec-4a9b-b8ff-d88ecf4651bc"></script>
 </head>
 
 <body>
+  <select class="game-selector" onchange="location = this.value;">
+      <option value="index.html" selected>The French Connections</option>
+      <option value="10-3-1/">10-3-1</option>
+  </select>
   <div id="root"></div>
   <script type="module" src="./build/bundle.js"></script>
   <p class="footer">
