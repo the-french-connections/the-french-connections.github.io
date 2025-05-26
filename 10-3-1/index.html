@@ -538,7 +538,8 @@
                 control1: "Click or press Enter on tiles to select them",
                 control2: "Use Tab to navigate between elements",
                 control3: "Use Hint button when stuck",
-                control4: "Clear selection to try again"
+                control4: "Clear selection to try again",
+                hintContent: "Number of combinations left to find:"
             },
             fr: {
                 title: "10-3-1",
@@ -568,7 +569,8 @@
                 control1: "Cliquez ou appuyez sur Entrée sur les tuiles pour les sélectionner",
                 control2: "Utilisez Tab pour naviguer entre les éléments",
                 control3: "Utilisez le bouton Indice quand vous êtes bloqué",
-                control4: "Effacez la sélection pour réessayer"
+                control4: "Effacez la sélection pour réessayer",
+                hintContent: "Nombre de combinaisons restantes à trouver :"
             }
         }
 
@@ -830,19 +832,19 @@
             
             if (number <= 4) {
                 // Small numbers: favor multiplication and division
-                const weights = [0.15, 0.15, 0.3, 0.4]; // +, -, *, /
+                const weights = [0.1, 0.1, 0.35, 0.45]; // +, -, *, /
                 return selectWeightedOperation(operations, weights);
             } else if (number <= 8) {
                 // Medium numbers: balanced
-                const weights = [0.2, 0.2, 0.3, 0.3];
+                const weights = [0.15, 0.15, 0.35, 0.35];
                 return selectWeightedOperation(operations, weights);
             } else if (number <= 12) {
                 // Medium-large numbers: slightly favor addition/subtraction
                 const weights = [0.3, 0.3, 0.2, 0.2];
                 return selectWeightedOperation(operations, weights);
             } else {
-                // Large numbers: strongly favor addition/subtraction
-                const weights = [0.3, 0.5, 0.05, 0.15];
+                // Large numbers: strongly favor subtraction
+                const weights = [0.2, 0.5, 0.05, 0.25];
                 return selectWeightedOperation(operations, weights);
             }
         }
@@ -1280,7 +1282,7 @@
 
         function showHint() {
             const remainingCombinations = gameState.allCombinations.length - gameState.foundCombinations.length;
-            alert(`There are ${remainingCombinations} combinations left to find.`);
+            alert(`${translations[lang].hintContent} ${remainingCombinations}.`);
         }
 
         // Surrender and show solutions
