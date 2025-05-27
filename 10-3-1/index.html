@@ -1132,10 +1132,22 @@
             tutorialBtn.id = 'tutorial-btn';
             document.querySelector('.buttons-container').appendChild(tutorialBtn);
 
+            // Check if this is the user's first visit
+            function checkFirstVisit() {
+                const hasVisited = localStorage.getItem('hasVisitedBefore');
+                if (!hasVisited) {
+                    tutorialModal.style.display = 'flex';
+                    localStorage.setItem('hasVisitedBefore', 'true');
+                }
+            }
+
+            checkFirstVisit();
             tutorialBtn.addEventListener('click', showTutorial);
+
             closeTutorial.addEventListener('click', () => {
                 tutorialModal.style.display = 'none';
             });
+
             startGameBtn.addEventListener('click', () => {
                 tutorialModal.style.display = 'none';
             });
@@ -1143,11 +1155,6 @@
             function showTutorial() {
                 tutorialModal.style.display = 'flex';
             }
-
-            // Don't show tutorial again if not first-time users
-            window.addEventListener('DOMContentLoaded', () => {
-                setTimeout(showTutorial, 1000);
-            });
         }
 
         function selectTile(index, tileElement) {
