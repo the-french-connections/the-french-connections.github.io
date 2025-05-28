@@ -1089,6 +1089,8 @@
         }
 
         function setupEventListeners() {
+            const lang = localStorage.getItem('gameLanguage') || 'fr';
+
             // Tile selection
             tilesContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('tile') && !e.target.classList.contains('disabled')) {
@@ -1099,7 +1101,7 @@
             
             // Button events
             clearBtn.addEventListener('click', clearSelection);
-            hintBtn.addEventListener('click', showHint);
+            hintBtn.addEventListener('click', () => showHint(lang));
             surrenderBtn.addEventListener('click', surrender);
             closeModal.addEventListener('click', () => {
                 solutionsModal.style.display = 'none';
@@ -1130,7 +1132,6 @@
             const closeTutorial = document.getElementById('close-tutorial');
             const startGameBtn = document.getElementById('start-game-btn');
             const tutorialBtn = document.createElement('button');
-            const lang = localStorage.getItem('gameLanguage') || 'fr';
             tutorialBtn.textContent = translations[lang].howToPlay || 'How to Play';
             tutorialBtn.id = 'tutorial-btn';
             document.querySelector('.buttons-container').appendChild(tutorialBtn);
@@ -1290,7 +1291,7 @@
             }, 600);
         }
 
-        function showHint() {
+        function showHint(lang) {
             const remainingCombinations = gameState.allCombinations.length - gameState.foundCombinations.length;
             alert(`${translations[lang].hintContent} ${remainingCombinations}.`);
         }
