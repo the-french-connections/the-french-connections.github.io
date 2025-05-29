@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_02_06_2025: PuzzleImport = {
+    puzzle_name: '2 juin 2025 - Probl\u00E8me d\'optimisation',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Signes astrologiques',
+            items: ['Balance', 'Vierge', 'Cancer', 'Lion'],
+            difficulty: 1,
+        },
+        {
+            category: 'Manigances',
+            items: ['Cuisine', 'Intrigue', 'Tripotage', 'Man\u0153uvre'],
+            difficulty: 2,
+        },
+        {
+            category: 'Toilettes',
+            items: ['Tr\u00F4ne', 'Cabinet', 'Sanitaire', 'Latrine'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + noire',
+            items: ['For\u00EAt', 'Chambre', 'Magie', 'Mar\u00E9e'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_26_05_2025: PuzzleImport = {
     puzzle_name: '26 mai 2025 - 9 dans',
     puzzle_difficulty: 4,
