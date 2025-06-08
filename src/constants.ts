@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_09_06_2025: PuzzleImport = {
+    puzzle_name: '9 juin 2025 - Dyonisiaques',
+    puzzle_difficulty: 2,
+    groups: [
+        {
+            category: 'Manifeste',
+            items: ['\u00E9vident', 'Hors de\ndoute', 'Incontestable', 'R\u00E9el'],
+            difficulty: 1,
+        },
+        {
+            category: 'Entreprise \u00E0 croissance rapide',
+            items: ['Jeune\npousse', 'Licorne', 'Scale-up', 'Entreprise\ndisruptive'],
+            difficulty: 2,
+        },
+        {
+            category: 'Dans le titre des albums d\'Ast\u00E9rix',
+            items: ['Jeux\nOlympiques', 'Corse', 'Latraviata', 'Grand\nFoss\u00E9'],
+            difficulty: 3,
+        },
+        {
+            category: 'Objet symbole d\'un mouvement social récent',
+            items: ['Gilet de\nhaute\nvisibilit\u00E9', 'Parapluie', 'Bonnet\nrouge', 'Casserole'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_02_06_2025: PuzzleImport = {
     puzzle_name: '2 juin 2025 - Probl\u00E8me d\'optimisation',
     puzzle_difficulty: 3,
