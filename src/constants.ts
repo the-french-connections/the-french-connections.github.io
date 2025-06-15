@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_16_06_2025: PuzzleImport = {
+    puzzle_name: '16 juin 2025 - Shining',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Dans une chambre',
+            items: ['Posters', 'R\u00E9veils', 'Oreillers', 'Draps'],
+            difficulty: 1,
+        },
+        {
+            category: 'Querelles',
+            items: ['Prises', 'Tensions', 'Frictions', 'Brouilles'],
+            difficulty: 2,
+        },
+        {
+            category: 'Parties d\'un th\u00E9\u00E2tre',
+            items: ['Balcons', 'Loges', 'Fosses', 'Sc\u00E8nes'],
+            difficulty: 3,
+        },
+        {
+            category: 'Vont par paires',
+            items: ['Ciseaux', 'Lunettes', 'Chaussettes', 'Jumelles'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_09_06_2025: PuzzleImport = {
     puzzle_name: '9 juin 2025 - Dyonisiaques',
     puzzle_difficulty: 2,
