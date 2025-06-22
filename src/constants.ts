@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_23_06_2025: PuzzleImport = {
+    puzzle_name: '23 juin 2025 - Luanda',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Endroit \u00E0 fort d\u00E9bit d\'eau',
+            items: ['Rapide', 'Chute', 'Cascade', 'Torrent'],
+            difficulty: 1,
+        },
+        {
+            category: 'Coup au tennis',
+            items: ['Vol\u00E9e', 'Service', 'Revers', 'Amorti'],
+            difficulty: 2,
+        },
+        {
+            category: 'Cat\u00E9gories d\'\u00E2ge en sport',
+            items: ['Poussin', 'V\u00E9t\u00E9ran', 'Minime', 'Espoir'],
+            difficulty: 3,
+        },
+        {
+            category: 'Arbre + _',
+            items: ['Fruitier', 'G\u00E9n\u00E9alogique', 'Binaire', 'Phylog\u00E9n\u00E9tique'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_16_06_2025: PuzzleImport = {
     puzzle_name: '16 juin 2025 - Shining',
     puzzle_difficulty: 3,
