@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_30_06_2025: PuzzleImport = {
+    puzzle_name: '30 juin 2025 - Mes souliers, mon v\u00E9lo',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Attirail',
+            items: ['Chargement', 'Bagages', 'Barda', '\u00E9quipement'],
+            difficulty: 1,
+        },
+        {
+            category: 'Que l\'on roule m\u00E9taphoriquement pour embrasser',
+            items: ['Galoche', 'Pelle', 'Patin', 'Saucisse'],
+            difficulty: 2,
+        },
+        {
+            category: 'Objets dans Mario Kart',
+            items: ['\u00E9toile', 'Bananes', '\u00E9clair', 'Champignons'],
+            difficulty: 3,
+        },
+        {
+            category: 'Anagrammes',
+            items: ['Ratisse', 'Satires', 'Tarisse', 'Staries'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_23_06_2025: PuzzleImport = {
     puzzle_name: '23 juin 2025 - Luanda',
     puzzle_difficulty: 3,
