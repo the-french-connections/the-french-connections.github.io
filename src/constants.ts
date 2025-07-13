@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_14_07_2025: PuzzleImport = {
+    puzzle_name: '14 juillet 2025 - Rasoir d\'Ockham',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Dans la salle de bains',
+            items: ['Douche', 'Miroir', 'Serviette', 'Savon'],
+            difficulty: 1,
+        },
+        {
+            category: 'Lieu',
+            items: ['Site', 'Coin', 'Espace', 'Endroit'],
+            difficulty: 2,
+        },
+        {
+            category: 'On y trouve des baguettes',
+            items: ['Restaurant\nchinois', 'Boulangerie', 'Orchestre', 'Poudlard'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + fiscal',
+            items: ['Paradis', 'Exil', 'Foyer', 'Timbre'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_30_06_2025: PuzzleImport = {
     puzzle_name: '30 juin 2025 - Mes souliers, mon v\u00E9lo',
     puzzle_difficulty: 3,
