@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_21_07_2025: PuzzleImport = {
+    puzzle_name: '21 juillet 2025 - Kagawa',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'C\'est difficile',
+            items: ['Coton', '\u00E9pineux', 'Dur', 'Chaud'],
+            difficulty: 1,
+        },
+        {
+            category: 'Au cin\u00E9ma',
+            items: ['Toile', 'Projecteur', 'Si\u00E8ges', 'Popcorn'],
+            difficulty: 2,
+        },
+        {
+            category: 'V\u00EAtements religieux',
+            items: ['Voile', 'Aube', 'Sari', 'Mitre'],
+            difficulty: 3,
+        },
+        {
+            category: 'Sous- + _',
+            items: ['Marin', 'Titre', 'Sol', 'Dosage'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_14_07_2025: PuzzleImport = {
     puzzle_name: '14 juillet 2025 - Rasoir d\'Ockham',
     puzzle_difficulty: 3,
