@@ -21,9 +21,36 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_28_07_2025: PuzzleImport = {
+    puzzle_name: '28 juillet 2025 - Cnidoblaste',
+    puzzle_difficulty: 4,
+    groups: [
+        {
+            category: 'Nourriture',
+            items: ['Cro\u00FBte', 'Vivre', 'Bouffe', 'Mets'],
+            difficulty: 1,
+        },
+        {
+            category: 'Probl\u00E8me',
+            items: ['Hic', 'N\u0153ud', 'Os', 'Obstacle'],
+            difficulty: 2,
+        },
+        {
+            category: 'Palindromes',
+            items: ['Ici', 'R\u00EAver', 'Sexes', 'Lebel'],
+            difficulty: 3,
+        },
+        {
+            category: 'Sur_',
+            items: ['Eau', 'Face', 'Nom', 'Plus'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_21_07_2025: PuzzleImport = {
     puzzle_name: '21 juillet 2025 - Kagawa',
-    puzzle_difficulty: 4,
+    puzzle_difficulty: 3,
     groups: [
         {
             category: 'C\'est difficile',
