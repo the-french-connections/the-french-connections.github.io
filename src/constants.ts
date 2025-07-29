@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_30_07_2025: PuzzleImport = {
+    puzzle_name: '30 juillet 2025 - For You Puzzle',
+    puzzle_difficulty: 5,
+    groups: [
+        {
+            category: 'Peau chez les animaux',
+            items: ['<p style="text-transform: lowercase; font-size:15px;">kɥiʁ</p>', '<p style="text-transform: lowercase; font-size:15px;">fu.ʁyʁ</p>', '<p style="text-transform: lowercase; font-size:15px;">ʁɔb</p>', '<p style="text-transform: lowercase; font-size:15px;">mɑ̃.to</p>'],
+            difficulty: 1,
+        },
+        {
+            category: 'Permet de p\u00EAcher',
+            items: ['<p style="text-transform: lowercase; font-size:15px;">dʁaɡ</p>', '<p style="text-transform: lowercase; font-size:15px;">fi.lɛ</p>', '<p style="text-transform: lowercase; font-size:15px;">kan</p>', '<p style="text-transform: lowercase; font-size:15px;">ka.zje</p>'],
+            difficulty: 2,
+        },
+        {
+            category: 'Surnom des personnages d\'ASOIAF',
+            items: ['<p style="text-transform: lowercase; font-size:15px;">ly.tɛ̃</p>', '<p style="text-transform: lowercase; font-size:15px;">mɔ̃.taɲ</p>', '<p style="text-transform: lowercase; font-size:15px;">vi.pɛʁ</p>', '<p style="text-transform: lowercase; font-size:15px;">li.mje</p>'],
+            difficulty: 3,
+        },
+        {
+            category: 'Principalement bleu, jaune et rouge',
+            items: ['<p style="text-transform: lowercase; font-size:15px;">ɑ̃.dɔʁ</p>', '<p style="text-transform: lowercase; font-size:15px;">li.dəl</p>', '<p style="text-transform: lowercase; font-size:14px;">a.ʁa\nma.ka.o</p>', '<p style="text-transform: lowercase; font-size:13px;">e.kwa.tœʁ</p>'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_28_07_2025: PuzzleImport = {
     puzzle_name: '28 juillet 2025 - Cnidoblaste',
     puzzle_difficulty: 4,
