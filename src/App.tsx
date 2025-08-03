@@ -258,7 +258,7 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 7 || (currentMonth === 7 && currentDay >= 30); //TOCHANGE
+    const isNextPuzzle = currentMonth > 8 || (currentMonth === 8 && currentDay >= 3); //TOCHANGE
 
     const current_puzzle = isNextPuzzle ? gr_04_08_2025 : gr_30_07_2025; //TOCHANGE
     const ending_text = isNextPuzzle ? "The French Connections #78. Prochain puzzle lundi prochain." : "The French Connections #77bis. Prochain puzzle lundi prochain."; //TOCHANGE
