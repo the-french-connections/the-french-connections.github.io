@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_04_08_2025: PuzzleImport = {
+    puzzle_name: '4 ao\u00FBt 2025 - Helen Keller',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Mettre au lit',
+            items: ['Endors', 'Couche', 'Berce', 'Allonge'],
+            difficulty: 1,
+        },
+        {
+            category: 'Club de jazz',
+            items: ['Cave', 'Lounge', 'Club', 'Bo\u00EEte'],
+            difficulty: 2,
+        },
+        {
+            category: 'Radio France',
+            items: ['Inter', 'Info', 'Musique', 'Culture'],
+            difficulty: 3,
+        },
+        {
+            category: '_ + \u00E0 jour',
+            items: ['Mise', 'Percer', 'Tenu', '\u00EAtre'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_30_07_2025: PuzzleImport = {
     puzzle_name: '30 juillet 2025 - For You Puzzle',
     puzzle_difficulty: 5,
