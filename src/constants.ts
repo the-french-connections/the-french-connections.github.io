@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_10_11_2025: PuzzleImport = {
+    puzzle_name: '10 novembre 2025 - Microtonalit\u00E9',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Un prix trop \u00E9lev\u00E9',
+            items: ['sal\u00E9', 'cher', 'prohibitif', 'exorbitant'],
+            difficulty: 1,
+        },
+        {
+            category: 'Ind\u00E9cent, inconvenant',
+            items: ['cru', 'os\u00E9', 'raide', 'd\u00E9plac\u00E9'],
+            difficulty: 2,
+        },
+        {
+            category: 'A bien mangé',
+            items: ['cal\u00E9', 'saoul', 'plein', 'rempli'],
+            difficulty: 3,
+        },
+        {
+            category: 'A fait une opération mathématique',
+            items: ['carr\u00E9', 'dériv\u00E9', 'invers\u00E9', 'doubl\u00E9'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_04_08_2025: PuzzleImport = {
     puzzle_name: '4 ao\u00FBt 2025 - Helen Keller',
     puzzle_difficulty: 3,
