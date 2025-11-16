@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState, useRef, useEffect } from 'react';
 import useMethods from 'use-methods';
-import { gr_10_11_2025, gr_04_08_2025, gr_30_07_2025, gr_28_07_2025, gr_21_07_2025, gr_14_07_2025, gr_30_06_2025, gr_23_06_2025, gr_16_06_2025, gr_09_06_2025, gr_02_06_2025, gr_26_05_2025, gr_19_05_2025, gr_12_05_2025, gr_05_05_2025, gr_28_04_2025, gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
+import { gr_16_11_2025 } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -260,10 +260,10 @@ export const App = () => {
     const currentMonth = currentDate.getMonth() + 1;
     const isNextPuzzle = currentMonth > 11 || (currentMonth === 11 && currentDay >= 10); //TOCHANGE
 
-    const current_puzzle = isNextPuzzle ? gr_10_11_2025 : gr_04_08_2025; //TOCHANGE
-    const ending_text = isNextPuzzle ? "The French Connections #79. Prochain puzzle quand j'ai de l'inspiration." : "The French Connections #78."; //TOCHANGE
-    const all_groups_name = isNextPuzzle ? [gr_10_11_2025, gr_04_08_2025, gr_30_07_2025, gr_28_07_2025, gr_21_07_2025, gr_14_07_2025, gr_30_06_2025, gr_23_06_2025, gr_16_06_2025, gr_09_06_2025, gr_02_06_2025, gr_26_05_2025, gr_19_05_2025, gr_12_05_2025, gr_05_05_2025, gr_28_04_2025, gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
-        [gr_04_08_2025, gr_30_07_2025, gr_28_07_2025, gr_21_07_2025, gr_14_07_2025, gr_30_06_2025, gr_23_06_2025, gr_16_06_2025, gr_09_06_2025, gr_02_06_2025, gr_26_05_2025, gr_19_05_2025, gr_12_05_2025, gr_05_05_2025, gr_28_04_2025, gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
+    const current_puzzle = isNextPuzzle ? gr_16_11_2025 : gr_16_11_2025; //TOCHANGE
+    const ending_text = isNextPuzzle ? "The French Connections #1. Prochain puzzle quand j'ai de l'inspiration." : "The French Connections"; //TOCHANGE
+    const all_groups_name = isNextPuzzle ? [gr_16_11_2025] :
+        [gr_16_11_2025];
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -313,7 +313,7 @@ export const App = () => {
             <Flex direction="column" align="center" justify="center" minHeight="100vh">
                 <Stack spacing={4} align="center">
                     <Heading size={["xl", "2xl", "3xl"]} fontFamily="Georgia" fontWeight="light" align='center'>
-                        The French Connections
+                        My French Connections
                     </Heading>
                     <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
                     <HStack align="baseline">
