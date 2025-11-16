@@ -21,9 +21,34 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
-export const gr_16_11_2025: PuzzleImport = {
-    puzzle_name: '16 novembre 2025 - Test Bocky',
-    puzzle_difficulty: 3,
+export const all_puzzles : PuzzleImport[] = [{
+    puzzle_name: '24 novembre 2025 - Professeurs de français',
+	puzzle_date: new Date('2025-11-24'),
+    groups: [
+        {
+            category: 'Prénoms',
+            items: ['Guy', 'Violette', 'Clémentine', 'Pierre'],
+            difficulty: 1,
+        },
+        {
+            category: 'Domestique',
+            items: ['laquais', 'boy', 'valet', 'serviteur'],
+            difficulty: 2,
+        },
+        {
+            category: 'Les petits amis de Caroline',
+            items: ['Pitou', 'Kid', 'Noiraud', 'Boum'],
+            difficulty: 3,
+        },
+        {
+            category: 'Super _',
+            items: ['man', 'marché', 'nova', 'sonique'],
+            difficulty: 4,
+        }
+    ]
+}, {
+    puzzle_name: '16 novembre 2025 - Chocolatine',
+	puzzle_date: new Date('2025-11-16'),
     groups: [
         {
             category: 'Apéro salé',
@@ -46,5 +71,5 @@ export const gr_16_11_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
+}];
 

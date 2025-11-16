@@ -32,7 +32,7 @@ import {
 } from '@chakra-ui/icons';
 import { useState, useRef, useEffect } from 'react';
 import useMethods from 'use-methods';
-import { gr_16_11_2025 } from './constants.ts'; //TOCHANGE
+import { all_puzzles } from './constants.ts'; //TOCHANGE
 
 export type Group = {
   category: string;
@@ -42,7 +42,7 @@ export type Group = {
 
 export type PuzzleImport = {
     puzzle_name: string;
-    puzzle_difficulty: number;
+    puzzle_date: Date;
     groups: Group[];
 };
 
@@ -97,7 +97,7 @@ const shuffle = <T,>(list: T[]): T[] => {
 const methods = (state: State) => {
     return {
         update(newPuzzle: PuzzleImport) {
-            state.difficulty = newPuzzle.groups.puzzle_difficulty;
+            state.date = newPuzzle.groups.puzzle_date;
             state.groups = newPuzzle.groups.groups;
             state.incomplete = newPuzzle.groups.groups;
             state.complete= [];
@@ -258,17 +258,16 @@ export const App = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 11 || (currentMonth === 11 && currentDay >= 10); //TOCHANGE
 
-    const current_puzzle = isNextPuzzle ? gr_16_11_2025 : gr_16_11_2025; //TOCHANGE
-    const ending_text = isNextPuzzle ? "The French Connections #1. Prochain puzzle quand j'ai de l'inspiration." : "The French Connections"; //TOCHANGE
-    const all_groups_name = isNextPuzzle ? [gr_16_11_2025] :
-        [gr_16_11_2025];
+    const ending_text = "My French Connections"; 
+    const all_groups_name = all_puzzles.filter((puzzle) => puzzle.puzzle_date <= currentDate);
+	const current_puzzle = all_groups_name[0];
+
 
     const game = useGame({
         groups: current_puzzle.groups,
     },
-        current_puzzle.puzzle_difficulty,
+        current_puzzle.puzzle_date,
         current_puzzle.puzzle_name
     );
 
@@ -307,6 +306,30 @@ export const App = () => {
     const handleCloseResults = () => setIsOpenResults(false);
 
     const containsHtmlTags = (str) => /<[^>]*>/g.test(str);
+	
+	const resultText = (game) => {
+			return game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([4, 3, 2, 1]) ? "R\u00E9sultats : Arc-en-ciel invers\u00E9 !!" :
+                                    game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([1,2,3,4]) ? "R\u00E9sultats : Arc-en-ciel !" :
+                                        game.mistakesRemaining === 4 ? "R\u00E9sultats - Parfait !" :
+                                            game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
+                                                game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
+                                                    game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "R\u00E9sultats - Dommage...";
+	}
+	
+	const resultEmojis = (game) => {
+		return game.emojiFromGuesses.map((emoji: string, index: number) => {
+										let circle = String.fromCodePoint(parseInt(emoji.substring(2)));
+										if ((index + 1) % 4 === 0) {
+											circle += '\n';
+										}
+                                        return circle;
+                                });
+	}
+	
+	const writeResults = (game) => {
+		return resultText(game) + '\n' + resultEmojis(game);			
+		
+	}
 
     return (
         <ChakraProvider>
@@ -337,14 +360,6 @@ export const App = () => {
                                 </>
                             )}
                         </Menu>
-
-                        {current_puzzle.puzzle_name != game.current_name && [...Array(5).keys()].map((_, index) => (
-                            index < game.difficulty ? (
-                                <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="yellow.500" />
-                            ) : (
-                                    <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="gray.300" />
-                            )
-                        ))}
                     </HStack>
                     {game.oneAway && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
                         <AlertTitle align='center' fontSize={["xs", "s", "md"]}>Presque...</AlertTitle>
@@ -376,8 +391,6 @@ export const App = () => {
                                     <ListItem>&#128309; : Difficile</ListItem>
                                     <ListItem>&#128995; : Tr&egrave;s difficile</ListItem>
                                 </UnorderedList>
-                                <Text mb='1rem'>&Agrave; l'exception du puzzle en cours, les autres grilles sont not&eacute;es (par moi) en difficult&eacute; de 1 &agrave; 5 &eacute;toiles.</Text>
-                                <Text mb='1rem'>Le dictionnaire de r&eacute;f&eacute;rence est le Wiktionnaire. Utiliser Internet n'est pas interdit, &agrave; vous de voir si vous pr&eacute;f&eacute;rez chercher les solutions avec ou sans.</Text>
                             </ModalBody>
                         </ModalContent>
                     </Modal>
@@ -427,6 +440,18 @@ export const App = () => {
                         ))}
                     </HStack>
                     <HStack padding="1em">
+						<Button
+                            colorScheme="black"
+                            variant="outline"
+                            rounded="full"
+                            borderWidth="2px"
+                            isDisabled={!game.isFinished}
+                            onClick={(e) => navigator.clipboard.writeText(writeResults(game))}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
+                        >
+                            Copier les résultats
+                        </Button>
                         <Button
                             colorScheme="black"
                             variant="outline"
@@ -468,12 +493,7 @@ export const App = () => {
                         <ModalOverlay />
                         <ModalContent>
                             <ModalHeader fontWeight='bold' fontSize="2xl">
-                                {game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([4, 3, 2, 1]) ? "R\u00E9sultats : Arc-en-ciel invers\u00E9 !!" :
-                                    game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([1,2,3,4]) ? "R\u00E9sultats : Arc-en-ciel !" :
-                                        game.mistakesRemaining === 4 ? "R\u00E9sultats - Parfait !" :
-                                            game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
-                                                game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
-                                                    game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
+                                {resultText(game)}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                                 {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
@@ -485,6 +505,18 @@ export const App = () => {
                                     </React.Fragment>
                                 ))}
                                 </Text>
+							<Button
+                            colorScheme="black"
+                            variant="outline"
+                            rounded="full"
+                            borderWidth="2px"
+                            isDisabled={!game.isFinished}
+                            onClick={navigator.clipboard.writeText(writeResults(game))}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
+                        >
+                            Copier
+                        </Button>
                             </ModalBody>
                         </ModalContent>
                     </Modal>}
