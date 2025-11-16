@@ -21,6 +21,33 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
+export const gr_17_11_2025: PuzzleImport = {
+    puzzle_name: '17 novembre 2025 - Walkyries',
+    puzzle_difficulty: 3,
+    groups: [
+        {
+            category: 'Groupe ferm\u00E9',
+            items: ['cercle', 'clique', 's\u00E9rail', 'clan'],
+            difficulty: 1,
+        },
+        {
+            category: 'Caf\u00E9',
+            items: ['jus', 'filtre', 'allong\u00E9', 'cr\u00E8me'],
+            difficulty: 2,
+        },
+        {
+            category: 'Petit avion',
+            items: ['coucou', 'jet', 'taxi', 'zinc'],
+            difficulty: 3,
+        },
+        {
+            category: 'Voiture, dans une autre langue',
+            items: ['car', 'coche', 'auto', 'araba'],
+            difficulty: 4,
+        }
+    ]
+};
+
 export const gr_10_11_2025: PuzzleImport = {
     puzzle_name: '10 novembre 2025 - Microtonalit\u00E9',
     puzzle_difficulty: 3,
