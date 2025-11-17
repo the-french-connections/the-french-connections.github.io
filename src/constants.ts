@@ -21,7 +21,34 @@ import { PuzzleImport } from './App';
     � - &ugrave; \u00F9
 */
 
-export const all_puzzles : PuzzleImport[] = [{
+export const all_puzzles : PuzzleImport[] = [
+{
+    puzzle_name: '1 décembre 2025 - Lutte contre le SIDA',
+	puzzle_date: new Date('2025-12-01'),
+    groups: [
+        {
+            category: 'Mignon',
+            items: ['Mimi', 'Chou', 'Angélique', 'Craquant'],
+            difficulty: 1,
+        },
+        {
+            category: 'Au pluriel, mensonges',
+            items: ['Salade', 'histoire', 'bêtise', 'craque'],
+            difficulty: 2,
+        },
+        {
+            category: 'Nains célèbres',
+            items: ['Potiron', 'Joyeux', 'Mimie Mathy', 'Passepartout'],
+            difficulty: 3,
+        },
+        {
+            category: 'Dans Cendrillon',
+            items: ['Citrouille', 'Fée', 'Prince', 'Chaussure'],
+            difficulty: 4,
+        }
+    ]
+},
+{
     puzzle_name: '24 novembre 2025 - Professeurs de français',
 	puzzle_date: new Date('2025-11-24'),
     groups: [

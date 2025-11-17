@@ -256,10 +256,7 @@ const useGame = (options: Options, difficulty: number, current_name: string) => 
 
 export const App = () => {
     const currentDate = new Date();
-    const currentDay = currentDate.getDate();
-    const currentMonth = currentDate.getMonth() + 1;
 
-    const ending_text = "My French Connections"; 
     const all_groups_name = all_puzzles.filter((puzzle) => puzzle.puzzle_date <= currentDate);
 	const current_puzzle = all_groups_name[0];
 
@@ -317,17 +314,18 @@ export const App = () => {
 	}
 	
 	const resultEmojis = (game) => {
-		return game.emojiFromGuesses.map((emoji: string, index: number) => {
-										let circle = String.fromCodePoint(parseInt(emoji.substring(2)));
+	let circles = '';
+		game.emojiFromGuesses.forEach((emoji: string, index: number) => {
+										circles += String.fromCodePoint(parseInt(emoji.substring(2)));
 										if ((index + 1) % 4 === 0) {
-											circle += '\n';
+											circles += '\n';
 										}
-                                        return circle;
                                 });
+								return circles;
 	}
 	
 	const writeResults = (game) => {
-		return resultText(game) + '\n' + resultEmojis(game);			
+		return "My French Connections (Bocky Edition) - " + game.current_name + '\n\n' + resultText(game) + '\n\n' + resultEmojis(game);			
 		
 	}
 
@@ -440,18 +438,6 @@ export const App = () => {
                         ))}
                     </HStack>
                     <HStack padding="1em">
-						<Button
-                            colorScheme="black"
-                            variant="outline"
-                            rounded="full"
-                            borderWidth="2px"
-                            isDisabled={!game.isFinished}
-                            onClick={(e) => navigator.clipboard.writeText(writeResults(game))}
-                            fontSize={["14px", "16px"]}
-                            h={["30px", "40px"]}
-                        >
-                            Copier les résultats
-                        </Button>
                         <Button
                             colorScheme="black"
                             variant="outline"
@@ -489,6 +475,22 @@ export const App = () => {
                             Valider
                         </Button>
                     </HStack>
+					<HStack padding="1em">
+						<Button
+                            colorScheme="black"
+                            variant="outline"
+                            rounded="full"
+                            borderWidth="2px"
+                            isDisabled={!game.isFinished}
+                            onClick={(e) => navigator.clipboard.writeText(writeResults(game))}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
+							_hover={{ bg: "gray.300" }}
+							_focus={{ bg: "gray.800", color: "white" }}
+                        >
+                            Copier les résultats
+                        </Button>
+					</HStack>
                     {game.isFinished && <Modal isOpen={isOpenResults} onClose={handleCloseResults}>
                         <ModalOverlay />
                         <ModalContent>
@@ -496,27 +498,28 @@ export const App = () => {
                                 {resultText(game)}</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
-                                <Text fontSize='4xl' align='center'>
-                                {game.emojiFromGuesses.map((emoji: string, index: number) => (
-                                    <React.Fragment key={index}>
-                                        {String.fromCodePoint(parseInt(emoji.substring(2)))}
-                                        {(index + 1) % 4 === 0 && <Text>{"\n"}</Text>}
-                                    </React.Fragment>
-                                ))}
+                                {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{"My French Connections (Bocky Edition) - " + game.current_name}</Text>}
+                                <Text fontSize='4xl' align='center' style={{ whiteSpace: "pre-line" }}>
+								{resultEmojis(game)}
                                 </Text>
+								<Stack>
 							<Button
                             colorScheme="black"
                             variant="outline"
                             rounded="full"
                             borderWidth="2px"
                             isDisabled={!game.isFinished}
-                            onClick={navigator.clipboard.writeText(writeResults(game))}
+                            onClick={(e) => navigator.clipboard.writeText(writeResults(game))}
                             fontSize={["14px", "16px"]}
                             h={["30px", "40px"]}
+							objectPosition="center"
+							mt="10"
+							_hover={{ bg: "gray.300" }}
+							_focus={{ bg: "gray.800", color: "white" }}
                         >
-                            Copier
+                            Copier les résultats
                         </Button>
+						</Stack>
                             </ModalBody>
                         </ModalContent>
                     </Modal>}
