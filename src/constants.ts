@@ -23,7 +23,33 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles : PuzzleImport[] = [
 {
-    puzzle_name: '1 décembre 2025 - Lutte contre le SIDA',
+    puzzle_name: '8 décembre 2025 - Raclette ou rien',
+	puzzle_date: new Date('2025-12-08'),
+    groups: [
+        {
+            category: 'Bobo au pied',
+            items: ['cor', 'ampoule', 'cal', 'oeil-de-perdrix'],
+            difficulty: 1,
+        },
+        {
+            category: 'A de la cire',
+            items: ['Oreille', 'bougie', 'sceau', 'musée Grévin'],
+            difficulty: 2,
+        },
+        {
+            category: 'S\'allume dans la voiture',
+            items: ['Phare', 'Clignotant', 'voyant', 'warning'],
+            difficulty: 3,
+        },
+        {
+            category: 'Rouge',
+            items: ['Feu', 'Voir', 'alerte', 'nez'],
+            difficulty: 4,
+        }
+    ]
+},
+{
+    puzzle_name: '1 décembre 2025 - Ninja !',
 	puzzle_date: new Date('2025-12-01'),
     groups: [
         {
