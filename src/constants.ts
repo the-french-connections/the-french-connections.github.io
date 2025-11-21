@@ -1,29 +1,10 @@
 import { PuzzleImport } from './App';
 
-/**
- *  � - &eacute; or \u00E9
-    � - &egrave; or \u00E8
-    � - &ecirc; or \u00EA
-    � - &agrave; or \u00E0
-    � - &acirc; or \u00E2
-    � - &icirc; or \u00EE
-    � - &ocirc; or \u00F4
-    � - &ucirc; or \u00FB
-    � - &ccedil; or \u00E7
-    � - &euml; or \u00EB
-    � - &iuml; or \u00EF
-    � - &uuml; or \u00FC
-    � - &oelig; or \u0153
-    � - &aelig; or \u00E6
-    � - &laquo; or \u00AB
-    � - &raquo; or \u00BB
-    � - or \u00B7
-    � - &ugrave; \u00F9
-*/
-
-export const gr_17_11_2025: PuzzleImport = {
+export const all_puzzles : PuzzleImport[] = [{
     puzzle_name: '17 novembre 2025 - Walkyries',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Groupe ferm\u00E9',
@@ -46,11 +27,11 @@ export const gr_17_11_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_10_11_2025: PuzzleImport = {
+}, {
     puzzle_name: '10 novembre 2025 - Microtonalit\u00E9',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Un prix trop \u00E9lev\u00E9',
@@ -73,11 +54,11 @@ export const gr_10_11_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_04_08_2025: PuzzleImport = {
+}, {
     puzzle_name: '4 ao\u00FBt 2025 - Helen Keller',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Mettre au lit',
@@ -100,11 +81,11 @@ export const gr_04_08_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_30_07_2025: PuzzleImport = {
+}, {
     puzzle_name: '30 juillet 2025 - For You Puzzle',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Peau chez les animaux',
@@ -127,11 +108,11 @@ export const gr_30_07_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_28_07_2025: PuzzleImport = {
+}, {
     puzzle_name: '28 juillet 2025 - Cnidoblaste',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Nourriture',
@@ -154,11 +135,11 @@ export const gr_28_07_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_21_07_2025: PuzzleImport = {
+}, {
     puzzle_name: '21 juillet 2025 - Kagawa',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'C\'est difficile',
@@ -181,11 +162,11 @@ export const gr_21_07_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_14_07_2025: PuzzleImport = {
+}, {
     puzzle_name: '14 juillet 2025 - Rasoir d\'Ockham',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Dans la salle de bains',
@@ -208,11 +189,11 @@ export const gr_14_07_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_30_06_2025: PuzzleImport = {
+}, {
     puzzle_name: '30 juin 2025 - Mes souliers, mon v\u00E9lo',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Attirail',
@@ -235,11 +216,11 @@ export const gr_30_06_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_23_06_2025: PuzzleImport = {
+}, {
     puzzle_name: '23 juin 2025 - Luanda',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Endroit \u00E0 fort d\u00E9bit d\'eau',
@@ -262,11 +243,11 @@ export const gr_23_06_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_16_06_2025: PuzzleImport = {
+}, {
     puzzle_name: '16 juin 2025 - Shining',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Dans une chambre',
@@ -289,11 +270,11 @@ export const gr_16_06_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_09_06_2025: PuzzleImport = {
+}, {
     puzzle_name: '9 juin 2025 - Dyonisiaques',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Manifeste',
@@ -316,11 +297,11 @@ export const gr_09_06_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_02_06_2025: PuzzleImport = {
+}, {
     puzzle_name: '2 juin 2025 - Probl\u00E8me d\'optimisation',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Signes astrologiques',
@@ -343,11 +324,11 @@ export const gr_02_06_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_26_05_2025: PuzzleImport = {
+}, {
     puzzle_name: '26 mai 2025 - 9 dans',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Secoues',
@@ -370,11 +351,11 @@ export const gr_26_05_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_19_05_2025: PuzzleImport = {
+}, {
     puzzle_name: '19 mai 2025 - R\u00E9f\u00E9rentiel h\u00E9liocentrique',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Littoral',
@@ -397,11 +378,11 @@ export const gr_19_05_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_12_05_2025: PuzzleImport = {
+}, {
     puzzle_name: '12 mai 2025 - Manifeste',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Rue',
@@ -424,11 +405,11 @@ export const gr_12_05_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_05_05_2025: PuzzleImport = {
+}, {
     puzzle_name: '5 mai 2025 - Anirniq',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Acclamations',
@@ -451,11 +432,11 @@ export const gr_05_05_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_28_04_2025: PuzzleImport = {
+}, {
     puzzle_name: '28 avril 2025 - BZH',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Se dit au Qu\u00E9bec',
@@ -478,11 +459,11 @@ export const gr_28_04_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_21_04_2025: PuzzleImport = {
+}, {
     puzzle_name: '21 avril 2025 - Colombe',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Division territoriale',
@@ -505,11 +486,11 @@ export const gr_21_04_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_14_04_2025: PuzzleImport = {
+}, {
     puzzle_name: '14 avril 2025 - Routes',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Composants d\'un ordinateur',
@@ -532,11 +513,11 @@ export const gr_14_04_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_07_04_2025: PuzzleImport = {
+}, {
     puzzle_name: '7 avril 2025 - Lance l\'eau',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Association de plusieurs \u00E9l\u00E9ments',
@@ -559,11 +540,11 @@ export const gr_07_04_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_01_04_2025: PuzzleImport = {
+}, {
     puzzle_name: '1er avril 2025 - ...',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Noms de tableaux',
@@ -586,11 +567,11 @@ export const gr_01_04_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_24_03_2025: PuzzleImport = {
+}, {
     puzzle_name: '24 mars 2025 - Maccarthysme',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Qui ne fluctue pas',
@@ -613,11 +594,11 @@ export const gr_24_03_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_10_03_2025: PuzzleImport = {
+}, {
     puzzle_name: '10 mars 2025 - Feu aux poudres',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Dans les mondes l\'imaginaire',
@@ -640,11 +621,11 @@ export const gr_10_03_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_24_02_2025: PuzzleImport = {
+}, {
     puzzle_name: '24 f\u00E9vrier 2025 - Exercices de style',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Virtuose',
@@ -667,11 +648,11 @@ export const gr_24_02_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_17_02_2025: PuzzleImport = {
+}, {
     puzzle_name: '17 f\u00E9vrier 2025 - Le Lecteur Omniscient',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Divinit\u00E9s de la mythologie nordique',
@@ -694,11 +675,11 @@ export const gr_17_02_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_10_02_2025: PuzzleImport = {
+}, {
     puzzle_name: '10 f\u00E9vrier 2025 - R\u00E9gime \u00E9pist\u00E9mologique',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'R\u00E9uni\u00B7e',
@@ -721,11 +702,11 @@ export const gr_10_02_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_03_02_2025: PuzzleImport = {
+}, {
     puzzle_name: '3 f\u00E9vrier 2025 - Dague',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Signes du zodiaque',
@@ -748,11 +729,11 @@ export const gr_03_02_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_27_01_2025: PuzzleImport = {
+}, {
     puzzle_name: '27 janvier 2025 - Dissonance cognitive',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Partie extr\u00EAme d\'une chose',
@@ -775,11 +756,11 @@ export const gr_27_01_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_20_01_2025: PuzzleImport = {
+}, {
     puzzle_name: '20 janvier 2025 - Quoi de neuf docteur ?',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Dossier d\'une boite mail',
@@ -802,11 +783,11 @@ export const gr_20_01_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_13_01_2025: PuzzleImport = {
+}, {
     puzzle_name: '13 janvier 2025 - Violet is a joke',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Conjonctions de coordination',
@@ -829,11 +810,11 @@ export const gr_13_01_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_06_01_2025: PuzzleImport = {
+}, {
     puzzle_name: '6 janvier 2025 - Labyrinthe',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Traitre d\u00E9lateur',
@@ -856,11 +837,11 @@ export const gr_06_01_2025: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_25_12_2024: PuzzleImport = {
+}, {
     puzzle_name: '25 d\u00E9cembre 2024 - Joyeux No\u00EBl',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Homophones',
@@ -883,12 +864,11 @@ export const gr_25_12_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-
-export const gr_16_12_2024: PuzzleImport = {
+}, {
     puzzle_name: '16 d\u00E9cembre 2024 - Autres',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Objectifs',
@@ -911,11 +891,11 @@ export const gr_16_12_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_09_12_2024: PuzzleImport = {
+}, {
     puzzle_name: '9 d\u00E9cembre 2024 - Voyager',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Disparition momentan\u00E9e',
@@ -938,11 +918,11 @@ export const gr_09_12_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_02_12_2024: PuzzleImport = {
+}, {
     puzzle_name: '2 d\u00E9cembre 2024 - Fracture  g\u00E9n\u00E9rationnelle',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Genre musical',
@@ -965,11 +945,11 @@ export const gr_02_12_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_25_11_2024: PuzzleImport = {
+}, {
     puzzle_name: '25 novembre 2024 - Carte',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Ecchymose',
@@ -992,11 +972,11 @@ export const gr_25_11_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_18_11_2024: PuzzleImport = {
+}, {
     puzzle_name: '18 novembre 2024 - Croise les doigts',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'R\u00E9actions dans les applications de messagerie',
@@ -1019,11 +999,11 @@ export const gr_18_11_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_11_11_2024: PuzzleImport = {
+}, {
     puzzle_name: '11 novembre 2024 - DK',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Renomm\u00E9',
@@ -1046,11 +1026,11 @@ export const gr_11_11_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_04_11_2024: PuzzleImport = {
+}, {
     puzzle_name: '4 novembre 2024 - Dingue renne',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Vu dans une chambre',
@@ -1073,11 +1053,11 @@ export const gr_04_11_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_23_08_2024: PuzzleImport = {
+}, {
     puzzle_name: '23 ao\u00FBt 2024 - 42',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '\u00E9l\u00E9ments de The French Connections',
@@ -1100,11 +1080,11 @@ export const gr_23_08_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_16_08_2024: PuzzleImport = {
+}, {
     puzzle_name: '16 ao\u00FBt 2024 - Encore',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Anciens noms de pays',
@@ -1127,11 +1107,11 @@ export const gr_16_08_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_12_08_2024: PuzzleImport = {
+}, {
     puzzle_name: '12 ao\u00FBt 2024 - Toponymie',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Symboles nationaux',
@@ -1154,11 +1134,11 @@ export const gr_12_08_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_09_08_2024: PuzzleImport = {
+}, {
     puzzle_name: '9 ao\u00FBt 2024 - Jimbo',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Estimation',
@@ -1181,11 +1161,11 @@ export const gr_09_08_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_05_08_2024: PuzzleImport = {
+}, {
     puzzle_name: '5 ao\u00FBt 2024 - Double',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Vitesse relative',
@@ -1208,11 +1188,11 @@ export const gr_05_08_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_02_08_2024: PuzzleImport = {
+}, {
     puzzle_name: '2 ao\u00FBt 2024 - Pi\u00E8ce',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '\u00E9quipement d\'une nageur\u00B7se',
@@ -1235,11 +1215,11 @@ export const gr_02_08_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_29_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '29 juillet 2024 - Bannissement',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Sp\u00E9cial',
@@ -1262,11 +1242,11 @@ export const gr_29_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_26_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '26 juillet 2024 - Corea',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Argent en argot',
@@ -1289,12 +1269,11 @@ export const gr_26_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-
-export const gr_22_07_2024: PuzzleImport = {
+},  {
     puzzle_name: '22 juillet 2024 - Not a nerd',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Capitales d\'Oc\u00E9anie',
@@ -1317,11 +1296,11 @@ export const gr_22_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_19_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '19 juillet 2024 - Liant',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'En terre du milieu',
@@ -1344,11 +1323,11 @@ export const gr_19_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_15_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '15 juillet 2024 - Tour du monde',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Accueille une institution de l\'UE',
@@ -1371,11 +1350,11 @@ export const gr_15_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_12_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '12 juillet 2024 - If',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Autour du cou',
@@ -1398,11 +1377,11 @@ export const gr_12_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_08_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '8 juillet 2024 - Multiniveaux',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Norme',
@@ -1425,11 +1404,11 @@ export const gr_08_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_05_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '5 juillet 2024 - Dracarys',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Cours au coll\u00E8ge',
@@ -1452,11 +1431,11 @@ export const gr_05_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_01_07_2024: PuzzleImport = {
+}, {
     puzzle_name: '1er juillet 2024 - Incandescent',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Syst\u00E8me international d\'unit\u00E9s',
@@ -1479,11 +1458,11 @@ export const gr_01_07_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_28_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '28 juin 2024 - Bravo les lesbiennes',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Homophones',
@@ -1506,11 +1485,11 @@ export const gr_28_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_24_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '24 juin 2024 - Solstice',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Expiration pulmonaire',
@@ -1533,11 +1512,11 @@ export const gr_24_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_21_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '21 juin 2024 - Passer la seconde',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Heureuse',
@@ -1560,11 +1539,11 @@ export const gr_21_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_19_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '19 juin 2024 - Connexionnisme',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '\u00E9gocentrisme',
@@ -1587,11 +1566,11 @@ export const gr_19_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_17_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '17 juin 2024 - Alfredo',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Commence par un animal',
@@ -1614,11 +1593,11 @@ export const gr_17_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_14_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '14 juin 2024 - Moshi moshi',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'R\u00E9compenses artistiques',
@@ -1641,11 +1620,11 @@ export const gr_14_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_10_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '10 juin 2024 - Faille',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Chouettes',
@@ -1668,11 +1647,11 @@ export const gr_10_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_07_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '7 juin 2024 - Autoroute',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Objets de mesure',
@@ -1695,11 +1674,11 @@ export const gr_07_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_03_06_2024: PuzzleImport = {
+}, {
     puzzle_name: '3 juin 2024 - Caeruleus',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Parties du Requiem de Mozart',
@@ -1722,11 +1701,11 @@ export const gr_03_06_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_31_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '31 mai 2024 - Abreuvoir',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '\u00E9conomies en pr\u00E9vision',
@@ -1749,11 +1728,11 @@ export const gr_31_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_27_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '27 mai 2024 - Money money money',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Cr\u00E9atures magiques',
@@ -1776,11 +1755,11 @@ export const gr_27_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_20_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '20 mai 2024 - Plus \u00E9loign\u00E9 que l\'univers',
     puzzle_difficulty: 1,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Guerre',
@@ -1803,12 +1782,11 @@ export const gr_20_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-
-export const gr_17_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '17 mai 2024 - Gigantomachie',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Postes au football',
@@ -1831,11 +1809,11 @@ export const gr_17_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_13_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '13 mai 2024 - Nobelis\u00E9e',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '\u00E9l\u00E9ments',
@@ -1858,11 +1836,11 @@ export const gr_13_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_10_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '10 mai 2024 - Rebondissante',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '\u00E9tats de la mati\u00E8re',
@@ -1885,11 +1863,11 @@ export const gr_10_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_08_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '8 mai 2024 - Bataille navale',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: '(Ex-) Chaines de t\u00E9l\u00E9vision',
@@ -1912,11 +1890,11 @@ export const gr_08_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_06_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '6 mai 2024 - Festivals',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Au supermarch\u00E9',
@@ -1939,11 +1917,11 @@ export const gr_06_05_2024: PuzzleImport = {
             difficulty: 4,
         }
     ]
-};
-
-export const gr_03_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '3 mai 2024 - Shakespeare',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'B\u00EAte',
@@ -1966,11 +1944,11 @@ export const gr_03_05_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_01_05_2024: PuzzleImport = {
+}, {
     puzzle_name: '1er mai 2024 - Fun',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Adjectifs possessifs pluriels',
@@ -1993,11 +1971,11 @@ export const gr_01_05_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_29_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '29 avril 2024 - 2020',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Manifestation rapide',
@@ -2020,11 +1998,11 @@ export const gr_29_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_26_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '26 avril 2024 - Anti-syst\u00E8me',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Propri\u00E9t\u00E9',
@@ -2047,12 +2025,11 @@ export const gr_26_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-
-export const gr_24_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '24 avril 2024 - Une part de tarte',
     puzzle_difficulty: 4,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Nombres (mal)chanceux',
@@ -2075,11 +2052,11 @@ export const gr_24_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_22_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '22 avril 2024 - Chat bott\u00E9',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Au c\u0153ur de',
@@ -2102,11 +2079,11 @@ export const gr_22_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_19_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '19 avril 2024 - Bergerac',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Grande quantit\u00E9',
@@ -2129,12 +2106,11 @@ export const gr_19_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-/**
-export const gr_15_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '15 avril 2024 - Supprim\u00E9',
     puzzle_difficulty: 5,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Outils de maquillage',
@@ -2157,12 +2133,11 @@ export const gr_15_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
- */
-
-export const gr_12_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '12 avril 2024 - Premi\u00E8re',
     puzzle_difficulty: 2,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Avare',
@@ -2185,11 +2160,11 @@ export const gr_12_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_08_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '8 avril 2024 - Biodiversit\u00E9',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Sa majest\u00E9',
@@ -2212,11 +2187,11 @@ export const gr_08_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
-
-export const gr_01_04_2024: PuzzleImport = {
+}, {
     puzzle_name: '1er avril 2024 - Ceci n\'est pas une blague',
     puzzle_difficulty: 3,
+    puzzle_date: new Date('2025-01-01'),
+    author: '',
     groups: [
         {
             category: 'Pour \u00E9crire une lettre',
@@ -2239,4 +2214,5 @@ export const gr_01_04_2024: PuzzleImport = {
             difficulty: 4,
         },
     ]
-};
+}
+];

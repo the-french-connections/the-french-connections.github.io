@@ -3,13 +3,13 @@
  */
 import * as React from 'react';
 import {
-  Alert,
-  AlertTitle,
-  Button,
+    Alert,
+    AlertTitle,
+    Button,
     ChakraProvider,
-  Circle,
-  Flex,
-  HStack,
+    Circle,
+    Flex,
+    HStack,
     Heading,
     ListItem,
     Menu,
@@ -22,9 +22,10 @@ import {
     ModalCloseButton,
     ModalHeader,
     ModalOverlay,
-  Stack,
+    Stack,
     Text,
     UnorderedList,
+    useToast
 } from '@chakra-ui/react';
 import {
     ChevronDownIcon,
@@ -32,27 +33,31 @@ import {
 } from '@chakra-ui/icons';
 import { useState, useRef, useEffect } from 'react';
 import useMethods from 'use-methods';
-import { gr_17_11_2025, gr_10_11_2025, gr_04_08_2025, gr_30_07_2025, gr_28_07_2025, gr_21_07_2025, gr_14_07_2025, gr_30_06_2025, gr_23_06_2025, gr_16_06_2025, gr_09_06_2025, gr_02_06_2025, gr_26_05_2025, gr_19_05_2025, gr_12_05_2025, gr_05_05_2025, gr_28_04_2025, gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024 } from './constants.ts'; //TOCHANGE
+import { all_puzzles } from './constants.ts';
 
 export type Group = {
-  category: string;
-  items: string[];
-  difficulty: 1 | 2 | 3 | 4;
+    category: string;
+    items: string[];
+    difficulty: 1 | 2 | 3 | 4;
 };
 
 export type PuzzleImport = {
     puzzle_name: string;
     puzzle_difficulty: number;
+    puzzle_date: Date;
+    author: string;
     groups: Group[];
 };
 
 
 type Options = {
-  groups: Group[];
+    groups: Group[];
 };
 
 type State = {
     difficulty: number,//Current puzzle's difficulty
+    date: Date,//Date of availability
+    author: string,//Puzzle's author
     groups: Group[];//List of current puzzle groups
     complete: Group[];//All completed groups
     incomplete: Group[];//All non-completed groups
@@ -71,37 +76,39 @@ type State = {
 
 // Assign a color for each level of difficulty
 const difficultyColor = (difficulty: 1 | 2 | 3 | 4): string => {
-  return {
-    1: '#fbd400',
-    2: '#b5e352',
-    3: '#729eeb',
-    4: '#bc70c4',
-  }[difficulty];
+    return {
+        1: '#fbd400',
+        2: '#b5e352',
+        3: '#729eeb',
+        4: '#bc70c4',
+    }[difficulty];
 };
 
 const chunk = <T,>(list: T[], size: number): T[][] => {
-  const chunkCount = Math.ceil(list.length / size);
-  return new Array(chunkCount).fill(null).map((_c: null, i: number) => {
-    return list.slice(i * size, i * size + size);
-  });
+    const chunkCount = Math.ceil(list.length / size);
+    return new Array(chunkCount).fill(null).map((_c: null, i: number) => {
+        return list.slice(i * size, i * size + size);
+    });
 };
 
 const shuffle = <T,>(list: T[]): T[] => {
-  for (let i = list.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [list[i], list[j]] = [list[j], list[i]];
-  }
-  return list;
+    for (let i = list.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
 };
 
 const methods = (state: State) => {
     return {
         update(newPuzzle: PuzzleImport) {
-            state.difficulty = newPuzzle.groups.puzzle_difficulty;
-            state.groups = newPuzzle.groups.groups;
-            state.incomplete = newPuzzle.groups.groups;
-            state.complete= [];
-            state.items = shuffle(newPuzzle.groups.groups.flatMap((g) => g.items));
+            state.difficulty = newPuzzle.puzzle_difficulty;
+            state.date = newPuzzle.puzzle_date;
+            state.author = newPuzzle.author;
+            state.groups = newPuzzle.groups;
+            state.incomplete = newPuzzle.groups;
+            state.complete = [];
+            state.items = shuffle(newPuzzle.groups.flatMap((g) => g.items));
             state.activeItems = [];
             state.mistakesRemaining = 4;
             state.oneAway = false;
@@ -111,91 +118,91 @@ const methods = (state: State) => {
             state.guessWasWrong = false;
             state.isFinished = false;
             state.emojiFromGuesses = [];
-            state.current_name = newPuzzle.groups.puzzle_name;
+            state.current_name = newPuzzle.puzzle_name;
         },
 
-    toggleActive(item: string) {
-        state.guessWasWrong = false;
-        state.oneAway = false;
-        state.alreadyGuessed = false;
-        if (state.activeItems.includes(item)) {
-        state.activeItems = state.activeItems.filter((i) => i !== item);
-        } else if (state.activeItems.length < 4) {
-        state.activeItems.push(item);
-        }
-    },
-
-    shuffle() {
-      shuffle(state.items);
-    },
-
-    deselectAll() {
-      state.activeItems = [];
-    },
-
-    submit() {
-        const foundGroup = state.incomplete.map((group) => ({
-            group,
-            matchingItems: group.items.filter((item) => state.activeItems.includes(item))
-        }));
-        
-        const currentGuesses :string[] = [];
-        for (let next_group of foundGroup) {
-            if (next_group.matchingItems.length > 0) {
-                for (let next_item of next_group.matchingItems) {
-                    currentGuesses.push(next_item);
-                }
+        toggleActive(item: string) {
+            state.guessWasWrong = false;
+            state.oneAway = false;
+            state.alreadyGuessed = false;
+            if (state.activeItems.includes(item)) {
+                state.activeItems = state.activeItems.filter((i) => i !== item);
+            } else if (state.activeItems.length < 4) {
+                state.activeItems.push(item);
             }
-        }
+        },
 
-        // If it was already guessed, push the alarm, if not store the guess
-        for (let guess of state.guesses) {
-            const sortedArr1 = guess.slice().sort();
-            const sortedArr2 = currentGuesses.slice().sort();
-            if (JSON.stringify(sortedArr1) === JSON.stringify(sortedArr2)) {
-                state.alreadyGuessed = true;
-                break;
-            }
-        }
-        if (!state.alreadyGuessed) {
-            state.guesses.push(currentGuesses);
+        shuffle() {
+            shuffle(state.items);
+        },
 
+        deselectAll() {
+            state.activeItems = [];
+        },
+
+        submit() {
+            const foundGroup = state.incomplete.map((group) => ({
+                group,
+                matchingItems: group.items.filter((item) => state.activeItems.includes(item))
+            }));
+
+            const currentGuesses: string[] = [];
             for (let next_group of foundGroup) {
-                if (next_group.matchingItems.length === 4) {
-                    state.complete.push(next_group.group);
-                    const incomplete = state.incomplete.filter((group) => group !== next_group.group);
-                    state.incomplete = incomplete;
-                    state.items = state.items.filter(item => !next_group.matchingItems.includes(item));//incomplete.flatMap((group) => group.items);
-                    state.activeItems = [];
-                    state.discoveredCategories.push(next_group.group.difficulty);
-
-                    // Check if all categories were discovered. If yes, this is the end!
-                    if (state.incomplete.length === 0) {
-                        state.isFinished = true;
-                        this.getEmojiFromGuesses();
-                    }
-                    return;
-                } else {
-                    if (next_group.matchingItems.length === 3) {
-                        state.oneAway = true;
+                if (next_group.matchingItems.length > 0) {
+                    for (let next_item of next_group.matchingItems) {
+                        currentGuesses.push(next_item);
                     }
                 }
             }
 
-            state.guessWasWrong = true;
-            state.mistakesRemaining -= 1;
-        }
+            // If it was already guessed, push the alarm, if not store the guess
+            for (let guess of state.guesses) {
+                const sortedArr1 = guess.slice().sort();
+                const sortedArr2 = currentGuesses.slice().sort();
+                if (JSON.stringify(sortedArr1) === JSON.stringify(sortedArr2)) {
+                    state.alreadyGuessed = true;
+                    break;
+                }
+            }
+            if (!state.alreadyGuessed) {
+                state.guesses.push(currentGuesses);
 
-        state.activeItems = [];
+                for (let next_group of foundGroup) {
+                    if (next_group.matchingItems.length === 4) {
+                        state.complete.push(next_group.group);
+                        const incomplete = state.incomplete.filter((group) => group !== next_group.group);
+                        state.incomplete = incomplete;
+                        state.items = state.items.filter(item => !next_group.matchingItems.includes(item));//incomplete.flatMap((group) => group.items);
+                        state.activeItems = [];
+                        state.discoveredCategories.push(next_group.group.difficulty);
 
-        if (state.mistakesRemaining === 0) {
-            state.complete = state.complete.concat(state.incomplete);
-            state.incomplete = [];
-            state.items = [];
-            state.isFinished = true;
-            this.getEmojiFromGuesses();
-        }
-    },
+                        // Check if all categories were discovered. If yes, this is the end!
+                        if (state.incomplete.length === 0) {
+                            state.isFinished = true;
+                            this.getEmojiFromGuesses();
+                        }
+                        return;
+                    } else {
+                        if (next_group.matchingItems.length === 3) {
+                            state.oneAway = true;
+                        }
+                    }
+                }
+
+                state.guessWasWrong = true;
+                state.mistakesRemaining -= 1;
+            }
+
+            state.activeItems = [];
+
+            if (state.mistakesRemaining === 0) {
+                state.complete = state.complete.concat(state.incomplete);
+                state.incomplete = [];
+                state.items = [];
+                state.isFinished = true;
+                this.getEmojiFromGuesses();
+            }
+        },
 
         getEmojiFromGuesses() {
             for (const guessList of state.guesses) {
@@ -224,12 +231,14 @@ const methods = (state: State) => {
                 }
             }
         },
-  };
+    };
 };
 
-const useGame = (options: Options, difficulty: number, current_name: string) => {
+const useGame = (options: Options, difficulty: number, date: Date, author: string, current_name: string) => {
     const initialState: State = {
         difficulty: difficulty,
+        date: date,
+        author: author,
         groups: options.groups,
         incomplete: options.groups,
         complete: [],
@@ -249,64 +258,87 @@ const useGame = (options: Options, difficulty: number, current_name: string) => 
     const [state, fns] = useMethods(methods, initialState);
 
     return {
-    ...state,
-    ...fns,
+        ...state,
+        ...fns,
     };
 };
 
 export const App = () => {
+    const toast = useToast()
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
     const isNextPuzzle = currentMonth > 11 || (currentMonth === 11 && currentDay >= 17); //TOCHANGE
 
-    const current_puzzle = isNextPuzzle ? gr_17_11_2025 : gr_10_11_2025; //TOCHANGE
     const ending_text = isNextPuzzle ? "The French Connections #80. Prochain puzzle quand j'ai de l'inspiration." : "The French Connections #79."; //TOCHANGE
-    const all_groups_name = isNextPuzzle ? [gr_17_11_2025, gr_10_11_2025, gr_04_08_2025, gr_30_07_2025, gr_28_07_2025, gr_21_07_2025, gr_14_07_2025, gr_30_06_2025, gr_23_06_2025, gr_16_06_2025, gr_09_06_2025, gr_02_06_2025, gr_26_05_2025, gr_19_05_2025, gr_12_05_2025, gr_05_05_2025, gr_28_04_2025, gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_16_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024] :
-        [gr_10_11_2025, gr_04_08_2025, gr_30_07_2025, gr_28_07_2025, gr_21_07_2025, gr_14_07_2025, gr_30_06_2025, gr_23_06_2025, gr_16_06_2025, gr_09_06_2025, gr_02_06_2025, gr_26_05_2025, gr_19_05_2025, gr_12_05_2025, gr_05_05_2025, gr_28_04_2025, gr_21_04_2025, gr_14_04_2025, gr_07_04_2025, gr_01_04_2025, gr_24_03_2025, gr_10_03_2025, gr_24_02_2025, gr_17_02_2025, gr_10_02_2025, gr_03_02_2025, gr_27_01_2025, gr_20_01_2025, gr_13_01_2025, gr_06_01_2025, gr_25_12_2024, gr_16_12_2024, gr_09_12_2024, gr_02_12_2024, gr_25_11_2024, gr_18_11_2024, gr_11_11_2024, gr_04_11_2024, gr_23_08_2024, gr_12_08_2024, gr_09_08_2024, gr_05_08_2024, gr_02_08_2024, gr_29_07_2024, gr_26_07_2024, gr_22_07_2024, gr_19_07_2024, gr_15_07_2024, gr_12_07_2024, gr_08_07_2024, gr_05_07_2024, gr_01_07_2024, gr_28_06_2024, gr_24_06_2024, gr_21_06_2024, gr_19_06_2024, gr_17_06_2024, gr_14_06_2024, gr_10_06_2024, gr_07_06_2024, gr_03_06_2024, gr_31_05_2024, gr_27_05_2024, gr_20_05_2024, gr_17_05_2024, gr_13_05_2024, gr_10_05_2024, gr_08_05_2024, gr_06_05_2024, gr_03_05_2024, gr_01_05_2024, gr_29_04_2024, gr_26_04_2024, gr_24_04_2024, gr_22_04_2024, gr_19_04_2024, gr_12_04_2024, gr_08_04_2024, gr_01_04_2024];
+    const all_groups_name = all_puzzles.filter((puzzle) => puzzle.puzzle_date <= currentDate);
+    const current_puzzle = all_groups_name[0];
 
     const game = useGame({
         groups: current_puzzle.groups,
     },
         current_puzzle.puzzle_difficulty,
+        current_puzzle.puzzle_date,
+        current_puzzle.author,
         current_puzzle.puzzle_name
     );
 
     const handleMenuItemClick = (puzzleImport: PuzzleImport) => {
-        game.update({
-            groups: puzzleImport,
-        });
+        game.update(puzzleImport);
         setIsOpenResults(true);
     };
 
     const [isOpenRules, setIsOpenRules] = useState(true);
     const [isOpenResults, setIsOpenResults] = useState(true);
 
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  const selectedItemRef = useRef(null);
-  const menuListRef = useRef(null);
-  
-  // Trouver l'index de l'�l�ment actuellement s�lectionn�
-  const currentIndex = all_groups_name.findIndex(
-    (item) => item.puzzle_name === game.current_name
-  );
-  
-  useEffect(() => {
-    // Quand le menu s'ouvre, faire d�filer jusqu'� l'�l�ment s�lectionn�
-    if (isOpenDropdown && selectedItemRef.current && menuListRef.current) {
-      setTimeout(() => {
-        selectedItemRef.current.scrollIntoView({ 
-          behavior: 'auto',
-          block: 'center'
-        });
-      }, 100); // Petit d�lai pour s'assurer que le menu est compl�tement rendu
-    }
-  }, [isOpenDropdown]);
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+    const selectedItemRef = useRef(null);
+    const menuListRef = useRef(null);
+
+    // Trouver l'index de l'�l�ment actuellement s�lectionn�
+    const currentIndex = all_groups_name.findIndex(
+        (item) => item.puzzle_name === game.current_name
+    );
+
+    useEffect(() => {
+        // Quand le menu s'ouvre, faire d�filer jusqu'� l'�l�ment s�lectionn�
+        if (isOpenDropdown && selectedItemRef.current && menuListRef.current) {
+            setTimeout(() => {
+                selectedItemRef.current.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'center'
+                });
+            }, 100); // Petit d�lai pour s'assurer que le menu est compl�tement rendu
+        }
+    }, [isOpenDropdown]);
 
     const handleCloseRules = () => setIsOpenRules(false);
     const handleCloseResults = () => setIsOpenResults(false);
 
-    const containsHtmlTags = (str) => /<[^>]*>/g.test(str);
+    const containsHtmlTags = (str: string) => /<[^>]*>/g.test(str);
+
+    const resultText = (game) => {
+        return game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([4, 3, 2, 1]) ? "R\u00E9sultats : Arc-en-ciel invers\u00E9 !!" :
+            game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([1, 2, 3, 4]) ? "R\u00E9sultats : Arc-en-ciel !" :
+                game.mistakesRemaining === 4 ? "R\u00E9sultats - Parfait !" :
+                    game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
+                        game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
+                            game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "R\u00E9sultats - Dommage...";
+    }
+
+    const resultEmojis = (game) => {
+        return game.emojiFromGuesses.map((emoji: string, index: number) => {
+            let circle = String.fromCodePoint(parseInt(emoji.substring(2)));
+            if ((index + 1) % 4 === 0) {
+                circle += '\n';
+            }
+            return circle;
+        });
+    }
+
+    const writeResults = (game) => {
+        return resultText(game) + '\n' + resultEmojis(game);
+    }
 
     return (
         <ChakraProvider>
@@ -325,8 +357,8 @@ export const App = () => {
                                     </MenuButton>
                                     <MenuList ref={menuListRef}
                                         fontSize={["xs", "s", "md"]}
-                                        maxHeight="300px" // Set a max height
-                                        overflowY="auto"   // Enable vertical scrolling
+                                        maxHeight="300px"// Set a max height
+                                        overflowY="auto"// Enable vertical scrolling
                                     >
                                         {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
                                             <MenuItem key={index} ref={index === currentIndex ? selectedItemRef : null} onClick={() => handleMenuItemClick(puzzleImport)} backgroundColor={index === currentIndex ? "blue.100" : ""} fontWeight={index === currentIndex ? "bold" : "normal"}>
@@ -342,7 +374,7 @@ export const App = () => {
                             index < game.difficulty ? (
                                 <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="yellow.500" />
                             ) : (
-                                    <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="gray.300" />
+                                <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="gray.300" />
                             )
                         ))}
                     </HStack>
@@ -381,17 +413,20 @@ export const App = () => {
                             </ModalBody>
                         </ModalContent>
                     </Modal>
+                    {game.author != '' && (
+                        <Text mb='0.5rem' fontStyle={'italic'}>Puzzle créé par : {game.author}.</Text>
+                    )}
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
                             <Stack key={group.category} w={['344px', '438px', '528px', '624px']} h={["56px", "64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
                                 <Text fontSize={group.category.length > 45 ? ["xs", "xs", "sm", "md"] : group.category.length > 35 ? ["xs", "sm", "lg", "xl"] : ["sm", "md", "lg", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
                                 <Text fontSize={["sm", "md", "l", "xl"]} textTransform="uppercase">
                                     {containsHtmlTags(group.items[0]) ? (
-                                            group.items.map((item) => (
-                                                <span style={{ display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: item }} />
-                                            ))
+                                        group.items.map((item) => (
+                                            <span style={{ display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: item }} />
+                                        ))
                                     ) : (
-                                       group.items.join(', ')
+                                        group.items.join(', ')
                                     )}
                                 </Text>
                             </Stack>
@@ -422,11 +457,32 @@ export const App = () => {
                             index < game.mistakesRemaining ? (
                                 <Circle key={index} bg="gray.800" size="12px" />
                             ) : (
-                                    <Circle key={index} bg="gray.300" size="12px" />
+                                <Circle key={index} bg="gray.300" size="12px" />
                             )
                         ))}
                     </HStack>
                     <HStack padding="1em">
+                        <Button
+                            colorScheme="black"
+                            variant="outline"
+                            rounded="full"
+                            borderWidth="2px"
+                            isDisabled={!game.isFinished}
+                            onClick={(_) => {
+                                navigator.clipboard.writeText(writeResults(game));
+                                toast({
+                                    title: "Copié!",
+                                    status: "success",
+                                    duration: 2000,
+                                    isClosable: true,
+                                    position: "top"
+                                })
+                            }}
+                            fontSize={["14px", "16px"]}
+                            h={["30px", "40px"]}
+                        >
+                            Copier les résultats
+                        </Button>
                         <Button
                             colorScheme="black"
                             variant="outline"
@@ -468,23 +524,40 @@ export const App = () => {
                         <ModalOverlay />
                         <ModalContent>
                             <ModalHeader fontWeight='bold' fontSize="2xl">
-                                {game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([4, 3, 2, 1]) ? "R\u00E9sultats : Arc-en-ciel invers\u00E9 !!" :
-                                    game.mistakesRemaining === 4 && JSON.stringify(game.discoveredCategories) === JSON.stringify([1,2,3,4]) ? "R\u00E9sultats : Arc-en-ciel !" :
-                                        game.mistakesRemaining === 4 ? "R\u00E9sultats - Parfait !" :
-                                            game.mistakesRemaining === 3 ? "R\u00E9sultats - Incroyable !" :
-                                                game.mistakesRemaining === 2 ? "R\u00E9sultats - Bravo !" :
-                                                    game.mistakesRemaining === 1 ? "R\u00E9sultats - Bien !" : "R\u00E9sultats - Dommage..."}</ModalHeader>
+                                {resultText(game)}
+                            </ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                                 {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
                                 <Text fontSize='4xl' align='center'>
-                                {game.emojiFromGuesses.map((emoji: string, index: number) => (
-                                    <React.Fragment key={index}>
-                                        {String.fromCodePoint(parseInt(emoji.substring(2)))}
-                                        {(index + 1) % 4 === 0 && <Text>{"\n"}</Text>}
-                                    </React.Fragment>
-                                ))}
+                                    {game.emojiFromGuesses.map((emoji: string, index: number) => (
+                                        <React.Fragment key={index}>
+                                            {String.fromCodePoint(parseInt(emoji.substring(2)))}
+                                            {(index + 1) % 4 === 0 && <Text>{"\n"}</Text>}
+                                        </React.Fragment>
+                                    ))}
                                 </Text>
+                                <Button
+                                    colorScheme="black"
+                                    variant="outline"
+                                    rounded="full"
+                                    borderWidth="2px"
+                                    isDisabled={!game.isFinished}
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(writeResults(game));
+                                        toast({
+                                            title: "Copié!",
+                                            status: "success",
+                                            duration: 2000,
+                                            isClosable: true,
+                                            position: "top"
+                                        })
+                                    }}
+                                    fontSize={["14px", "16px"]}
+                                    h={["30px", "40px"]}
+                                >
+                                    Copier
+                                </Button>
                             </ModalBody>
                         </ModalContent>
                     </Modal>}
