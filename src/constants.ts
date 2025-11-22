@@ -1,8 +1,10 @@
 import { PuzzleImport } from './App';
 
+// The puzzles I created (without anything in the 'author' field) are under Creative Commons CC-BY-NC licence (https://creativecommons.org/share-your-work/cclicenses/)
+
 export const all_puzzles: PuzzleImport[] = [
     {
-        puzzle_name: '16 novembre 2025 - Chocolatine',
+        puzzle_name: '27 novembre 2025 - Chocolatine',
         puzzle_difficulty: 3,
         puzzle_date: new Date('2025-11-27'),
         author: 'Bocky',

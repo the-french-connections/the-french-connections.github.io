@@ -270,13 +270,10 @@ const useGame = (options: Options, difficulty: number, date: Date, author: strin
 export const App = () => {
     const toast = useToast()
     const currentDate = new Date();
-    const currentDay = currentDate.getDate();
-    const currentMonth = currentDate.getMonth() + 1;
-    const isNextPuzzle = currentMonth > 11 || (currentMonth === 11 && currentDay >= 17); //TOCHANGE
 
-    const ending_text = isNextPuzzle ? "The French Connections #80. Prochain puzzle quand j'ai de l'inspiration." : "The French Connections #79."; //TOCHANGE
     const all_groups_name = all_puzzles.filter((puzzle) => puzzle.puzzle_date <= currentDate);
     const current_puzzle = all_groups_name[0];
+    const ending_text = `The French Connections #${all_groups_name.length}. Prochains puzzles les lundis (par moi) et jeudis (par qqun·e d'autre).`;
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -308,11 +305,11 @@ export const App = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             toast({
-            title: "Vous avez une idée de puzzle ? Proposez-la ici : https://github.com/the-french-connections/the-french-connections.github.io/issues",
-            status: "success",
-            duration: 6000,
-            isClosable: true,
-            position: "top"
+                title: "Vous avez une idée de puzzle ? Proposez-la ici : https://github.com/the-french-connections/the-french-connections.github.io/issues",
+                status: "success",
+                duration: 6000,
+                isClosable: true,
+                position: "top"
             });
         }, 500); // 500ms delay
 
@@ -371,12 +368,12 @@ export const App = () => {
                         <Menu isOpen={isOpenDropdown} onOpen={() => setIsOpenDropdown(true)} onClose={() => setIsOpenDropdown(false)}>
                             {({ isOpen }) => (
                                 <>
-                                    <MenuButton size={['sm', 'md', 'lg']} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
+                                    <MenuButton size={['s', 'sm', 'md', 'lg']} px={[3, 4, 5, 6]} py={[1, 2]} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
                                         {game.current_name}
                                     </MenuButton>
                                     <MenuList ref={menuListRef}
-                                        fontSize={["xs", "s", "md"]}
-                                        maxHeight="300px"// Set a max height
+                                        fontSize={["xs", "s", "md", 'lg']}
+                                        maxHeight={["200px", "250px", "300px", "350px"]}// Set a max height
                                         overflowY="auto"// Enable vertical scrolling
                                     >
                                         {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
@@ -391,9 +388,9 @@ export const App = () => {
 
                         {current_puzzle.puzzle_name != game.current_name && [...Array(5).keys()].map((_, index) => (
                             index < game.difficulty ? (
-                                <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="yellow.500" />
+                                <StarIcon key={index} boxSize={['0.6em', '0.75em', '1em', '1.25em']} color="yellow.500" />
                             ) : (
-                                <StarIcon key={index} boxSize={['0.75em', '1em', '1.25em']} color="gray.300" />
+                                <StarIcon key={index} boxSize={['0.6em', '0.75em', '1em', '1.25em']} color="gray.300" />
                             )
                         ))}
                     </HStack>
@@ -433,10 +430,10 @@ export const App = () => {
                         </ModalContent>
                     </Modal>
                     {game.author != '' && (
-                        <Text mb='0.5rem' fontStyle={'italic'}>Puzzle créé par : {game.author}.</Text>
+                        <Text mb='0.5rem' fontSize={['2xs', 'xs', 'sm', 'md']} px={[2, 3, 4]} textAlign="center" wordBreak="break-word" fontStyle={'italic'}>Puzzle créé par : {game.author}.</Text>
                     )}
                     {game.additional_text != '' && (
-                        <Text mb='0.5rem' fontStyle={'italic'}>{game.additional_text}</Text>
+                        <Text mb='0.5rem' fontSize={['2xs', 'xs', 'sm', 'md']} px={[2, 3, 4]} textAlign="center" wordBreak="break-word" fontStyle={'italic'}>{game.additional_text}</Text>
                     )}
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
@@ -500,8 +497,11 @@ export const App = () => {
                                     position: "top"
                                 })
                             }}
-                            fontSize={["14px", "16px"]}
-                            h={["30px", "40px"]}
+                            fontSize={["13px", "14px", "16px"]}
+                            whiteSpace="normal"
+                            textAlign="center"
+                            px={[2, 3, 4]}
+                            py={[0.5, 1, 2]}
                         >
                             Copier les résultats
                         </Button>
@@ -512,8 +512,11 @@ export const App = () => {
                             borderWidth="2px"
                             isDisabled={game.isFinished}
                             onClick={game.shuffle}
-                            fontSize={["14px", "16px"]}
-                            h={["30px", "40px"]}
+                            fontSize={["13px", "14px", "16px"]}
+                            whiteSpace="normal"
+                            textAlign="center"
+                            px={[2, 3, 4]}
+                            py={[0.5, 1, 2]}
                         >
                             M&eacute;langer
                         </Button>
@@ -524,8 +527,11 @@ export const App = () => {
                             borderWidth="2px"
                             isDisabled={game.activeItems.length <= 0}
                             onClick={game.deselectAll}
-                            fontSize={["14px", "16px"]}
-                            h={["30px", "40px"]}
+                            fontSize={["13px", "14px", "16px"]}
+                            whiteSpace="normal"
+                            textAlign="center"
+                            px={[2, 3, 4]}
+                            py={[0.5, 1, 2]}
                         >
                             D&eacute;selectionner tout
                         </Button>
@@ -536,8 +542,11 @@ export const App = () => {
                             borderWidth="2px"
                             isDisabled={game.activeItems.length !== 4}
                             onClick={game.submit}
-                            fontSize={["14px", "16px"]}
-                            h={["30px", "40px"]}
+                            fontSize={["13px", "14px", "16px"]}
+                            whiteSpace="normal"
+                            textAlign="center"
+                            px={[2, 3, 4]}
+                            py={[0.5, 1, 2]}
                         >
                             Valider
                         </Button>
