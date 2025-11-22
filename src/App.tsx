@@ -46,6 +46,7 @@ export type PuzzleImport = {
     puzzle_difficulty: number;
     puzzle_date: Date;
     author: string;
+    additional_text: string;
     groups: Group[];
 };
 
@@ -58,12 +59,13 @@ type State = {
     difficulty: number,//Current puzzle's difficulty
     date: Date,//Date of availability
     author: string,//Puzzle's author
-    groups: Group[];//List of current puzzle groups
-    complete: Group[];//All completed groups
-    incomplete: Group[];//All non-completed groups
-    items: string[];
-    activeItems: string[];//Items currently selected
-    mistakesRemaining: number;//Number of mistakes remaining
+    additional_text: string,//Additional text/note
+    groups: Group[],//List of current puzzle groups
+    complete: Group[],//All completed groups
+    incomplete: Group[],//All non-completed groups
+    items: string[],
+    activeItems: string[],//Items currently selected
+    mistakesRemaining: number,//Number of mistakes remaining
     oneAway: boolean,//Whether current guess is "One away" (3 out of 4 words in a category)
     guesses: string[][],//History of all guesses
     discoveredCategories: number[],//Store the order of discovered categories (only used to check if the guess is "perfect" (yellow -> purple), "reverse perfect" (purple -> yellow)...)
@@ -105,6 +107,7 @@ const methods = (state: State) => {
             state.difficulty = newPuzzle.puzzle_difficulty;
             state.date = newPuzzle.puzzle_date;
             state.author = newPuzzle.author;
+            state.additional_text = newPuzzle.additional_text;
             state.groups = newPuzzle.groups;
             state.incomplete = newPuzzle.groups;
             state.complete = [];
@@ -234,11 +237,12 @@ const methods = (state: State) => {
     };
 };
 
-const useGame = (options: Options, difficulty: number, date: Date, author: string, current_name: string) => {
+const useGame = (options: Options, difficulty: number, date: Date, author: string, additional_text: string, current_name: string) => {
     const initialState: State = {
         difficulty: difficulty,
         date: date,
         author: author,
+        additional_text: additional_text,
         groups: options.groups,
         incomplete: options.groups,
         complete: [],
@@ -280,6 +284,7 @@ export const App = () => {
         current_puzzle.puzzle_difficulty,
         current_puzzle.puzzle_date,
         current_puzzle.author,
+        current_puzzle.additional_text,
         current_puzzle.puzzle_name
     );
 
@@ -295,20 +300,34 @@ export const App = () => {
     const selectedItemRef = useRef(null);
     const menuListRef = useRef(null);
 
-    // Trouver l'index de l'�l�ment actuellement s�lectionn�
+    // Find currently selected puzzle's index
     const currentIndex = all_groups_name.findIndex(
         (item) => item.puzzle_name === game.current_name
     );
 
     useEffect(() => {
-        // Quand le menu s'ouvre, faire d�filer jusqu'� l'�l�ment s�lectionn�
+        const timer = setTimeout(() => {
+            toast({
+            title: "Vous avez une idée de puzzle ? Proposez-la ici : https://github.com/the-french-connections/the-french-connections.github.io/issues",
+            status: "success",
+            duration: 6000,
+            isClosable: true,
+            position: "top"
+            });
+        }, 500); // 500ms delay
+
+        return () => clearTimeout(timer); // Cleanup
+    }, []);
+
+    useEffect(() => {
+        // When the dropdown is opened, allow scrolling
         if (isOpenDropdown && selectedItemRef.current && menuListRef.current) {
             setTimeout(() => {
                 selectedItemRef.current.scrollIntoView({
                     behavior: 'auto',
                     block: 'center'
                 });
-            }, 100); // Petit d�lai pour s'assurer que le menu est compl�tement rendu
+            }, 100); // Make sure the dropwdown is fully loaded
         }
     }, [isOpenDropdown]);
 
@@ -415,6 +434,9 @@ export const App = () => {
                     </Modal>
                     {game.author != '' && (
                         <Text mb='0.5rem' fontStyle={'italic'}>Puzzle créé par : {game.author}.</Text>
+                    )}
+                    {game.additional_text != '' && (
+                        <Text mb='0.5rem' fontStyle={'italic'}>{game.additional_text}</Text>
                     )}
                     <Stack maxWidth="624px">
                         {game.complete.map((group: Group) => (
