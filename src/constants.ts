@@ -1,11 +1,69 @@
 import { PuzzleImport } from './App';
 
 // The puzzles I created (without anything in the 'author' field) are under Creative Commons CC-BY-NC licence (https://creativecommons.org/share-your-work/cclicenses/)
+// Puzzle with an author field allow me to post their puzzle on the website.
 
 export const all_puzzles: PuzzleImport[] = [
     {
-        puzzle_name: '27 novembre 2025 - Chocolatine',
+        puzzle_name: '4 décembre 2025 - Raclette',
         puzzle_difficulty: 3,
+        puzzle_date: new Date('2025-12-04'),
+        author: 'Bocky',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Bobo au pied',
+                items: ['cor', 'ampoule', 'cal', 'oeil-de-perdrix'],
+                difficulty: 1,
+            },
+            {
+                category: 'Contient de la cire',
+                items: ['Oreille', 'bougie', 'sceau', 'musée Grévin'],
+                difficulty: 2,
+            },
+            {
+                category: 'S\'allume dans la voiture',
+                items: ['Phare', 'Clignotant', 'voyant', 'warning'],
+                difficulty: 3,
+            },
+            {
+                category: '_ + rouge',
+                items: ['Feu', 'Voir', 'alerte', 'nez'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
+        puzzle_name: '01 décembre 2025 - Serengeti',
+        puzzle_difficulty: 3,
+        puzzle_date: new Date('2025-12-01'),
+        author: '',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Subsiste en très faibles proportions',
+                items: ['Trace', 'Reste', 'Bribe', 'Résidu'],
+                difficulty: 1,
+            },
+            {
+                category: 'Unité pour quantifier le volume d\'un texte',
+                items: ['signe', 'lettre', 'chapitre', 'page'],
+                difficulty: 2,
+            },
+            {
+                category: 'De forme conique',
+                items: ['Sapin de Noël', 'Entonnoir', 'Cornet', 'Chapeau pointu'],
+                difficulty: 3,
+            },
+            {
+                category: 'Éléments d\'origine humaine actuellement sur la Lune',
+                items: ['Rover', 'Drapeau américain', 'Empreinte', 'Médaille'],
+                difficulty: 4,
+            }
+        ]
+    }, {
+        puzzle_name: '27 novembre 2025 - Chocolatine',
+        puzzle_difficulty: 2,
         puzzle_date: new Date('2025-11-27'),
         author: 'Bocky',
         additional_text: '',

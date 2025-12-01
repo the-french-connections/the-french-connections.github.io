@@ -302,6 +302,7 @@ export const App = () => {
         (item) => item.puzzle_name === game.current_name
     );
 
+    /**
     useEffect(() => {
         const timer = setTimeout(() => {
             toast({
@@ -314,7 +315,8 @@ export const App = () => {
         }, 500); // 500ms delay
 
         return () => clearTimeout(timer); // Cleanup
-    }, []);
+    }, []); 
+    */
 
     useEffect(() => {
         // When the dropdown is opened, allow scrolling
@@ -343,13 +345,12 @@ export const App = () => {
     }
 
     const resultEmojis = (game) => {
-        return game.emojiFromGuesses.map((emoji: string, index: number) => {
-            let circle = String.fromCodePoint(parseInt(emoji.substring(2)));
-            if ((index + 1) % 4 === 0) {
-                circle += '\n';
-            }
-            return circle;
-        });
+        return game.emojiFromGuesses
+            .map((emoji: string, index: number) => {
+                const circle = String.fromCodePoint(parseInt(emoji.substring(2)));
+                return (index + 1) % 4 === 0 ? circle + '\n' : circle;
+            })
+            .join('');
     }
 
     const writeResults = (game) => {
