@@ -5,6 +5,65 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles: PuzzleImport[] = [
     {
+        puzzle_name: '11 décembre 2025 - Pulls de Noël',
+        puzzle_difficulty: 3,
+        puzzle_date: new Date('2025-12-11'),
+        author: 'Bocky',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Types de baguettes',
+                items: ['Flûte', 'Ficelle', 'tradition', 'moulée'],
+                difficulty: 1,
+            },
+            {
+                category: 'Parties d\'une machine à laver',
+                items: ['Tambour', 'filtre', 'courroie', 'hublot'],
+                difficulty: 2,
+            },
+            {
+                
+                category: 'Termine par une matière première',
+                items: ['Hautbois', 'Saint-Pierre', 'Cimeterre', 'Passable'],
+                difficulty: 3,
+            },
+            {
+                category: '_ + droit',
+                items: ['Piano', 'bras', 'angle', 'passe'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
+        puzzle_name: '8 décembre 2025 - Muspellheim',
+        puzzle_difficulty: 4,
+        puzzle_date: new Date('2025-12-08'),
+        author: '',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Du confort dans la voiture',
+                items: ['appui-tête', 'climatisation', 'pare-soleil', 'boîte à gants'],
+                difficulty: 1,
+            },
+            {
+                category: 'Importance d\'un raisonnement ou d\'un texte',
+                items: ['portée', 'force', 'valeur', 'poids'],
+                difficulty: 2,
+            },
+            {
+                category: 'Est originnellement un nom de marque',
+                items: ['Fermeture éclair', 'Frigidaire', 'Abribus', 'Escalator'],
+                difficulty: 3,
+            },
+            {
+                category: 'Porte + _',
+                items: ['blindée', 'papillon', 'tournante', 'coupe-feu'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
         puzzle_name: '4 décembre 2025 - Raclette',
         puzzle_difficulty: 3,
         puzzle_date: new Date('2025-12-04'),
