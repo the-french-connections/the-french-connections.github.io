@@ -5,8 +5,38 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles: PuzzleImport[] = [
     {
-        puzzle_name: '11 décembre 2025 - Pulls de Noël',
+        puzzle_name: '22 décembre 2025 - Caléidoscope',
         puzzle_difficulty: 3,
+        puzzle_date: new Date('2025-12-22'),
+        author: '',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Dérobe',
+                items: ['chipe', 'pique', 'vole', 'ravis'],
+                difficulty: 1,
+            },
+            {
+                category: 'Met en route',
+                items: ['lance', 'amorce', 'entame', 'engage'],
+                difficulty: 2,
+            },
+            {
+                
+                category: 'Variétés de salade',
+                items: ['romaine', 'mâche', 'iceberg', 'chicorée'],
+                difficulty: 3,
+            },
+            {
+                category: 'Serre- + _',
+                items: ['tête', 'file', 'fesses', 'joint'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
+        puzzle_name: '11 décembre 2025 - Pulls de Noël',
+        puzzle_difficulty: 4,
         puzzle_date: new Date('2025-12-11'),
         author: 'Bocky',
         additional_text: '',
