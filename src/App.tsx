@@ -273,7 +273,7 @@ export const App = () => {
 
     const all_groups_name = all_puzzles.filter((puzzle) => puzzle.puzzle_date <= currentDate);
     const current_puzzle = all_groups_name[0];
-    const ending_text = `The French Connections #${all_groups_name.length}. Prochains puzzles les lundis (par moi) et jeudis (par qqun·e d'autre).`;
+    const ending_text = `The French Connections #${all_groups_name.length}. Prochains puzzles quand j'aurai du temps.`;
 
     const game = useGame({
         groups: current_puzzle.groups,
@@ -407,7 +407,7 @@ export const App = () => {
                             <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle tous les lundis.</Text>
+                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle quand j'ai du temps.</Text>
                                 <UnorderedList>
                                     <ListItem>S&eacute;lectionne 4 mots puis appuie sur le bouton "Valider" pour v&eacute;rifier si tu as raison.</ListItem>
                                     <ListItem>Trouve les groupes en faisant moins de 4 erreurs.</ListItem>

@@ -5,6 +5,36 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles: PuzzleImport[] = [
     {
+        puzzle_name: '26 mars 2026 - Granit',
+        puzzle_difficulty: 4,
+        puzzle_date: new Date('2026-03-26'),
+        author: '',
+        additional_text: '',
+        groups: [
+            {
+                category: 'C\'est parfait, tout va bien',
+                items: ['carré', 'ok', 'nickel', 'impeccable'],
+                difficulty: 1,
+            },
+            {
+                category: 'Étape par où l\'on passe, à quel...',
+                items: ['point', 'degré', 'pallier', 'stade'],
+                difficulty: 2,
+            },
+            {
+                
+                category: 'Types de tuiles au mah-jong',
+                items: ['cercle', 'bambou', 'caractère', 'honneur'],
+                difficulty: 3,
+            },
+            {
+                category: 'Hyper + _',
+                items: ['cube', 'actif', 'bole', 'lien'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
         puzzle_name: '22 décembre 2025 - Caléidoscope',
         puzzle_difficulty: 3,
         puzzle_date: new Date('2025-12-22'),
