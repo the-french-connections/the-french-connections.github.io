@@ -364,6 +364,24 @@
     </style>
 </head>
 <body>
+    <div id="app-banner" style="
+        width: 100%;
+        background-color: #166088;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    ">
+        <span>📱 Support my thesis research! Download the app and take my survey on <a href="https://play.google.com/store/apps/details?id=com.anonymous.SEQAMI" target="_blank" rel="noopener noreferrer" style="color: white; font-weight: bold; text-decoration: underline;">Android</a> and <a href="https://apps.apple.com/app/seqami/id6759669580" target="_blank" rel="noopener noreferrer" style="color: white; font-weight: bold; text-decoration: underline;">iOS</a>.</span>
+        <span onclick="document.getElementById('app-banner').style.display='none'" style="cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</span>
+    </div>
     <select class="game-selector" onchange="location = this.value;">
         <option value="../">The French Connections</option>
         <option value="./index.html" selected>10-3-1</option>

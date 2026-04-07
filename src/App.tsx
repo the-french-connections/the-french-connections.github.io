@@ -293,6 +293,8 @@ export const App = () => {
     const [isOpenRules, setIsOpenRules] = useState(true);
     const [isOpenResults, setIsOpenResults] = useState(true);
 
+    const [showBanner, setShowBanner] = useState(true);
+
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
     const selectedItemRef = useRef(null);
     const menuListRef = useRef(null);
@@ -359,242 +361,291 @@ export const App = () => {
 
     return (
         <ChakraProvider>
-            <Flex direction="column" align="center" justify="center" minHeight="100vh">
-                <Stack spacing={4} align="center">
-                    <Heading size={["xl", "2xl", "3xl"]} fontFamily="Georgia" fontWeight="light" align='center'>
-                        The French Connections
-                    </Heading>
-                    <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
-                    <HStack align="baseline">
-                        <Menu isOpen={isOpenDropdown} onOpen={() => setIsOpenDropdown(true)} onClose={() => setIsOpenDropdown(false)}>
-                            {({ isOpen }) => (
-                                <>
-                                    <MenuButton size={['s', 'sm', 'md', 'lg']} px={[3, 4, 5, 6]} py={[1, 2]} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
-                                        {game.current_name}
-                                    </MenuButton>
-                                    <MenuList ref={menuListRef}
-                                        fontSize={["xs", "s", "md", 'lg']}
-                                        maxHeight={["200px", "250px", "300px", "350px"]}// Set a max height
-                                        overflowY="auto"// Enable vertical scrolling
-                                    >
-                                        {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
-                                            <MenuItem key={index} ref={index === currentIndex ? selectedItemRef : null} onClick={() => handleMenuItemClick(puzzleImport)} backgroundColor={index === currentIndex ? "blue.100" : ""} fontWeight={index === currentIndex ? "bold" : "normal"}>
-                                                {puzzleImport.puzzle_name}
-                                            </MenuItem>
-                                        ))}
-                                    </MenuList>
-                                </>
-                            )}
-                        </Menu>
+            <>
+                {showBanner && (
+                    <Flex
+                        w="100%"
+                        bg="blue.500"
+                        color="white"
+                        px={4}
+                        py={2}
+                        align="center"
+                        justify="center"
+                        gap={2}
+                        position="sticky"
+                        top={0}
+                        zIndex={10}
+                    >
+                        <Text fontSize={["xs", "sm"]} textAlign="center">
+                            📱 Soutenez mon travail de thèse ! Télécharger l'app et répondez à mon enquête sur {" "}
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.anonymous.SEQAMI"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ textDecoration: "underline", fontWeight: "bold" }}
+                            >
+                                Android
+                            </a>
+                            {" "} et {" "}
+                            <a
+                                href="https://apps.apple.com/fr/app/seqami/id6759669580"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ textDecoration: "underline", fontWeight: "bold" }}
+                            >
+                                iOS
+                            </a>
+                        </Text>
+                        <Button
+                            size="xs"
+                            variant="ghost"
+                            color="white"
+                            _hover={{ bg: "blue.600" }}
+                            onClick={() => setShowBanner(false)}
+                            ml={2}
+                        >
+                            ✕
+                        </Button>
+                    </Flex>
+                )}
+                
+                <Flex direction="column" align="center" justify="center" minHeight="100vh">
+                    <Stack spacing={4} align="center">
+                        <Heading size={["xl", "2xl", "3xl"]} fontFamily="Georgia" fontWeight="light" align='center'>
+                            The French Connections
+                        </Heading>
+                        <Text fontWeight="semibold">Cr&eacute;e 4 groupes de 4 mots !</Text>
+                        <HStack align="baseline">
+                            <Menu isOpen={isOpenDropdown} onOpen={() => setIsOpenDropdown(true)} onClose={() => setIsOpenDropdown(false)}>
+                                {({ isOpen }) => (
+                                    <>
+                                        <MenuButton size={['s', 'sm', 'md', 'lg']} px={[3, 4, 5, 6]} py={[1, 2]} isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
+                                            {game.current_name}
+                                        </MenuButton>
+                                        <MenuList ref={menuListRef}
+                                            fontSize={["xs", "s", "md", 'lg']}
+                                            maxHeight={["200px", "250px", "300px", "350px"]}// Set a max height
+                                            overflowY="auto"// Enable vertical scrolling
+                                        >
+                                            {all_groups_name.map((puzzleImport: PuzzleImport, index) => (
+                                                <MenuItem key={index} ref={index === currentIndex ? selectedItemRef : null} onClick={() => handleMenuItemClick(puzzleImport)} backgroundColor={index === currentIndex ? "blue.100" : ""} fontWeight={index === currentIndex ? "bold" : "normal"}>
+                                                    {puzzleImport.puzzle_name}
+                                                </MenuItem>
+                                            ))}
+                                        </MenuList>
+                                    </>
+                                )}
+                            </Menu>
 
-                        {current_puzzle.puzzle_name != game.current_name && [...Array(5).keys()].map((_, index) => (
-                            index < game.difficulty ? (
-                                <StarIcon key={index} boxSize={['0.6em', '0.75em', '1em', '1.25em']} color="yellow.500" />
-                            ) : (
-                                <StarIcon key={index} boxSize={['0.6em', '0.75em', '1em', '1.25em']} color="gray.300" />
-                            )
-                        ))}
-                    </HStack>
-                    {game.oneAway && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
-                        <AlertTitle align='center' fontSize={["xs", "s", "md"]}>Presque...</AlertTitle>
-                    </Alert>}
-                    {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
-                        <AlertTitle align='center' fontSize={["xs", "s", "md"]}>D&eacute;j&agrave; devin&eacute;...</AlertTitle>
-                    </Alert>}
-                    <Modal isOpen={isOpenRules} onClose={handleCloseRules}>
-                        <ModalOverlay />
-                        <ModalContent>
-                            <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
-                            <ModalCloseButton />
-                            <ModalBody>
-                                <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle quand j'ai du temps.</Text>
-                                <UnorderedList>
-                                    <ListItem>S&eacute;lectionne 4 mots puis appuie sur le bouton "Valider" pour v&eacute;rifier si tu as raison.</ListItem>
-                                    <ListItem>Trouve les groupes en faisant moins de 4 erreurs.</ListItem>
-                                </UnorderedList>
-                                <Text fontWeight='bold' mt='1rem'>Exemples de cat&eacute;gories :</Text>
-                                <UnorderedList>
-                                    <ListItem>SERPENTS : Boa, Vip&egrave;re, Crotale, Python </ListItem>
-                                    <ListItem>FEU + _ : Rouge, Follet, Gr&eacute;geois, Sacr&eacute; </ListItem>
-                                </UnorderedList>
-                                <Text mt='1rem' mb='1rem'>Les cat&eacute;gories sont toujours plus sp&eacute;cifiques que "MOTS DE 4 LETTRES" ou "ADJECTIFS". Pour les trouver, tu peux t'aider d'Internet, d'un dictionnaire ou le faire &agrave; plusieurs, le principal &eacute;tant que tu t'amuses.</Text>
-                                <Text mb='1rem'>Chaque puzzle a une unique solution. Attention aux pi&egrave;ges... Chaque groupe correspond &agrave; une couleur : </Text>
-                                <UnorderedList mb='1rem'>
-                                    <ListItem>&#128993; : Facile</ListItem>
-                                    <ListItem>&#128994; : Moyen</ListItem>
-                                    <ListItem>&#128309; : Difficile</ListItem>
-                                    <ListItem>&#128995; : Tr&egrave;s difficile</ListItem>
-                                </UnorderedList>
-                                <Text mb='1rem'>&Agrave; l'exception du puzzle en cours, les autres grilles sont not&eacute;es (par moi) en difficult&eacute; de 1 &agrave; 5 &eacute;toiles.</Text>
-                                <Text mb='1rem'>Le dictionnaire de r&eacute;f&eacute;rence est le Wiktionnaire. Utiliser Internet n'est pas interdit, &agrave; vous de voir si vous pr&eacute;f&eacute;rez chercher les solutions avec ou sans.</Text>
-                            </ModalBody>
-                        </ModalContent>
-                    </Modal>
-                    {game.author != '' && (
-                        <Text mb='0.5rem' fontSize={['2xs', 'xs', 'sm', 'md']} px={[2, 3, 4]} textAlign="center" wordBreak="break-word" fontStyle={'italic'}>Puzzle créé par : {game.author}.</Text>
-                    )}
-                    {game.additional_text != '' && (
-                        <Text mb='0.5rem' fontSize={['2xs', 'xs', 'sm', 'md']} px={[2, 3, 4]} textAlign="center" wordBreak="break-word" fontStyle={'italic'}>{game.additional_text}</Text>
-                    )}
-                    <Stack maxWidth="624px">
-                        {game.complete.map((group: Group) => (
-                            <Stack key={group.category} w={['344px', '438px', '528px', '624px']} h={["56px", "64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
-                                <Text fontSize={group.category.length > 45 ? ["xs", "xs", "sm", "md"] : group.category.length > 35 ? ["xs", "sm", "lg", "xl"] : ["sm", "md", "lg", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
-                                <Text fontSize={["sm", "md", "l", "xl"]} textTransform="uppercase">
-                                    {containsHtmlTags(group.items[0]) ? (
-                                        group.items.map((item) => (
-                                            <span style={{ display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: item }} />
-                                        ))
-                                    ) : (
-                                        group.items.join(', ')
-                                    )}
-                                </Text>
-                            </Stack>
-                        ))}
-                        {chunk(game.items, 4).map((row, index) => (
-                            <HStack key={index} justify="center" spacing={[2, 3, 4]}>
-                                {row.map((item) => (
-                                    <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} style={{ whiteSpace: "pre-line" }} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={
-                                        !item.includes('\n') && !item.includes('<a') && item.length > 17
-                                            ? ["5.75px", "7px", "9px", "10px"]
-                                            : item.includes('\n') || item.length > 12
-                                                ? ["7.75px", "10.25px", "12.5px", "14px"]
-                                                : ["9.5px", "12px", "14px", "16px"]
-                                    } fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>
-                                        {containsHtmlTags(item) ? (
-                                            <span dangerouslySetInnerHTML={{ __html: item }} />
+                            {current_puzzle.puzzle_name != game.current_name && [...Array(5).keys()].map((_, index) => (
+                                index < game.difficulty ? (
+                                    <StarIcon key={index} boxSize={['0.6em', '0.75em', '1em', '1.25em']} color="yellow.500" />
+                                ) : (
+                                    <StarIcon key={index} boxSize={['0.6em', '0.75em', '1em', '1.25em']} color="gray.300" />
+                                )
+                            ))}
+                        </HStack>
+                        {game.oneAway && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.oneAway ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
+                            <AlertTitle align='center' fontSize={["xs", "s", "md"]}>Presque...</AlertTitle>
+                        </Alert>}
+                        {game.alreadyGuessed && <Alert status='info' variant='left-accent' w={['344px', '438px', '528px', '624px']} animation={game.alreadyGuessed ? "fadeIn 0.5s ease" : "fadeOut 0.5s ease"}>
+                            <AlertTitle align='center' fontSize={["xs", "s", "md"]}>D&eacute;j&agrave; devin&eacute;...</AlertTitle>
+                        </Alert>}
+                        <Modal isOpen={isOpenRules} onClose={handleCloseRules}>
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader fontWeight='bold' fontSize="2xl">R&egrave;gles du jeu</ModalHeader>
+                                <ModalCloseButton />
+                                <ModalBody>
+                                    <Text fontWeight='bold'>Trouve des groupes de 4 mots qui partagent quelque chose en commun ! Un nouveau puzzle quand j'ai du temps.</Text>
+                                    <UnorderedList>
+                                        <ListItem>S&eacute;lectionne 4 mots puis appuie sur le bouton "Valider" pour v&eacute;rifier si tu as raison.</ListItem>
+                                        <ListItem>Trouve les groupes en faisant moins de 4 erreurs.</ListItem>
+                                    </UnorderedList>
+                                    <Text fontWeight='bold' mt='1rem'>Exemples de cat&eacute;gories :</Text>
+                                    <UnorderedList>
+                                        <ListItem>SERPENTS : Boa, Vip&egrave;re, Crotale, Python </ListItem>
+                                        <ListItem>FEU + _ : Rouge, Follet, Gr&eacute;geois, Sacr&eacute; </ListItem>
+                                    </UnorderedList>
+                                    <Text mt='1rem' mb='1rem'>Les cat&eacute;gories sont toujours plus sp&eacute;cifiques que "MOTS DE 4 LETTRES" ou "ADJECTIFS". Pour les trouver, tu peux t'aider d'Internet, d'un dictionnaire ou le faire &agrave; plusieurs, le principal &eacute;tant que tu t'amuses.</Text>
+                                    <Text mb='1rem'>Chaque puzzle a une unique solution. Attention aux pi&egrave;ges... Chaque groupe correspond &agrave; une couleur : </Text>
+                                    <UnorderedList mb='1rem'>
+                                        <ListItem>&#128993; : Facile</ListItem>
+                                        <ListItem>&#128994; : Moyen</ListItem>
+                                        <ListItem>&#128309; : Difficile</ListItem>
+                                        <ListItem>&#128995; : Tr&egrave;s difficile</ListItem>
+                                    </UnorderedList>
+                                    <Text mb='1rem'>&Agrave; l'exception du puzzle en cours, les autres grilles sont not&eacute;es (par moi) en difficult&eacute; de 1 &agrave; 5 &eacute;toiles.</Text>
+                                    <Text mb='1rem'>Le dictionnaire de r&eacute;f&eacute;rence est le Wiktionnaire. Utiliser Internet n'est pas interdit, &agrave; vous de voir si vous pr&eacute;f&eacute;rez chercher les solutions avec ou sans.</Text>
+                                </ModalBody>
+                            </ModalContent>
+                        </Modal>
+                        {game.author != '' && (
+                            <Text mb='0.5rem' fontSize={['2xs', 'xs', 'sm', 'md']} px={[2, 3, 4]} textAlign="center" wordBreak="break-word" fontStyle={'italic'}>Puzzle créé par : {game.author}.</Text>
+                        )}
+                        {game.additional_text != '' && (
+                            <Text mb='0.5rem' fontSize={['2xs', 'xs', 'sm', 'md']} px={[2, 3, 4]} textAlign="center" wordBreak="break-word" fontStyle={'italic'}>{game.additional_text}</Text>
+                        )}
+                        <Stack maxWidth="624px">
+                            {game.complete.map((group: Group) => (
+                                <Stack key={group.category} w={['344px', '438px', '528px', '624px']} h={["56px", "64px", "72px", "80px"]} spacing={1} lineHeight={1} rounded="lg" align="center" justify="center" bg={difficultyColor(group.difficulty)} animation="appearFromCenter 0.75s ease forwards">
+                                    <Text fontSize={group.category.length > 45 ? ["xs", "xs", "sm", "md"] : group.category.length > 35 ? ["xs", "sm", "lg", "xl"] : ["sm", "md", "lg", "xl"]} fontWeight="extrabold" textTransform="uppercase">{group.category}</Text>
+                                    <Text fontSize={["sm", "md", "l", "xl"]} textTransform="uppercase">
+                                        {containsHtmlTags(group.items[0]) ? (
+                                            group.items.map((item) => (
+                                                <span style={{ display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: item }} />
+                                            ))
                                         ) : (
-                                            item
+                                            group.items.join(', ')
                                         )}
-                                    </Button>
-                                ))}
-                            </HStack>
-                        ))}
-                    </Stack>
-                    <HStack align="baseline">
-                        <Text fontSize={["14px", "16px"]}>Essais restants :</Text>
-                        {[...Array(4).keys()].map((_, index) => (
-                            index < game.mistakesRemaining ? (
-                                <Circle key={index} bg="gray.800" size="12px" />
-                            ) : (
-                                <Circle key={index} bg="gray.300" size="12px" />
-                            )
-                        ))}
-                    </HStack>
-                    <HStack padding="1em">
-                        <Button
-                            colorScheme="black"
-                            variant="outline"
-                            rounded="full"
-                            borderWidth="2px"
-                            isDisabled={!game.isFinished}
-                            onClick={(_) => {
-                                navigator.clipboard.writeText(writeResults(game));
-                                toast({
-                                    title: "Copié!",
-                                    status: "success",
-                                    duration: 2000,
-                                    isClosable: true,
-                                    position: "top"
-                                })
-                            }}
-                            fontSize={["13px", "14px", "16px"]}
-                            whiteSpace="normal"
-                            textAlign="center"
-                            px={[2, 3, 4]}
-                            py={[0.5, 1, 2]}
-                        >
-                            Copier les résultats
-                        </Button>
-                        <Button
-                            colorScheme="black"
-                            variant="outline"
-                            rounded="full"
-                            borderWidth="2px"
-                            isDisabled={game.isFinished}
-                            onClick={game.shuffle}
-                            fontSize={["13px", "14px", "16px"]}
-                            whiteSpace="normal"
-                            textAlign="center"
-                            px={[2, 3, 4]}
-                            py={[0.5, 1, 2]}
-                        >
-                            M&eacute;langer
-                        </Button>
-                        <Button
-                            colorScheme="black"
-                            variant="outline"
-                            rounded="full"
-                            borderWidth="2px"
-                            isDisabled={game.activeItems.length <= 0}
-                            onClick={game.deselectAll}
-                            fontSize={["13px", "14px", "16px"]}
-                            whiteSpace="normal"
-                            textAlign="center"
-                            px={[2, 3, 4]}
-                            py={[0.5, 1, 2]}
-                        >
-                            D&eacute;selectionner tout
-                        </Button>
-                        <Button
-                            colorScheme="black"
-                            variant="outline"
-                            rounded="full"
-                            borderWidth="2px"
-                            isDisabled={game.activeItems.length !== 4}
-                            onClick={game.submit}
-                            fontSize={["13px", "14px", "16px"]}
-                            whiteSpace="normal"
-                            textAlign="center"
-                            px={[2, 3, 4]}
-                            py={[0.5, 1, 2]}
-                        >
-                            Valider
-                        </Button>
-                    </HStack>
-                    {game.isFinished && <Modal isOpen={isOpenResults} onClose={handleCloseResults}>
-                        <ModalOverlay />
-                        <ModalContent>
-                            <ModalHeader fontWeight='bold' fontSize="2xl">
-                                {resultText(game)}
-                            </ModalHeader>
-                            <ModalCloseButton />
-                            <ModalBody>
-                                {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
-                                <Text fontSize='4xl' align='center'>
-                                    {game.emojiFromGuesses.map((emoji: string, index: number) => (
-                                        <React.Fragment key={index}>
-                                            {String.fromCodePoint(parseInt(emoji.substring(2)))}
-                                            {(index + 1) % 4 === 0 && <Text>{"\n"}</Text>}
-                                        </React.Fragment>
+                                    </Text>
+                                </Stack>
+                            ))}
+                            {chunk(game.items, 4).map((row, index) => (
+                                <HStack key={index} justify="center" spacing={[2, 3, 4]}>
+                                    {row.map((item) => (
+                                        <Button key={item} className={game.guessWasWrong ? 'shake-animation' : ''} style={{ whiteSpace: "pre-line" }} w={['80px', '100px', '120px', '150px']} h={["56px", "64px", "72px", "80px"]} bg="#efefe6" fontSize={
+                                            !item.includes('\n') && !item.includes('<a') && item.length > 17
+                                                ? ["5.75px", "7px", "9px", "10px"]
+                                                : item.includes('\n') || item.length > 12
+                                                    ? ["7.75px", "10.25px", "12.5px", "14px"]
+                                                    : ["9.5px", "12px", "14px", "16px"]
+                                        } fontWeight="extrabold" textTransform="uppercase" onClick={() => game.toggleActive(item)} isActive={game.activeItems.includes(item)} _active={{ bg: '#5a594e', color: 'white' }} animation={game.guessWasWrong ? "shake 0.5s ease" : ""}>
+                                            {containsHtmlTags(item) ? (
+                                                <span dangerouslySetInnerHTML={{ __html: item }} />
+                                            ) : (
+                                                item
+                                            )}
+                                        </Button>
                                     ))}
-                                </Text>
-                                <Button
-                                    colorScheme="black"
-                                    variant="outline"
-                                    rounded="full"
-                                    borderWidth="2px"
-                                    isDisabled={!game.isFinished}
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(writeResults(game));
-                                        toast({
-                                            title: "Copié!",
-                                            status: "success",
-                                            duration: 2000,
-                                            isClosable: true,
-                                            position: "top"
-                                        })
-                                    }}
-                                    fontSize={["14px", "16px"]}
-                                    h={["30px", "40px"]}
-                                >
-                                    Copier
-                                </Button>
-                            </ModalBody>
-                        </ModalContent>
-                    </Modal>}
-                </Stack>
-            </Flex>
+                                </HStack>
+                            ))}
+                        </Stack>
+                        <HStack align="baseline">
+                            <Text fontSize={["14px", "16px"]}>Essais restants :</Text>
+                            {[...Array(4).keys()].map((_, index) => (
+                                index < game.mistakesRemaining ? (
+                                    <Circle key={index} bg="gray.800" size="12px" />
+                                ) : (
+                                    <Circle key={index} bg="gray.300" size="12px" />
+                                )
+                            ))}
+                        </HStack>
+                        <HStack padding="1em">
+                            <Button
+                                colorScheme="black"
+                                variant="outline"
+                                rounded="full"
+                                borderWidth="2px"
+                                isDisabled={!game.isFinished}
+                                onClick={(_) => {
+                                    navigator.clipboard.writeText(writeResults(game));
+                                    toast({
+                                        title: "Copié!",
+                                        status: "success",
+                                        duration: 2000,
+                                        isClosable: true,
+                                        position: "top"
+                                    })
+                                }}
+                                fontSize={["13px", "14px", "16px"]}
+                                whiteSpace="normal"
+                                textAlign="center"
+                                px={[2, 3, 4]}
+                                py={[0.5, 1, 2]}
+                            >
+                                Copier les résultats
+                            </Button>
+                            <Button
+                                colorScheme="black"
+                                variant="outline"
+                                rounded="full"
+                                borderWidth="2px"
+                                isDisabled={game.isFinished}
+                                onClick={game.shuffle}
+                                fontSize={["13px", "14px", "16px"]}
+                                whiteSpace="normal"
+                                textAlign="center"
+                                px={[2, 3, 4]}
+                                py={[0.5, 1, 2]}
+                            >
+                                M&eacute;langer
+                            </Button>
+                            <Button
+                                colorScheme="black"
+                                variant="outline"
+                                rounded="full"
+                                borderWidth="2px"
+                                isDisabled={game.activeItems.length <= 0}
+                                onClick={game.deselectAll}
+                                fontSize={["13px", "14px", "16px"]}
+                                whiteSpace="normal"
+                                textAlign="center"
+                                px={[2, 3, 4]}
+                                py={[0.5, 1, 2]}
+                            >
+                                D&eacute;selectionner tout
+                            </Button>
+                            <Button
+                                colorScheme="black"
+                                variant="outline"
+                                rounded="full"
+                                borderWidth="2px"
+                                isDisabled={game.activeItems.length !== 4}
+                                onClick={game.submit}
+                                fontSize={["13px", "14px", "16px"]}
+                                whiteSpace="normal"
+                                textAlign="center"
+                                px={[2, 3, 4]}
+                                py={[0.5, 1, 2]}
+                            >
+                                Valider
+                            </Button>
+                        </HStack>
+                        {game.isFinished && <Modal isOpen={isOpenResults} onClose={handleCloseResults}>
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader fontWeight='bold' fontSize="2xl">
+                                    {resultText(game)}
+                                </ModalHeader>
+                                <ModalCloseButton />
+                                <ModalBody>
+                                    {current_puzzle.puzzle_name == game.current_name && <Text mb='1rem'>{ending_text}</Text>}
+                                    <Text fontSize='4xl' align='center'>
+                                        {game.emojiFromGuesses.map((emoji: string, index: number) => (
+                                            <React.Fragment key={index}>
+                                                {String.fromCodePoint(parseInt(emoji.substring(2)))}
+                                                {(index + 1) % 4 === 0 && <Text>{"\n"}</Text>}
+                                            </React.Fragment>
+                                        ))}
+                                    </Text>
+                                    <Button
+                                        colorScheme="black"
+                                        variant="outline"
+                                        rounded="full"
+                                        borderWidth="2px"
+                                        isDisabled={!game.isFinished}
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(writeResults(game));
+                                            toast({
+                                                title: "Copié!",
+                                                status: "success",
+                                                duration: 2000,
+                                                isClosable: true,
+                                                position: "top"
+                                            })
+                                        }}
+                                        fontSize={["14px", "16px"]}
+                                        h={["30px", "40px"]}
+                                    >
+                                        Copier
+                                    </Button>
+                                </ModalBody>
+                            </ModalContent>
+                        </Modal>}
+                    </Stack>
+                </Flex>
+            </>
         </ChakraProvider>
     );
 };
