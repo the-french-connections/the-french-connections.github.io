@@ -5,6 +5,36 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles: PuzzleImport[] = [
     {
+        puzzle_name: '13 avril 2026 - Rimer comme hallebarde et miséricorde',
+        puzzle_difficulty: 3,
+        puzzle_date: new Date('2026-04-13'),
+        author: '',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Banal',
+                items: ['bateau', 'courant', 'ordinaire', 'classique'],
+                difficulty: 1,
+            },
+            {
+                category: 'Desserts',
+                items: ['mousse', 'éclair', 'moelleux', 'chausson'],
+                difficulty: 2,
+            },
+            {
+                
+                category: 'Modèles de voiture',
+                items: ['coccinelle', 'espace', 'golf', 'mustang'],
+                difficulty: 3,
+            },
+            {
+                category: 'Trans + _',
+                items: ['formation', 'genre', 'port', 'lucide'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
         puzzle_name: '26 mars 2026 - Granit',
         puzzle_difficulty: 4,
         puzzle_date: new Date('2026-03-26'),
