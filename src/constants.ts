@@ -24,6 +24,32 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles : PuzzleImport[] = [
 {
+    puzzle_name: '26 octobre 2026 - Judo intersexe',
+	puzzle_date: new Date('2026-10-26'),
+    groups: [
+        {
+            category: 'Vêtements bretons',
+            items: ['Marinière', 'Ciré jaune', 'Chapeau rond', 'Coiffe bigoudène'],
+            difficulty: 1,
+        },
+        {
+            category: 'Soirée où l\'on danse',
+            items: ['Fest Noz', 'Bal', 'Boum', 'Thé dansant'],
+            difficulty: 2,
+        },
+        {
+            category: 'Aliments qui provoquent des débats',
+            items: ['Beurre salé', 'Chocolatine', 'Baguette bien cuite', 'Pizza hawaïenne'],
+            difficulty: 3,
+        },
+        {
+            category: 'A des bandes noires et blanches',
+            items: ['Drapeau breton', 'Zèbre', 'Code-barres', 'Vielle télé'],
+            difficulty: 4,
+        }
+    ]
+},
+{
     puzzle_name: '19 octobre 2026 - Bégaiement',
 	puzzle_date: new Date('2026-10-19'),
     groups: [
