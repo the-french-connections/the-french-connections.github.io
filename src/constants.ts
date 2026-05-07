@@ -24,6 +24,32 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles : PuzzleImport[] = [
 {
+    puzzle_name: '2 novembre 2026 - Bon sens sans papier',
+	puzzle_date: new Date('2026-11-02'),
+    groups: [
+        {
+            category: 'Coup',
+            items: ['Droite', 'Crochet', 'Uppercut', 'Soufflet'],
+            difficulty: 1,
+        },
+        {
+            category: 'Pas dégourdi',
+            items: ['Gauche', 'Pataud', 'Balourd', 'Malhabile'],
+            difficulty: 2,
+        },
+        {
+            category: 'Vêtements',
+            items: ['Haut', 'Tricot', 'Marcel', 'Maillot'],
+            difficulty: 3,
+        },
+        {
+            category: 'Ici _',
+            items: ['Bas', 'Présent', 'Tout commence', 'Même'],
+            difficulty: 4,
+        }
+    ]
+},
+{
     puzzle_name: '26 octobre 2026 - Judo intersexe',
 	puzzle_date: new Date('2026-10-26'),
     groups: [
