@@ -5,8 +5,38 @@ import { PuzzleImport } from './App';
 
 export const all_puzzles: PuzzleImport[] = [
     {
-        puzzle_name: '13 avril 2026 - Rimer comme hallebarde et miséricorde',
+        puzzle_name: '12 mai 2026 - Samsara',
         puzzle_difficulty: 3,
+        puzzle_date: new Date('2026-05-12'),
+        author: '',
+        additional_text: '',
+        groups: [
+            {
+                category: 'Est énervé',
+                items: ['fume', 'rage', 'peste', 'écume'],
+                difficulty: 1,
+            },
+            {
+                category: 'Fesses',
+                items: ['lune', 'miche', 'derrière', 'pétard'],
+                difficulty: 2,
+            },
+            {
+                
+                category: 'Insectes',
+                items: ['gendarme', 'puce', 'mouche', 'punaise'],
+                difficulty: 3,
+            },
+            {
+                category: 'Homophones d\'arbres',
+                items: ['boulot', 'chaine', 'être', 'pain'],
+                difficulty: 4,
+            }
+        ]
+    },
+    {
+        puzzle_name: '13 avril 2026 - Rimer comme hallebarde et miséricorde',
+        puzzle_difficulty: 4,
         puzzle_date: new Date('2026-04-13'),
         author: '',
         additional_text: '',
