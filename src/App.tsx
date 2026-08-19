@@ -377,24 +377,7 @@ export const App = () => {
                         zIndex={10}
                     >
                         <Text fontSize={["xs", "sm"]} textAlign="center">
-                            📱 Soutenez mon travail de thèse ! Télécharger l'app et répondez à mon enquête sur {" "}
-                            <a
-                                href="https://play.google.com/store/apps/details?id=com.anonymous.SEQAMI"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ textDecoration: "underline", fontWeight: "bold" }}
-                            >
-                                Android
-                            </a>
-                            {" "} et {" "}
-                            <a
-                                href="https://apps.apple.com/fr/app/seqami/id6759669580"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ textDecoration: "underline", fontWeight: "bold" }}
-                            >
-                                iOS
-                            </a>
+                            Depuis quelques mois, et pour les prochains mois, je n'ajouterai pas de nouveaux puzzles. Merci d'avoir jou&eacute; avec moi !
                         </Text>
                         <Button
                             size="xs"
